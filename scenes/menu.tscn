@@ -29,26 +29,26 @@ offset_right = 1258.0
 offset_bottom = 716.0
 
 [node name="Timed" type="Button" parent="."]
-offset_left = 25.0
-offset_top = 189.0
-offset_right = 313.0
-offset_bottom = 316.0
+offset_left = 282.0
+offset_top = 363.0
+offset_right = 570.0
+offset_bottom = 490.0
 theme_override_font_sizes/font_size = 50
 text = "Timed"
 
 [node name="Zen" type="Button" parent="."]
-offset_left = 332.0
-offset_top = 192.0
-offset_right = 620.0
-offset_bottom = 319.0
+offset_left = 589.0
+offset_top = 366.0
+offset_right = 877.0
+offset_bottom = 493.0
 theme_override_font_sizes/font_size = 50
 text = "Zen"
 
 [node name="Label" type="Label" parent="."]
-offset_left = -34.0
-offset_top = -15.0
-offset_right = 687.0
-offset_bottom = 135.0
+offset_left = 223.0
+offset_top = 159.0
+offset_right = 944.0
+offset_bottom = 309.0
 theme_override_colors/font_color = Color(0.686136, 0.662567, 0.76444, 1)
 theme_override_font_sizes/font_size = 100
 text = "Reaper Madness"
