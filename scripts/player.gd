@@ -156,6 +156,7 @@ func _on_death_timer_timeout() -> void:
 	position.x = 0
 	position.y = 0
 	visible = true
+	trail.length = trail.starting_length
 	i_timer.start()
 	var tween = get_tree().create_tween()
 	for i in range(4):
