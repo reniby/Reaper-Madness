@@ -3,6 +3,8 @@ extends Node2D
 var max_y: int = 250
 var max_x: int = 460
 var rng = RandomNumberGenerator.new()
+var present = true
+
 
 @onready var area: Area2D = $Area2D
 @onready var particles: CPUParticles2D = $AmbientParticles
@@ -33,16 +35,17 @@ func _physics_process(_delta: float) -> void:
 			pickup_timer.start()
 
 		sprite.visible = false
+		area.set_collision_mask_value(3, false)
 		
 		particles.restart()
 		particles.emitting = false
 		particles.visible = false
 		
 		overlapping = true
+		present = false
 		choose_location()
 
-
-	if not overlapping and not pickup_timer.time_left:
+	if not present and not overlapping and not pickup_timer.time_left:
 		sprite.set_deferred("visible", true)
 		particles.emitting = true
 		particles.visible = true
@@ -50,10 +53,15 @@ func _physics_process(_delta: float) -> void:
 		sprite.scale = Vector2(0,0)
 		sprite.rotation = 0
 		var tween = get_tree().create_tween()
-		tween.tween_property(sprite, "rotation", 8*PI, 0.3)
+		var duration = 0.3
+		tween.tween_property(sprite, "rotation", 8*PI, duration)
 		tween.set_parallel()
-		tween.tween_property(sprite, "scale", Vector2(1,1), 0.3)
+		tween.tween_property(sprite, "scale", Vector2(1,1), duration)
 		
+		await tween.finished
+		present = true
+		area.set_collision_mask_value(3, true)
+
 func choose_location():
 	var x = rng.randf_range(-max_x / 2, max_x / 2)
 	var y = rng.randf_range(-max_y / 2, max_y / 2)

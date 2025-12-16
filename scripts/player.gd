@@ -145,6 +145,7 @@ func death():
 	particles.emitting = false
 	particles.restart()
 	set_collision_layer_value(2, false)
+	set_collision_layer_value(3, false)
 	death_timer.start()
 	trail.clear_points()
 	for coll in trail.shapes:
@@ -163,6 +164,7 @@ func _on_death_timer_timeout() -> void:
 		
 func _on_i_timer_timeout() -> void:
 	set_collision_layer_value(2, true)
+	set_collision_layer_value(3, true)
 
 func _on_dash_timer_timeout() -> void:
 	can_dash = true
@@ -210,9 +212,7 @@ func tail_drop():
 			
 			
 func alt_tail_drop():
-	
 	var highlight_color = 'cyan'
-	
 	
 	if Input.is_action_just_pressed(character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
@@ -244,7 +244,6 @@ func alt_tail_drop():
 		if is_instance_valid(tail_obst):
 			can_drop_tail = true
 			tail_obst.queue_free()
-				
-		pass
+
 func _on_speed_timer_timeout() -> void:
 	curr_speed = SPEED
