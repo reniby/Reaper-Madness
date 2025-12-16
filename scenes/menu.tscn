@@ -29,14 +29,15 @@ offset_right = 1258.0
 offset_bottom = 716.0
 
 [node name="Timed" type="Button" parent="."]
-offset_left = 282.0
-offset_top = 363.0
-offset_right = 570.0
-offset_bottom = 490.0
+offset_left = 313.0
+offset_top = 399.0
+offset_right = 873.0
+offset_bottom = 526.0
 theme_override_font_sizes/font_size = 50
-text = "Timed"
+text = "  press any button to start  "
 
 [node name="Zen" type="Button" parent="."]
+visible = false
 offset_left = 589.0
 offset_top = 366.0
 offset_right = 877.0
@@ -50,7 +51,7 @@ offset_top = 159.0
 offset_right = 944.0
 offset_bottom = 309.0
 theme_override_colors/font_color = Color(0.686136, 0.662567, 0.76444, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 120
 text = "Reaper Madness"
 horizontal_alignment = 1
 vertical_alignment = 1

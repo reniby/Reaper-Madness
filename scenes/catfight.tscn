@@ -1,12 +1,12 @@
 [gd_scene load_steps=14 format=4 uid="uid://bnycs8o7hatbv"]
 
-[ext_resource type="Script" path="res://scripts/catfight.gd" id="1_rkgal"]
-[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="4_3aryo"]
+[ext_resource type="Script" uid="uid://dpahu8oa4ca0d" path="res://scripts/catfight.gd" id="1_rkgal"]
+[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="4_3aryo"]
 [ext_resource type="Texture2D" uid="uid://k1qm2wm88ph4" path="res://assets/tile.png" id="4_a2phh"]
 [ext_resource type="Texture2D" uid="uid://foqgeyaiklu3" path="res://assets/floor.png" id="4_qth0n"]
 [ext_resource type="Texture2D" uid="uid://buaetky45hxls" path="res://assets/tile_proto.png" id="5_iimfw"]
 [ext_resource type="Texture2D" uid="uid://bj3llpwnetq6t" path="res://assets/tile_spawnpoint.png" id="6_5htqm"]
-[ext_resource type="Script" path="res://scripts/timer.gd" id="7_o0l6i"]
+[ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kjaxb"]
 texture = ExtResource("4_a2phh")

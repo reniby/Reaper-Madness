@@ -117,7 +117,7 @@ func _physics_process(delta):
 			
 	particles.initial_velocity_min = remap(velocity.length(),0, 1000,5,100)
 
-	#tail_drop()
+	alt_tail_drop()
 
 
 func player_controller(delta):
@@ -183,7 +183,7 @@ func tail_drop():
 		get_parent().add_child(tail_obst)
 		tail_obst.z_index = 100
 		tail_obst.player = player
-		
+		var tail_obst_shapes = []
 		for i in range(1,len(trail.points)):
 			tail_obst.add_point(trail.points[i])
 			var shape = CollisionShape2D.new()
@@ -192,11 +192,15 @@ func tail_drop():
 			segment.a = trail.points[i-1]
 			segment.b = trail.points[i]
 			shape.shape = segment
+			tail_obst_shapes.append(shape)
 		
 		await get_tree().create_timer(1.0).timeout
 		
 		while tail_obst.points.size() > 0 and is_instance_valid(tail_obst):
+			tail_obst_shapes.pop_at(0).queue_free()
+			tail_obst_shapes.pop_at(len(tail_obst.shapes)-1).queue_free()
 			tail_obst.remove_point(0) 
+			
 			tail_obst.remove_point(len(tail_obst.points) - 1)
 			await get_tree().create_timer(0.05).timeout 
 		
@@ -232,7 +236,9 @@ func alt_tail_drop():
 		
 		while is_instance_valid(tail_obst) and tail_obst.points.size() > 1:
 			tail_obst.remove_point(0) 
+			tail_obst.shapes.pop_at(0).queue_free()
 			tail_obst.remove_point(len(tail_obst.points) - 1)
+			tail_obst.shapes.pop_at(len(tail_obst.shapes) - 1).queue_free()
 			await get_tree().create_timer(0.05).timeout 
 		
 		if is_instance_valid(tail_obst):

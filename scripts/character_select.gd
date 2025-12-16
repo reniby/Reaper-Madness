@@ -64,11 +64,11 @@ func _process(delta: float) -> void:
 			labels[player].text = ""
 
 	if Globals.numPlayers > 1:
-		press_play.text = "Press directional input to join!\nPress esc to play!"
+		press_play.text = "Press X to join!\nPress 'Start' to play!"
 		if Input.is_action_just_pressed("start"):
 			get_tree().change_scene_to_file("res://scenes/catfight.tscn")
 	else:
-		press_play.text = "Press directional input to join!"
+		press_play.text = "Press X to join!"
 		
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
