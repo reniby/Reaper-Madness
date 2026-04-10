@@ -59,8 +59,6 @@ func show_sprite() -> void:
 func choose_location():
 	var x = rng.randf_range(-max_x / 2.0, max_x / 2.0)
 	var y = rng.randf_range(-max_y / 2.0, max_y / 2.0)
-	x = 200
-	y = 200
 	position = Vector2(x, y)
 
 func coin_behavior(playerBody):

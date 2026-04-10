@@ -125,6 +125,10 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Curve" id="Curve_gyxxy"]
+_data = [Vector2(0.0406504, 0.981831), 0.0, 0.0, 0, 0, Vector2(0.833333, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="Pickup" type="Node2D" unique_id=640530036]
 script = ExtResource("1_7cqbe")
 
@@ -151,6 +155,20 @@ one_shot = true
 sprite_frames = SubResource("SpriteFrames_j0obd")
 animation = &"Ghost"
 autoplay = "Ghost"
+
+[node name="CollectionParticles" type="CPUParticles2D" parent="." unique_id=1743706760]
+emitting = false
+amount = 25
+lifetime = 2.0
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+scale_amount_curve = SubResource("Curve_gyxxy")
+color = Color(0.713726, 0.909804, 0.74902, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_coin_timer_timeout"]
