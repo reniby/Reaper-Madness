@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://dsxn5ou3e4h0t"]
 
-[ext_resource type="Script" uid="uid://dnbl5raisy02x" path="res://scripts/player.gd" id="1_0pet2"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_0pet2"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_phkrk"]
 [ext_resource type="Texture2D" uid="uid://csl2k4uxrmih7" path="res://assets/tail_frames/tail_1.png" id="4_tdbqv"]
 [ext_resource type="Texture2D" uid="uid://dlimaawpv712f" path="res://assets/tail_frames/tail_2.png" id="5_lpgsr"]

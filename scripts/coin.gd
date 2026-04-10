@@ -64,6 +64,8 @@ func choose_location():
 	position = Vector2(x, y)
 
 func coin_behavior(playerBody):
+	if playerBody.trail.length <= playerBody.trail.max_length:
+		playerBody.trail.length += 10
 	Globals.scores[playerBody.player] += 1
 
 func speed_behavior(playerBody):

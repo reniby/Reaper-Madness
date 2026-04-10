@@ -7,9 +7,9 @@ var point = Vector2()
 var prev = null
 var active = true
 var player
-var max_length = 60
+var max_length = 80
 var starting_length = 20
-@onready var tail_growth_timer: Timer = $TailGrow
+@onready var tail_growth_timer: Timer = $Timer
 
 func _ready():
 	if get_parent() is CharacterBody2D:
