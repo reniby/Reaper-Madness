@@ -42,11 +42,6 @@ func _physics_process(_delta):
 		while get_point_count() >= length:
 			shapes.pop_at(0).queue_free()
 			remove_point(0)
-	print(tail_growth_timer.time_left)
-	print(length)
-	if not tail_growth_timer.time_left and length <= max_length:
-		length = length + 1
-		tail_growth_timer.start()
 	
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

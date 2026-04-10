@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://ch0b7cixe4j2h"]
 
-[ext_resource type="Script" path="res://scripts/score_screen.gd" id="2_2aptv"]
-[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="2_vyuli"]
+[ext_resource type="Script" uid="uid://c1jlum5beks5p" path="res://scripts/score_screen.gd" id="2_2aptv"]
+[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_vyuli"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dllhw"]
 shader = ExtResource("2_vyuli")
