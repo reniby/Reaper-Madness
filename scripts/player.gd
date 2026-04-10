@@ -19,10 +19,11 @@ const JUMP_VELOCITY = -800.0
 @onready var can_drop_tail = true
 @onready var curr_speed: int = SPEED
 @onready var invincible: bool = false
+@onready var trail: Line2D = $Trail
 
 
 var tail_obst: Line2D
-var trail
+
 var x_facing = 0
 var y_facing = 0
 var can_dash = true
@@ -85,7 +86,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var count = 0
 
 func _ready():
-	trail = get_node("Trail")
+
 	anim.play(character_skin[player]["anim"])
 	shadow_anim.play(character_skin[player]["anim"])
 	trail.default_color = character_skin[player]["color"]
@@ -213,7 +214,7 @@ func tail_drop():
 			
 			
 func alt_tail_drop():
-	var highlight_color = 'cyan'
+	var highlight_color = 'orange'
 	
 	if Input.is_action_just_pressed(character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
@@ -229,10 +230,12 @@ func alt_tail_drop():
 	if Input.is_action_pressed(character_input[player]["drop"]):
 		if is_instance_valid(tail_obst) and tail_obst.length < trail.length:
 			tail_obst.length += 0.3
-
+	
 	if Input.is_action_just_released(character_input[player]["drop"]) and is_instance_valid(tail_obst):
+		trail.length = max(trail.length - tail_obst.length, trail.starting_length)
 		tail_obst.z_index = 3
 		tail_obst.reparent(get_parent())
+		tail_obst.default_color = character_skin[player]["color"]
 		await get_tree().create_timer(1.0).timeout
 		
 		while is_instance_valid(tail_obst) and tail_obst.points.size() > 1:
