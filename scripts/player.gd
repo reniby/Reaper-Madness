@@ -27,74 +27,15 @@ var tail_obst: Line2D
 var x_facing = 0
 var y_facing = 0
 var can_dash = true
-var character_skin = [{
-	"color": "white",
-	"anim": "white_idle"
-},
-{
-	"color": "black",#17191b",
-	"anim": "blue_idle"
-},
-{
-	"color": "#FF3F7F",
-	"anim": "pink_idle"
-},
-{
-	"color": "#FFC400",
-	"anim": "red_idle"
-},
-{
-	"color": "#450693",
-	"anim": "indigo_idle"
-}]
-var character_input = [{
-	"up": "up_p1", 
-	"down": "down_p1",
-	"left": "left_p1",
-	"right": "right_p1",
-	"dash": "dash_p1",
-	"drop": "tail_drop_p1"
-},
-{
-	"up": "up_p2", 
-	"down": "down_p2",
-	"left": "left_p2",
-	"right": "right_p2",
-	"dash": "dash_p2",
-	"drop": "tail_drop_p2"
-},
-{
-	"up": "up_p3", 
-	"down": "down_p3",
-	"left": "left_p3",
-	"right": "right_p3",
-	"dash": "dash_p3",
-	"drop": "tail_drop_p3"
-},
-{
-	"up": "up_p4", 
-	"down": "down_p4",
-	"left": "left_p4",
-	"right": "right_p4",
-	"dash": "dash_p4",
-	"drop": "tail_drop_p4"
-}
-]
+
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var count = 0
 
 func _ready():
+	set_player_color(player)
 
-	anim.play(character_skin[player]["anim"])
-	shadow_anim.play(character_skin[player]["anim"])
-	trail.default_color = character_skin[player]["color"]
-	particles.color = character_skin[player]['color']
-	hit_particles.color = character_skin[player]['color']
-	anim.modulate = character_skin[player]['color']
-	if player == 0:
-		anim.modulate = "white"
 
 func _physics_process(delta):
 	#var left = camera.get_viewport_rect().size.x/2 * -1
@@ -122,19 +63,19 @@ func _physics_process(delta):
 
 
 func player_controller(delta):
-	var direction = Input.get_vector(character_input[player]["left"], character_input[player]["right"], character_input[player]["up"], character_input[player]["down"])
+	var direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
 	if direction:
 		velocity = velocity.lerp(direction * curr_speed, 5*delta)
 	else:
 		velocity = velocity.lerp(Vector2(0,0), 5 * delta)
-	if Input.is_action_just_pressed(character_input[player]["dash"]) and can_dash:
+	if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and can_dash:
 		velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
 		can_dash = false
 		dash_timer.start()
 		invincible = true
 		var tween = get_tree().create_tween()
 		tween.tween_property(anim, "modulate", Color.RED, 0.5)
-		tween.tween_property(anim, "modulate", Color(character_skin[player]['color']), 0.5)
+		tween.tween_property(anim, "modulate", Color(Globals.character_skin[player]['color']), 0.5)
 		
 	anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 	shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
@@ -177,7 +118,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		body.death()
 
 func tail_drop():
-	if Input.is_action_just_pressed(character_input[player]["drop"]) and can_drop_tail:
+	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
 		var tail_obst: Line2D = tail_scene.instantiate()
 		tail_obst.texture = trail.texture
@@ -216,7 +157,7 @@ func tail_drop():
 func alt_tail_drop():
 	var highlight_color = 'orange'
 	
-	if Input.is_action_just_pressed(character_input[player]["drop"]) and can_drop_tail:
+	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
 		tail_obst = tail_scene.instantiate()
 		tail_obst.texture = trail.texture
@@ -227,15 +168,15 @@ func alt_tail_drop():
 		add_child(tail_obst)
 		tail_obst.player = player
 		
-	if Input.is_action_pressed(character_input[player]["drop"]):
+	if Input.is_action_pressed(Globals.character_input[player]["drop"]):
 		if is_instance_valid(tail_obst) and tail_obst.length < trail.length:
 			tail_obst.length += 0.3
 	
-	if Input.is_action_just_released(character_input[player]["drop"]) and is_instance_valid(tail_obst):
+	if Input.is_action_just_released(Globals.character_input[player]["drop"]) and is_instance_valid(tail_obst):
 		trail.length = max(trail.length - tail_obst.length, trail.starting_length)
 		tail_obst.z_index = 3
 		tail_obst.reparent(get_parent())
-		tail_obst.default_color = character_skin[player]["color"]
+		tail_obst.default_color = Globals.character_skin[player]["color"]
 		await get_tree().create_timer(1.0).timeout
 		
 		while is_instance_valid(tail_obst) and tail_obst.points.size() > 1:
@@ -251,3 +192,12 @@ func alt_tail_drop():
 
 func _on_speed_timer_timeout() -> void:
 	curr_speed = SPEED
+	
+func set_player_color(color_idx):
+
+	anim.play(Globals.character_skin[color_idx]["anim"])
+	shadow_anim.play(Globals.character_skin[color_idx]["anim"])
+	trail.default_color = Globals.character_skin[color_idx]["color"]
+	particles.color = Globals.character_skin[color_idx]['color']
+	hit_particles.color = Globals.character_skin[color_idx]['color']
+	anim.modulate = Globals.character_skin[color_idx]['color']

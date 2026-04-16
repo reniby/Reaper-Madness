@@ -1,7 +1,127 @@
-[gd_scene load_steps=4 format=3 uid="uid://cyn08vqntdp1u"]
+[gd_scene format=3 uid="uid://cyn08vqntdp1u"]
 
-[ext_resource type="Script" path="res://scripts/character_select.gd" id="1_udr5a"]
-[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="2_p75u7"]
+[ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_udr5a"]
+[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_p75u7"]
+[ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_bow2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(0, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(36, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(72, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72dis"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(108, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4m8"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(144, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm4xr"]
+atlas = ExtResource("3_bow2h")
+region = Rect2(180, 0, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxcyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"indigo_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"pink_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"red_idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"white_idle",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqh0u"]
 shader = ExtResource("2_p75u7")
@@ -10,14 +130,55 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 30.0
 shader_parameter/color = Color(0, 0, 0, 1)
 
-[node name="CharacterSelect" type="Node2D"]
+[node name="CharacterSelect" type="Node2D" unique_id=1717454599]
 script = ExtResource("1_udr5a")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2077013772]
 position = Vector2(576, 325)
 scale = Vector2(2, 1.909)
 
-[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="."]
+[node name="PlayerAnim00" type="AnimatedSprite2D" parent="." unique_id=714687960]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(180, 162.00002)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uxcyu")
+animation = &"red_idle"
+
+[node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=792302842]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(970, 162)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uxcyu")
+animation = &"red_idle"
+
+[node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=42665377]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(180, 490)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uxcyu")
+animation = &"red_idle"
+
+[node name="PlayerAnim11" type="AnimatedSprite2D" parent="." unique_id=1886855270]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(970, 490)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uxcyu")
+animation = &"white_idle"
+frame_progress = 0.50105244
+
+[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
 offset_left = -132.0
 offset_top = -52.0
 offset_right = 559.0
@@ -25,47 +186,50 @@ offset_bottom = 341.0
 scale = Vector2(2.16, 1.909)
 color = Color(0.12549, 0.113725, 0.160784, 1)
 
-[node name="Label" type="Label" parent="."]
-offset_left = -60.0
-offset_top = -30.0
-offset_right = 564.0
-offset_bottom = 322.0
+[node name="Label" type="Label" parent="." unique_id=937990044]
+offset_left = 40.0
+offset_top = -1.0
+offset_right = 664.0
+offset_bottom = 351.0
 scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 36
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="."]
-offset_left = 920.0
-offset_top = -30.0
-offset_right = 1544.0
-offset_bottom = 322.0
+[node name="Label2" type="Label" parent="." unique_id=2050298951]
+offset_left = 820.0
+offset_top = -1.0
+offset_right = 1444.0
+offset_bottom = 351.0
 scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 52
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="."]
-offset_left = -60.0
-offset_top = 530.0
-offset_right = 564.0
-offset_bottom = 882.0
+[node name="Label3" type="Label" parent="." unique_id=1553367601]
+offset_left = 40.0
+offset_top = 509.0
+offset_right = 664.0
+offset_bottom = 861.0
 scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 52
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label4" type="Label" parent="."]
-offset_left = 920.0
-offset_top = 530.0
-offset_right = 1544.0
-offset_bottom = 882.0
+[node name="Label4" type="Label" parent="." unique_id=30624848]
+offset_left = 820.0
+offset_top = 509.0
+offset_right = 1444.0
+offset_bottom = 861.0
 scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 52
+text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressPlay" type="Label" parent="."]
+[node name="PressPlay" type="Label" parent="." unique_id=62294375]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -79,7 +243,7 @@ theme_override_font_sizes/font_size = 36
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Vignette" type="ColorRect" parent="."]
+[node name="Vignette" type="ColorRect" parent="." unique_id=541900675]
 material = SubResource("ShaderMaterial_oqh0u")
 offset_left = -102.0
 offset_top = -39.0
