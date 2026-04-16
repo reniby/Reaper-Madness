@@ -192,7 +192,6 @@ offset_top = -1.0
 offset_right = 664.0
 offset_bottom = 351.0
 scale = Vector2(0.44, 0.4)
-text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -203,7 +202,6 @@ offset_right = 1444.0
 offset_bottom = 351.0
 scale = Vector2(0.44, 0.4)
 theme_override_font_sizes/font_size = 52
-text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -214,7 +212,6 @@ offset_right = 664.0
 offset_bottom = 861.0
 scale = Vector2(0.44, 0.4)
 theme_override_font_sizes/font_size = 52
-text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -225,7 +222,6 @@ offset_right = 1444.0
 offset_bottom = 861.0
 scale = Vector2(0.44, 0.4)
 theme_override_font_sizes/font_size = 52
-text = "test"
 horizontal_alignment = 1
 vertical_alignment = 1
 
