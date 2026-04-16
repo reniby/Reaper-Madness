@@ -75,7 +75,7 @@ func player_controller(delta):
 		invincible = true
 		var tween = get_tree().create_tween()
 		tween.tween_property(anim, "modulate", Color.RED, 0.5)
-		tween.tween_property(anim, "modulate", Color(Globals.character_skin[player]['color']), 0.5)
+		tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
 		
 	anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 	shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
@@ -155,7 +155,7 @@ func tail_drop():
 			
 			
 func alt_tail_drop():
-	var highlight_color = 'orange'
+	var highlight_color = 'cyan'
 	
 	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
@@ -193,8 +193,8 @@ func alt_tail_drop():
 func _on_speed_timer_timeout() -> void:
 	curr_speed = SPEED
 	
-func set_player_color(color_idx):
-
+func set_player_color(player_idx):
+	var color_idx = Globals.colors[player_idx]
 	anim.play(Globals.character_skin[color_idx]["anim"])
 	shadow_anim.play(Globals.character_skin[color_idx]["anim"])
 	trail.default_color = Globals.character_skin[color_idx]["color"]

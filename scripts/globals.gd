@@ -46,18 +46,18 @@ var character_input = [{
 ]
 
 
-var character_skin = [#{
-	#"color": "white",
-	#"anim": "white_idle"
-#},
-#{
-	#"color": "black",#17191b",
-	#"anim": "indigo_idle"
-#},
-#{
-	#"color": "#FF3F7F",
-	#"anim": "pink_idle"
-#},
+var character_skin = [{
+	"color": "white",
+	"anim": "white_idle"
+},
+{
+	"color": "black",#17191b",
+	"anim": "indigo_idle"
+},
+{
+	"color": "#FF3F7F",
+	"anim": "pink_idle"
+},
 {
 	"color": "#FFC400",
 	"anim": "red_idle"

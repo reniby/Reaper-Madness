@@ -176,7 +176,7 @@ rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"white_idle"
-frame_progress = 0.50105244
+frame_progress = 0.09390089
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
 offset_left = -132.0
