@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 
 	if Globals.numPlayers > 1:
 		press_play.text = "Press X to join!\nPress 'Start' to play!"
-		if Input.is_action_just_pressed("start"):
+		if Input.is_action_just_pressed("start") and (len(taken_colors) == Globals.numPlayers):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/catfight.tscn")
 	else:
