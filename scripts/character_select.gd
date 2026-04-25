@@ -38,7 +38,7 @@ func _process(delta: float) -> void:
 			if Globals.players[player]:
 				Globals.numPlayers += 1
 		# Selected Color
-		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
+		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[player] == -1:
 			taken_colors.append(temp_colors[player])
 			Globals.colors[player] = temp_colors[player]
 			for child in player_anims[player].get_children(): 
