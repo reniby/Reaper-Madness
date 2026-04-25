@@ -18,7 +18,7 @@ const JUMP_VELOCITY = -800.0
 @onready var shadow_anim: AnimatedSprite2D = $Shadow
 @onready var tail_scene = preload("res://scenes/trail.tscn")
 @onready var can_drop_tail = true
-@onready var curr_speed: int = SPEED
+@onready var curr_speed = SPEED
 @onready var invincible: bool = false
 @onready var trail: Line2D = $Trail
 
@@ -58,6 +58,8 @@ func _physics_process(delta):
 	particles.initial_velocity_min = remap(velocity.length(),0, 1000,5,100)
 
 	alt_tail_drop()
+	if trail.length > trail.starting_length:
+		trail.length = trail.length - (2 * delta)
 
 
 func player_controller(delta):
@@ -118,7 +120,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func tail_drop():
 	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
 		can_drop_tail = false
-		var tail_obst: Line2D = tail_scene.instantiate()
+		tail_obst = tail_scene.instantiate()
 		tail_obst.texture = trail.texture
 		tail_obst.width = trail.width
 		tail_obst.texture_mode = trail.texture_mode

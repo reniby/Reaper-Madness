@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm6l0lojw3d1m"]
+[gd_scene format=3 uid="uid://bm6l0lojw3d1m"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_ybihw"]
-[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="2_0rmuw"]
+[ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_ybihw"]
+[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_0rmuw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81fud"]
 shader = ExtResource("2_0rmuw")
@@ -10,10 +10,10 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 30.0
 shader_parameter/color = Color(0, 0, 0, 1)
 
-[node name="Menu" type="Node2D"]
+[node name="Menu" type="Node2D" unique_id=1556549266]
 script = ExtResource("1_ybihw")
 
-[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="."]
+[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=146837343]
 offset_left = -106.0
 offset_top = -32.0
 offset_right = 585.0
@@ -21,14 +21,14 @@ offset_bottom = 361.0
 scale = Vector2(2, 1.909)
 color = Color(0.12549, 0.113725, 0.160784, 1)
 
-[node name="Vignette" type="ColorRect" parent="."]
+[node name="Vignette" type="ColorRect" parent="." unique_id=1319771228]
 material = SubResource("ShaderMaterial_81fud")
 offset_left = -118.0
 offset_top = -37.0
 offset_right = 1258.0
 offset_bottom = 716.0
 
-[node name="Timed" type="Button" parent="."]
+[node name="Timed" type="Button" parent="." unique_id=1307405460]
 offset_left = 313.0
 offset_top = 399.0
 offset_right = 873.0
@@ -36,16 +36,7 @@ offset_bottom = 526.0
 theme_override_font_sizes/font_size = 50
 text = "  press any button to start  "
 
-[node name="Zen" type="Button" parent="."]
-visible = false
-offset_left = 589.0
-offset_top = 366.0
-offset_right = 877.0
-offset_bottom = 493.0
-theme_override_font_sizes/font_size = 50
-text = "Zen"
-
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=804217766]
 offset_left = 223.0
 offset_top = 159.0
 offset_right = 944.0
@@ -55,6 +46,3 @@ theme_override_font_sizes/font_size = 120
 text = "Reaper Madness"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[connection signal="pressed" from="Timed" to="." method="_on_timed_pressed"]
-[connection signal="pressed" from="Zen" to="." method="_on_zen_pressed"]

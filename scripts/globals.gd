@@ -2,7 +2,6 @@ extends Node
 
 var numPlayers = 0
 var players = [false,false,false,false]
-var mode = 0
 var winner = 0
 var scores = [0, 0, 0, 0]
 var colors = [-1, -1, -1, -1]
@@ -52,10 +51,6 @@ var character_skin = [{
 	"anim": "white_idle"
 },
 {
-	"color": "black",#17191b",
-	"anim": "indigo_idle"
-},
-{
 	"color": "#FF3F7F",
 	"anim": "pink_idle"
 },
@@ -80,6 +75,5 @@ var character_skin = [{
 func resetGlobals():
 	numPlayers = 0
 	players = [false,false,false,false]
-	mode = 0
 	winner = 0
 	scores = [0, 0, 0, 0]
