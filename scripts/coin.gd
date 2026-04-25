@@ -31,6 +31,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 		pickup_timer.start()
 	else:
 		choose_location()
+		pickup_timer.start()
 	sprite.visible = false
 	area.set_collision_mask_value(3, false)
 	particles.restart()
