@@ -2,7 +2,8 @@ extends Node2D
 @onready var labels: Array[Label] = [$Label,$Label2,$Label3,$Label4]
 @onready var press_play: Label = $PressPlay
 @onready var camera_2d: Camera2D = $Camera2D
-@onready var player_anims = [$PlayerAnim00, $PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
+@onready var player_anims: Array[AnimatedSprite2D] = [$PlayerAnim00, $PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
+@onready var ARROW_SCALE = player_anims[0].get_child(0).scale
 var rng = RandomNumberGenerator.new()
 var shake_strength = 0.0
 var randomStrength = 30.0
@@ -26,7 +27,7 @@ func _process(delta: float) -> void:
 			player_anims[player].play()
 			
 			
-			player_anims[player].modulate = Globals.character_skin[color_idx]['color']
+			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
 
 			var tween = get_tree().create_tween()
 			var player_tween = get_tree().create_tween()
@@ -40,13 +41,16 @@ func _process(delta: float) -> void:
 			if Globals.players[player]:
 				Globals.numPlayers += 1
 		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
+			
 			taken_colors.append(temp_colors[player])
 			Globals.colors[player] = temp_colors[player]
+			for child in player_anims[player].get_children(): 
+					child.visible = false
 			for p in range(4):
 				if Globals.colors[p] != -1: continue
 				while (temp_colors[p] in taken_colors):
 					temp_colors[p] = (temp_colors[p] + 1) % num_colors
-				player_anims[p].modulate = Globals.character_skin[temp_colors[p]]['color']
+				player_anims[p].self_modulate = Globals.character_skin[temp_colors[p]]['color']
 			
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
 			Globals.numPlayers -= 1
@@ -60,17 +64,19 @@ func _process(delta: float) -> void:
 			#if player_tween.is_running() and player_tween.is_valid():
 				#player_tween.stop()
 			
-					
+
+		arrowUI(player)
+		
 		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors:
 			temp_colors[player] = posmod((temp_colors[player] - 1), num_colors)
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] =  posmod((temp_colors[player] - 1), num_colors)
-			player_anims[player].modulate = Globals.character_skin[temp_colors[player]]['color']
+			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors:
 			temp_colors[player] = (temp_colors[player] + 1) % num_colors
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] = posmod((temp_colors[player] + 1), num_colors)
-			player_anims[player].modulate = Globals.character_skin[temp_colors[player]]['color']
+			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 		
 		if Globals.players[player]:
 			labels[player].text = "Player %d Joined\nPress again to leave" % (player+1)
@@ -91,3 +97,18 @@ func _process(delta: float) -> void:
 		
 func randomOffset():
 	return Vector2(rng.randf_range(-shake_strength,shake_strength),rng.randf_range(-shake_strength,shake_strength))
+
+
+func arrowUI(player):
+	if Input.is_action_pressed(Globals.character_input[player]['left']):
+		player_anims[player].get_child(1).scale = ARROW_SCALE + Vector2(0.05,0.05)
+		player_anims[player].get_child(1).modulate.a = 0.8
+	elif Input.is_action_pressed(Globals.character_input[player]['right']):
+		player_anims[player].get_child(0).scale = ARROW_SCALE + Vector2(0.05,0.05)
+		player_anims[player].get_child(0).modulate.a = 0.8
+	else:
+		player_anims[player].get_child(0).scale = ARROW_SCALE
+		player_anims[player].get_child(0).modulate.a = 1
+		
+		player_anims[player].get_child(1).scale = ARROW_SCALE
+		player_anims[player].get_child(1).modulate.a = 1

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_udr5a"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_p75u7"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_bow2h"]
+[ext_resource type="Texture2D" uid="uid://cw7f6e1vbuk5c" path="res://assets/ui/arrow.png" id="3_uxcyu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
 atlas = ExtResource("3_bow2h")
@@ -147,6 +148,17 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"red_idle"
 
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
+position = Vector2(-32, 0)
+rotation = 3.1415925
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim00" unique_id=961067334]
+position = Vector2(32, 0)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
 [node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=792302842]
 visible = false
 z_index = 67
@@ -156,6 +168,17 @@ rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"red_idle"
+
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=965623381]
+position = Vector2(-32, 0)
+rotation = 3.1415925
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=1599230647]
+position = Vector2(32, 0)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
 
 [node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=42665377]
 visible = false
@@ -167,6 +190,17 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"red_idle"
 
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=1565067929]
+position = Vector2(-32, 0)
+rotation = 3.1415925
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=113650100]
+position = Vector2(32, 0)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
 [node name="PlayerAnim11" type="AnimatedSprite2D" parent="." unique_id=1886855270]
 visible = false
 z_index = 67
@@ -177,6 +211,17 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"white_idle"
 frame_progress = 0.09390089
+
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1154744739]
+position = Vector2(-32, 0)
+rotation = 3.1415925
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
+
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim11" unique_id=430949028]
+position = Vector2(32, 0)
+scale = Vector2(0.33333334, 0.33333334)
+texture = ExtResource("3_uxcyu")
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
 offset_left = -132.0
