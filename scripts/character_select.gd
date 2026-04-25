@@ -12,21 +12,18 @@ var temp_colors = [0, 1, 2, 3]
 var taken_colors = [] # 0 - len(character_skin)
 var num_colors = len(Globals.character_skin)
 
-
 func apply_shake():
 	shake_strength = randomStrength
-	
 
 var actions = ['left', 'right', 'up', 'down', 'dash', 'drop']
 
 func _process(delta: float) -> void:
 	for player in range(4):
 		var color_idx = temp_colors[player]
+		# Joined Game
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
 			player_anims[player].visible = true
 			player_anims[player].play()
-			
-			
 			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
 
 			var tween = get_tree().create_tween()
@@ -40,8 +37,8 @@ func _process(delta: float) -> void:
 			apply_shake()
 			if Globals.players[player]:
 				Globals.numPlayers += 1
+		# Selected Color
 		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
-			
 			taken_colors.append(temp_colors[player])
 			Globals.colors[player] = temp_colors[player]
 			for child in player_anims[player].get_children(): 
@@ -51,19 +48,21 @@ func _process(delta: float) -> void:
 				while (temp_colors[p] in taken_colors):
 					temp_colors[p] = (temp_colors[p] + 1) % num_colors
 				player_anims[p].self_modulate = Globals.character_skin[temp_colors[p]]['color']
-			
-		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
+		# Deselect Color
+		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.colors[player] != -1:
+			for child in player_anims[player].get_children(): 
+					child.visible = true
+			if temp_colors[player] in taken_colors:
+				taken_colors.erase(temp_colors[player])
+			Globals.colors[player] = -1
+		# Leave Game
+		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']):
 			Globals.numPlayers -= 1
 			player_anims[player].visible = false
 			Globals.players[player] = false
-			
+
 			if temp_colors[player] in taken_colors:
 				taken_colors.erase(temp_colors[player])
-			#if tween.is_running() and tween.is_valid():
-				#tween.stop()
-			#if player_tween.is_running() and player_tween.is_valid():
-				#player_tween.stop()
-			
 
 		arrowUI(player)
 		
@@ -97,7 +96,6 @@ func _process(delta: float) -> void:
 		
 func randomOffset():
 	return Vector2(rng.randf_range(-shake_strength,shake_strength),rng.randf_range(-shake_strength,shake_strength))
-
 
 func arrowUI(player):
 	if Input.is_action_pressed(Globals.character_input[player]['left']):
