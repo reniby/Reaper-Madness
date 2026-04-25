@@ -57,8 +57,8 @@ func show_sprite() -> void:
 	area.set_collision_mask_value(3, true)
 
 func choose_location():
-	var x = rng.randf_range(-max_x / 2.0, max_x / 2.0)
-	var y = rng.randf_range(-max_y / 2.0, max_y / 2.0)
+	var x = rng.randf_range(-max_x, max_x)
+	var y = rng.randf_range(-max_y, max_y)
 	position = Vector2(x, y)
 
 func coin_behavior(playerBody):
