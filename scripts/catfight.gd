@@ -4,16 +4,19 @@ extends Node2D
 @onready var player_scores: Array[Label] = [$Labels/P1, $Labels/P2, $Labels/P3, $Labels/P4]
 
 var player_scene: PackedScene = preload("res://scenes/player.tscn")
+var map_options_scene: PackedScene = preload("res://scenes/map_options.tscn")
 var title = "Reaper Madness :D"
 var player_positions = [
-	Vector2(-90, -30),
-	Vector2(-30,-30),
-	Vector2(30, -30),
-	Vector2(90, -30)
+	Vector2(-120, -30),
+	Vector2(-40,-30),
+	Vector2(40, -30),
+	Vector2(120, -30)
 ]
 
 func _ready():
 	var child = pickup_scene.instantiate()
+	var map_options = map_options_scene.instantiate()
+	map_options.get_children()[Globals.map_idx].reparent(self)
 	
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"

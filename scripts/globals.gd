@@ -10,6 +10,7 @@ var colors = [-1, -1, -1, -1]
 var x_facing = 0
 var y_facing = 0
 var can_dash = true
+var map_idx = 0
 
 var character_input = [{
 	"up": "up_p1", 

@@ -8,6 +8,7 @@ const JUMP_VELOCITY = -800.0
 @onready var i_timer: Timer = $Timer/ITimer
 @onready var dash_timer: Timer = $Timer/DashTimer
 @onready var speed_timer: Timer = $Timer/SpeedTimer
+@onready var start_timer: Timer = $Timer/StartTimer
 
 @onready var camera = $"../Camera2D"
 @onready var anim: AnimatedSprite2D = $Anim
@@ -35,14 +36,11 @@ var count = 0
 
 func _ready():
 	set_player_color(player)
-
+	
 
 func _physics_process(delta):
-	#var left = camera.get_viewport_rect().size.x/2 * -1
-	#var right = camera.get_viewport_rect().size.x/2
-	#var top = camera.get_viewport_rect().size.y/2 * -1
-	#var bottom = camera.get_viewport_rect().size.y/2
-
+	if start_timer.time_left:
+		return
 	player_controller(delta)
 
 	move_and_slide()
