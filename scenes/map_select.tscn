@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c7p0ubiuc6xoh"]
+[gd_scene format=3 uid="uid://bd7p3n0gfvne4"]
 
 [ext_resource type="Script" uid="uid://cdali7s4s0o56" path="res://scripts/map_select.gd" id="1_sslow"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="5_8fs2h"]
@@ -8,15 +8,14 @@ script = ExtResource("1_sslow")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=263288207]
 
-[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=1378515724]
-visible = false
-offset_left = -678.0
-offset_top = -373.0
-offset_right = 13.0
-offset_bottom = 20.0
-scale = Vector2(2, 1.909)
-color = Color(0.270588, 0.156863, 0.235294, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Label" type="Label" parent="." unique_id=141476587]
+z_index = 20
+offset_left = -194.0
+offset_top = -282.0
+offset_right = 231.0
+offset_bottom = -232.0
+theme_override_font_sizes/font_size = 40
+text = "Press 'Start' To Select Map!"
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1881971258]
 z_index = 5

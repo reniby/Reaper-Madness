@@ -18,7 +18,7 @@ func apply_shake():
 var actions = ['left', 'right', 'up', 'down', 'dash', 'drop']
 
 func _process(delta: float) -> void:
-	for player in range(4):
+	for player in range(4): 
 		var color_idx = temp_colors[player]
 		# Joined Game
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
@@ -29,8 +29,8 @@ func _process(delta: float) -> void:
 			var tween = get_tree().create_tween()
 			var player_tween = get_tree().create_tween()
 			player_anims[player].scale = Vector2(10,10)
-			labels[player].add_theme_font_size_override("font_size", 200)
-			tween.tween_property(labels[player], "theme_override_font_sizes/font_size", 86, 0.5)
+			labels[player].add_theme_font_size_override("font_size", 150)
+			tween.tween_property(labels[player], "theme_override_font_sizes/font_size", 70, 0.5)
 			player_tween.tween_property(player_anims[player], "scale", Vector2(3,3), 0.5)
 			Globals.players[player] = true
 			
@@ -78,7 +78,7 @@ func _process(delta: float) -> void:
 			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 		
 		if Globals.players[player]:
-			labels[player].text = "Player %d Joined\nPress again to leave" % (player+1)
+			labels[player].text = "Player %d Joined\nPress 'O' to leave" % (player+1)
 		else:
 			labels[player].text = ""
 
