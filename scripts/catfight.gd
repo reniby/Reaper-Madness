@@ -16,7 +16,9 @@ var player_positions = [
 func _ready():
 	var child = pickup_scene.instantiate()
 	var map_options = map_options_scene.instantiate()
-	map_options.get_children()[Globals.map_idx].reparent(self)
+	var curr_map = map_options.get_children()[Globals.map_idx]
+	curr_map.reparent(self)
+	curr_map.get_child(0).visible = false
 	
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
