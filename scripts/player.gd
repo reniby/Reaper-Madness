@@ -50,6 +50,12 @@ func _physics_process(delta):
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
+	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider():
+		var collision = get_last_slide_collision()
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * curr_speed * 1.2
+		hit_particles.global_position = collision.get_position()
+		hit_particles.restart()
+		Globals.superlative_actions[player]['num_bonks'] += 1
 	particles.rotation = anim.rotation + PI/2
 	if velocity.length() < 50:
 		particles.emitting = false
