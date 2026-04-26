@@ -8,6 +8,10 @@ extends Node2D
 @export var duration: float = 5.0
 @export var size_x: int = 4
 @export var size_y: int = 2
+@export var n_spike: bool = false
+@export var s_spike: bool = false
+@export var e_spike: bool = false
+@export var w_spike: bool = false
 
 func _ready():
 	build_platform()
@@ -20,6 +24,17 @@ func build_platform():
 	for x in range(size_x):
 		for y in range(size_y):
 			tilemap.set_cell(Vector2i(x, y), 0, Vector2i(0, 0))
+	
+	for x in range(size_x):
+		if n_spike:
+			tilemap.set_cell(Vector2i(x, -1), 6, Vector2i(0, 0))
+		if s_spike:
+			tilemap.set_cell(Vector2i(x, size_y), 6, Vector2i(1, 0))
+	for y in range(size_y):
+		if w_spike:
+			tilemap.set_cell(Vector2i(-1, y), 6, Vector2i(3, 0))
+		if e_spike:
+			tilemap.set_cell(Vector2i(size_x, y), 6, Vector2i(2, 0))
 
 func update_collision():
 	var tile_size: Vector2 = Vector2(tilemap.tile_set.tile_size)

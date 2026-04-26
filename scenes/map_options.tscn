@@ -82,11 +82,15 @@ position = Vector2(-237, -87)
 offset = Vector2(200, 0)
 size_x = 3
 size_y = 3
+e_spike = true
+w_spike = true
 
 [node name="Platform2" parent="Moving" unique_id=1176377204 instance=ExtResource("5_f6dgi")]
 position = Vector2(287, 138)
 offset = Vector2(-200, 0)
 duration = 3.0
+n_spike = true
+s_spike = true
 
 [node name="Spiked" type="TileMapLayer" parent="." unique_id=1210550934]
 texture_filter = 1
