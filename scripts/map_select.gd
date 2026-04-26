@@ -3,9 +3,8 @@ extends Node2D
 @onready var arrow_r: Sprite2D = $Arrow2
 @onready var ARROW_SCALE = arrow_l.scale
 
-
 var map_options = []
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
 	var map_options_scene: PackedScene = preload("res://scenes/map_options.tscn")
 	var map_options_inst = map_options_scene.instantiate()
@@ -15,7 +14,6 @@ func _ready() -> void:
 		map_options.append(map_option)
 	map_visibility()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	var left_pressed = false
 	var right_pressed = false

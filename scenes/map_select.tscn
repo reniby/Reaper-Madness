@@ -20,13 +20,17 @@ text = "Press 'Start' To Select Map!"
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1881971258]
 z_index = 5
+texture_filter = 1
 position = Vector2(-500, 0)
 rotation = 3.1415925
+scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
 
 [node name="Arrow2" type="Sprite2D" parent="." unique_id=275598536]
 z_index = 5
+texture_filter = 1
 position = Vector2(500, 0)
+scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1591971174]
