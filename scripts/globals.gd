@@ -40,15 +40,15 @@ var character_skin = [{
 	"anim": "john"
 },
 {
-	"color": "#FF3F7F",
+	"color": "#FF3F7F", #pink
 	"anim": "ungabunga"
 },
 {
-	"color": "#FFC400",
+	"color": "#f2e605", #yellow
 	"anim": "cyclops"
 },
 {
-	"color": "#450693",
+	"color": "#d387ff", #purple now orange now lilac
 	"anim": "john"
 },
 {
@@ -56,7 +56,7 @@ var character_skin = [{
 	"anim": "ungabunga"
 },
 {
-	"color": "#175420", #forest green
+	"color": "#43de5a", #forest green
 	"anim": "cyclops"
 }
 ]

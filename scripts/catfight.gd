@@ -20,7 +20,10 @@ func _ready():
 	curr_map.reparent(self)
 	curr_map.visible = true
 	curr_map.get_child(0).visible = false
-	
+	for i in range(len(player_scores)):
+		var color = Color(Globals.character_skin[Globals.colors[i]]['color'])
+		color.a = 0.5 
+		player_scores[i].add_theme_color_override("font_color", color)
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
 	#add_child(child)
