@@ -23,6 +23,7 @@ const JUMP_VELOCITY = -800.0
 @onready var trail: Line2D = $Trail
 
 
+const SPIKE_LAYER = 3
 var tail_obst: Line2D
 
 var x_facing = 0
@@ -44,14 +45,21 @@ func _physics_process(delta):
 	player_controller(delta)
 
 	move_and_slide()
+	# Collide with player
 	if get_last_slide_collision() != null and get_last_slide_collision().get_collider() is CharacterBody2D:
 		var collision = get_last_slide_collision()
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * curr_speed * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
-	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider():
+	# Collide with wall
+	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider() is TileMapLayer:
 		var collision = get_last_slide_collision()
+		var rid = collision.get_collider_rid()
+		var layer = PhysicsServer2D.body_get_collision_layer(rid)
+		if layer == (SPIKE_LAYER - 1) ** 2:
+			death()
+
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * curr_speed * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
@@ -90,6 +98,9 @@ func player_controller(delta):
 	shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 	collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 
+# Trail layer 2 (on area entered = death)
+# Wall layer 2
+# Spike layer 3
 func death():
 	Globals.superlative_actions[player]['num_deaths'] += 1
 	visible = false

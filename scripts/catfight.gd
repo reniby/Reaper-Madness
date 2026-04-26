@@ -18,6 +18,7 @@ func _ready():
 	var map_options = map_options_scene.instantiate()
 	var curr_map = map_options.get_children()[Globals.map_idx]
 	curr_map.reparent(self)
+	curr_map.visible = true
 	curr_map.get_child(0).visible = false
 	
 	# Add Speed-up Pickup
