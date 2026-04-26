@@ -186,7 +186,7 @@ func alt_tail_drop():
 		trail.length = max(trail.length - tail_obst.length, trail.starting_length)
 		tail_obst.z_index = 3
 		tail_obst.reparent(get_parent())
-		tail_obst.default_color = Globals.character_skin[player]["color"]
+		tail_obst.default_color = Globals.character_skin[Globals.colors[player]]["color"]
 		await get_tree().create_timer(1.0).timeout
 		
 		while is_instance_valid(tail_obst) and tail_obst.points.size() > 1:
