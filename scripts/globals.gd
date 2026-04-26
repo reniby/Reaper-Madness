@@ -48,27 +48,27 @@ var character_input = [{
 
 var character_skin = [{
 	"color": "white",
-	"anim": "white_idle"
+	"anim": "john"
 },
 {
 	"color": "#FF3F7F",
-	"anim": "pink_idle"
+	"anim": "ungabunga"
 },
 {
 	"color": "#FFC400",
-	"anim": "red_idle"
+	"anim": "cyclops"
 },
 {
 	"color": "#450693",
-	"anim": "indigo_idle"
+	"anim": "john"
 },
 {
 	"color": "#4189e0", #sky blue
-	"anim": "indigo_idle"
+	"anim": "ungabunga"
 },
 {
 	"color": "#175420", #forest green
-	"anim": "indigo_idle"
+	"anim": "cyclops"
 }
 ]
 

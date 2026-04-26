@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_udr5a"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_p75u7"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_bow2h"]
+[ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="3_fa52j"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_uxcyu"]
+[ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="4_5wdeo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
 atlas = ExtResource("3_bow2h")
@@ -33,25 +35,10 @@ region = Rect2(180, 0, 36, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
+"texture": ExtResource("3_fa52j")
 }],
 "loop": true,
-"name": &"indigo_idle",
+"name": &"cyclops",
 "speed": 5.0
 }, {
 "frames": [{
@@ -74,53 +61,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_hm4xr")
 }],
 "loop": true,
-"name": &"pink_idle",
+"name": &"john",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
+"texture": ExtResource("4_5wdeo")
 }],
 "loop": true,
-"name": &"red_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
-}],
-"loop": true,
-"name": &"white_idle",
+"name": &"ungabunga",
 "speed": 5.0
 }]
 
@@ -146,7 +95,7 @@ position = Vector2(180, 162.00002)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"red_idle"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
 position = Vector2(-32, 0)
@@ -167,7 +116,7 @@ position = Vector2(970, 162)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"red_idle"
+animation = &"ungabunga"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=965623381]
 position = Vector2(-32, 0)
@@ -188,7 +137,7 @@ position = Vector2(180, 490)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"red_idle"
+animation = &"ungabunga"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=1565067929]
 position = Vector2(-32, 0)
@@ -209,8 +158,7 @@ position = Vector2(970, 490)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"white_idle"
-frame_progress = 0.09390089
+animation = &"ungabunga"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1154744739]
 position = Vector2(-32, 0)

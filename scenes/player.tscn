@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dsxn5ou3e4h0t"]
 
 [ext_resource type="Script" uid="uid://dnbl5raisy02x" path="res://scripts/player.gd" id="1_0pet2"]
+[ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="2_smehm"]
+[ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_phkrk"]
 [ext_resource type="Texture2D" uid="uid://csl2k4uxrmih7" path="res://assets/tail_frames/tail_1.png" id="4_tdbqv"]
 [ext_resource type="Texture2D" uid="uid://dlimaawpv712f" path="res://assets/tail_frames/tail_2.png" id="5_lpgsr"]
@@ -35,25 +37,10 @@ region = Rect2(180, 0, 36, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
+"texture": ExtResource("2_smehm")
 }],
 "loop": true,
-"name": &"indigo_idle",
+"name": &"cyclops",
 "speed": 5.0
 }, {
 "frames": [{
@@ -76,53 +63,15 @@ animations = [{
 "texture": SubResource("AtlasTexture_hm4xr")
 }],
 "loop": true,
-"name": &"pink_idle",
+"name": &"john",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
+"texture": ExtResource("3_fjrip")
 }],
 "loop": true,
-"name": &"red_idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
-}],
-"loop": true,
-"name": &"white_idle",
+"name": &"ungabunga",
 "speed": 5.0
 }]
 
@@ -159,9 +108,10 @@ script = ExtResource("1_0pet2")
 [node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=1197259949]
 modulate = Color(0, 0, 0, 0.231373)
 position = Vector2(4, 3)
+rotation = 3.1415927
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"white_idle"
+animation = &"cyclops"
 
 [node name="HitParticles" type="CPUParticles2D" parent="." unique_id=537547273]
 scale = Vector2(0.584545, 0.575521)
@@ -195,7 +145,7 @@ texture_mode = 1
 texture_filter = 1
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"red_idle"
+animation = &"cyclops"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=879123461]
 amount = 4
