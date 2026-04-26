@@ -47,5 +47,9 @@ func arrow_ui(left, right):
 	arrow_r.scale = ARROW_SCALE
 	if left:
 		arrow_l.scale = ARROW_SCALE * 1.5
+		arrow_l.modulate.a = 1
 	if right:
 		arrow_r.scale = ARROW_SCALE * 1.5
+		arrow_r.modulate.a = 1
+	arrow_l.modulate.a = 0.8
+	arrow_r.modulate.a = 0.8
