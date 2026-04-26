@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dn6ix8tmxuq3v" path="res://scripts/tutorial.gd" id="1_c13y7"]
 [ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_8ho6b"]
+[ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_ph3nu"]
+[ext_resource type="PackedScene" uid="uid://cowem0i0pp2jf" path="res://scenes/pickup.tscn" id="4_4kmhl"]
 
 [node name="Tutorial" type="Node2D" unique_id=10344891]
 script = ExtResource("1_c13y7")
@@ -21,24 +23,58 @@ texture = ExtResource("2_8ho6b")
 
 [node name="Pg1" type="Label" parent="." unique_id=384659697]
 visible = false
-offset_right = 40.0
-offset_bottom = 21.0
-text = "Page 1"
+offset_left = 153.0
+offset_top = 49.0
+offset_right = 998.0
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 32
+text = "
 
-[node name="Pg2" type="Label" parent="." unique_id=130992500]
-visible = false
-offset_right = 40.0
-offset_bottom = 21.0
-text = "Pgae 2"
 
-[node name="Pg3" type="Label" parent="." unique_id=1198397602]
-visible = false
-offset_right = 40.0
-offset_bottom = 21.0
-text = "Page 3"
+Joystick to Move
 
-[node name="Pg4" type="Label" parent="." unique_id=2057209046]
+Press 'X' to dash
+
+Hold and Release 'O' to drop your tail 
+and build a wall"
+horizontal_alignment = 1
+
+[node name="Arrow" type="Sprite2D" parent="Pg1" unique_id=754256068]
+texture_filter = 1
+position = Vector2(776, 266)
+scale = Vector2(2, 2)
+texture = ExtResource("3_ph3nu")
+
+[node name="Pg2" type="Label" parent="." unique_id=1648847313]
 visible = false
-offset_right = 40.0
-offset_bottom = 21.0
-text = "Play!!!"
+offset_left = 154.0
+offset_top = 50.0
+offset_right = 998.0
+offset_bottom = 602.0
+theme_override_font_sizes/font_size = 32
+text = "
+
+Collect Spirits (   ) to Increase
+Score and Tail Length
+
+Kill opponents with your tail
+To block their progress
+
+Highest Score Wins!
+
+Press 'X' to start game"
+horizontal_alignment = 1
+
+[node name="Arrow2" type="Sprite2D" parent="Pg2" unique_id=332646663]
+texture_filter = 1
+position = Vector2(59, 276)
+rotation = -3.1415925
+scale = Vector2(2, 2)
+texture = ExtResource("3_ph3nu")
+
+[node name="Pickup" parent="Pg2" unique_id=640530036 instance=ExtResource("4_4kmhl")]
+top_level = true
+texture_filter = 1
+position = Vector2(597, 158)
+scale = Vector2(2, 2)
+script = null
