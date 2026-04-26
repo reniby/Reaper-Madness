@@ -1,18 +1,18 @@
 extends Node2D
-@onready var play: Button = $Play
-@onready var tutorial: Button = $Tutorial
-@onready var buttons: Array[Button] = [$Play, $Tutorial]
-@onready var num_options: int = len(buttons)
-@onready var scenes = {
-	$Play: "res://scenes/character_select.tscn", 
-	$Tutorial: "res://scenes/tutorial.tscn"
-}
+
+@export var buttons: Array[Button] = []
+@export var scenes: Array[String] = []
+var button_dict = {}
+var num_options: int
+
 var selected = 0
 
-
 func _ready():
+	num_options = len(buttons)
 	buttons[selected].grab_focus()
-	
+	for i in num_options:
+		button_dict[buttons[i]] = scenes[i]
+
 func _process(_delta):
 	for player in range(4):
 		if Input.is_action_just_pressed(Globals.character_input[player]["up"]):
@@ -31,5 +31,6 @@ func _process(_delta):
 				arrow.visible = false
 			for arrow in buttons[selected].get_children():
 				arrow.visible = true
-		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
-			get_tree().change_scene_to_file(scenes[buttons[selected]])
+		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
+			Globals.resetGlobals()
+			get_tree().change_scene_to_file(button_dict[buttons[selected]])

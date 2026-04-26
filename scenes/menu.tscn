@@ -15,8 +15,10 @@ shader_parameter/color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[node name="Menu" type="Node2D" unique_id=1556549266]
+[node name="Menu" type="Node2D" unique_id=1556549266 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_ybihw")
+buttons = [NodePath("Play"), NodePath("Tutorial")]
+scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/tutorial.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=146837343]
 offset_left = -106.0

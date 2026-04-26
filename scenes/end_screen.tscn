@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ch0b7cixe4j2h"]
 
+[ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_87vmq"]
 [ext_resource type="Script" uid="uid://c1jlum5beks5p" path="res://scripts/score_screen.gd" id="2_2aptv"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_vyuli"]
+[ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dllhw"]
 shader = ExtResource("2_vyuli")
@@ -10,7 +12,13 @@ shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 30.0
 shader_parameter/color = Color(0, 0, 0, 1)
 
-[node name="EndScreen" type="Node2D" unique_id=952449054]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="EndScreen" type="Node2D" unique_id=952449054 node_paths=PackedStringArray("buttons")]
+script = ExtResource("1_87vmq")
+buttons = [NodePath("Replay"), NodePath("Menu")]
+scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=1735164561]
 offset_left = -132.0
@@ -36,12 +44,53 @@ offset_top = -59.0
 offset_right = 1253.0
 offset_bottom = 694.0
 
-[node name="Button" type="Button" parent="." unique_id=172048177]
-offset_left = 502.0
-offset_top = 484.0
-offset_right = 663.0
-offset_bottom = 572.0
-theme_override_font_sizes/font_size = 40
-text = "Home"
+[node name="Replay" type="Button" parent="." unique_id=1526828982]
+offset_left = 2.0
+offset_top = 456.0
+offset_right = 1146.0
+offset_bottom = 527.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
+text = "Replay"
+flat = true
 
-[connection signal="pressed" from="Button" to="Score" method="_on_button_pressed"]
+[node name="Arrow" type="Sprite2D" parent="Replay" unique_id=1027937469]
+texture_filter = 1
+position = Vector2(482, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")
+
+[node name="Arrow2" type="Sprite2D" parent="Replay" unique_id=1337906760]
+texture_filter = 1
+position = Vector2(662, 37)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")
+
+[node name="Menu" type="Button" parent="." unique_id=270745691]
+offset_left = 2.0
+offset_top = 539.0
+offset_right = 1149.0
+offset_bottom = 610.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
+text = "Menu
+"
+flat = true
+
+[node name="Arrow" type="Sprite2D" parent="Menu" unique_id=1204648239]
+visible = false
+texture_filter = 1
+position = Vector2(490, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")
+
+[node name="Arrow2" type="Sprite2D" parent="Menu" unique_id=820656692]
+visible = false
+texture_filter = 1
+position = Vector2(657, 37)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")

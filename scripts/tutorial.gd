@@ -3,12 +3,9 @@ extends Node2D
 @onready var selected = 0
 @onready var num_options = len(tutorial_pages)
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	tutorial_pages[selected].visible = true
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	for player in range(4):
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']):
