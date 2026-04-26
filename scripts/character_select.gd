@@ -103,14 +103,14 @@ func randomOffset():
 
 func arrowUI(player):
 	if Input.is_action_pressed(Globals.character_input[player]['left']):
-		player_anims[player].get_child(1).scale = ARROW_SCALE + Vector2(0.05,0.05)
-		player_anims[player].get_child(1).modulate.a = 0.8
+		player_anims[player].get_child(1).scale = ARROW_SCALE * 1.1
+		player_anims[player].get_child(1).modulate.a = 1
 	elif Input.is_action_pressed(Globals.character_input[player]['right']):
-		player_anims[player].get_child(0).scale = ARROW_SCALE + Vector2(0.05,0.05)
-		player_anims[player].get_child(0).modulate.a = 0.8
+		player_anims[player].get_child(0).scale = ARROW_SCALE * 1.1
+		player_anims[player].get_child(0).modulate.a = 1
 	else:
 		player_anims[player].get_child(0).scale = ARROW_SCALE
-		player_anims[player].get_child(0).modulate.a = 1
+		player_anims[player].get_child(0).modulate.a = 0.8
 		
 		player_anims[player].get_child(1).scale = ARROW_SCALE
-		player_anims[player].get_child(1).modulate.a = 1
+		player_anims[player].get_child(1).modulate.a = 0.8

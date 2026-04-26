@@ -100,12 +100,10 @@ animation = &"john"
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
 position = Vector2(-32, 0)
 rotation = 3.1415925
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="Arrow2" type="Sprite2D" parent="PlayerAnim00" unique_id=961067334]
 position = Vector2(32, 0)
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=792302842]
@@ -121,12 +119,10 @@ animation = &"ungabunga"
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=965623381]
 position = Vector2(-32, 0)
 rotation = 3.1415925
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=1599230647]
 position = Vector2(32, 0)
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=42665377]
@@ -142,12 +138,10 @@ animation = &"ungabunga"
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=1565067929]
 position = Vector2(-32, 0)
 rotation = 3.1415925
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=113650100]
 position = Vector2(32, 0)
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="PlayerAnim11" type="AnimatedSprite2D" parent="." unique_id=1886855270]
@@ -163,12 +157,10 @@ animation = &"ungabunga"
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1154744739]
 position = Vector2(-32, 0)
 rotation = 3.1415925
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="Arrow2" type="Sprite2D" parent="PlayerAnim11" unique_id=430949028]
 position = Vector2(32, 0)
-scale = Vector2(0.33333334, 0.33333334)
 texture = ExtResource("3_uxcyu")
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
