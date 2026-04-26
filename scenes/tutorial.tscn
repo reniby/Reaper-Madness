@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c3nlosj31e1fo"]
 
 [ext_resource type="Script" uid="uid://dn6ix8tmxuq3v" path="res://scripts/tutorial.gd" id="1_c13y7"]
+[ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_8ho6b"]
 
 [node name="Tutorial" type="Node2D" unique_id=10344891]
 script = ExtResource("1_c13y7")
@@ -12,6 +13,11 @@ offset_right = 559.0
 offset_bottom = 341.0
 scale = Vector2(2.16, 1.909)
 color = Color(0.12549, 0.113725, 0.160784, 1)
+
+[node name="TutorialPage" type="Sprite2D" parent="." unique_id=1204051232]
+position = Vector2(576, 337)
+scale = Vector2(2, 2)
+texture = ExtResource("2_8ho6b")
 
 [node name="Pg1" type="Label" parent="." unique_id=384659697]
 visible = false
