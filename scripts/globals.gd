@@ -1,16 +1,5 @@
 extends Node
 
-var numPlayers = 0
-var players = [false,false,false,false]
-var winner = 0
-var scores = [0, 0, 0, 0]
-var colors = [-1, -1, -1, -1]
-
-var x_facing = 0
-var y_facing = 0
-var can_dash = true
-var map_idx = 0
-
 var character_input = [{
 	"up": "up_p1", 
 	"down": "down_p1",
@@ -72,6 +61,32 @@ var character_skin = [{
 }
 ]
 
+func _ready():
+	resetGlobals()
+
+var numPlayers = 0
+var players = [false,false,false,false]
+var winner = 0
+var scores = [0, 0, 0, 0]
+var colors = [-1, -1, -1, -1]
+
+var x_facing = 0
+var y_facing = 0
+var can_dash = true
+var map_idx = 0
+
+
+
+var actions_map = 	{
+		"num_dashes": 0, #done
+		"num_kills": 0, 
+		"num_deaths": 0, #done
+		"num_bonks": 0, #done
+		"tail_length_avg": 0,
+		"dist_traveled": 0, #done
+}
+var superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]
+
 func resetGlobals():
 	numPlayers = 0
 	players = [false,false,false,false]
@@ -83,3 +98,5 @@ func resetGlobals():
 	y_facing = 0
 	can_dash = true
 	map_idx = 0
+	
+	superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]

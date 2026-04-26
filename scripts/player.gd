@@ -49,6 +49,7 @@ func _physics_process(delta):
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * curr_speed * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
+		Globals.superlative_actions[player]['num_bonks'] += 1
 	particles.rotation = anim.rotation + PI/2
 	if velocity.length() < 50:
 		particles.emitting = false
@@ -66,9 +67,11 @@ func player_controller(delta):
 	var direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
 	if direction:
 		velocity = velocity.lerp(direction * curr_speed, 5*delta)
+		Globals.superlative_actions[player]['dist_traveled'] += velocity.length() * delta
 	else:
 		velocity = velocity.lerp(Vector2(0,0), 5 * delta)
 	if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and can_dash:
+		Globals.superlative_actions[player]['num_dashes'] += 1
 		velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
 		can_dash = false
 		dash_timer.start()
@@ -82,6 +85,7 @@ func player_controller(delta):
 	collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 
 func death():
+	Globals.superlative_actions[player]['num_deaths'] += 1
 	visible = false
 	
 	particles.emitting = false

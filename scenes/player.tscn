@@ -111,7 +111,7 @@ position = Vector2(4, 3)
 rotation = 3.1415927
 scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="HitParticles" type="CPUParticles2D" parent="." unique_id=537547273]
 scale = Vector2(0.584545, 0.575521)
@@ -145,7 +145,7 @@ texture_mode = 1
 texture_filter = 1
 rotation = 3.1415927
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=879123461]
 amount = 4
