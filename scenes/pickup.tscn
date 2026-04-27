@@ -130,6 +130,7 @@ _data = [Vector2(0.0406504, 0.981831), 0.0, 0.0, 0, 0, Vector2(0.833333, 0), 0.0
 point_count = 2
 
 [node name="Pickup" type="Node2D" unique_id=640530036]
+scale = Vector2(1.2, 1.2)
 script = ExtResource("1_7cqbe")
 
 [node name="AmbientParticles" type="CPUParticles2D" parent="." unique_id=756286613]
