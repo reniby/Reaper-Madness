@@ -103,7 +103,7 @@ point_count = 3
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1327456773]
 scale = Vector2(1.2, 1.2)
 collision_layer = 7
-collision_mask = 7
+collision_mask = 23
 script = ExtResource("1_0pet2")
 
 [node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=1197259949]
