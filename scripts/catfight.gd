@@ -50,14 +50,14 @@ func _process(_delta):
 	for i in range(len(Globals.scores)):
 		if Globals.players[i]:
 			player_scores[i].text = str(Globals.scores[i])
-	if game_timer.time_left < 0.3 and not ready_to_slow: 
-		fade2black.modulate.a = 1.0
+	if game_timer.time_left < 0.4 and not ready_to_slow: 
 		ready_to_slow = true
 		for _player in players:
 			_player.death()
 		var tween = create_tween()
 		tween.tween_property(Engine, "time_scale", 0.1, 0.3)
-		tween.tween_property(fade2black, "color:a", 1, 0.3)
+		tween.parallel()
+		tween.tween_property(fade2black, "color:a", 1, 0.4)
 
 func _on_game_timer_timeout() -> void:
 	Engine.time_scale = 1
