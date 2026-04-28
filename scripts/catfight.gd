@@ -46,15 +46,5 @@ func _process(_delta):
 			player_scores[i].text = str(Globals.scores[i])
 
 func _on_game_timer_timeout() -> void:
-	var winners = find_all_indices(Globals.scores, Globals.scores.max())
-
-	if len(winners) == 1:
-		Globals.winner = winners[0] + 1
 	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	
-func find_all_indices(array_to_search: Array, target_element) -> Array:
-	var indices: Array = []
-	for i in range(array_to_search.size()):
-		if array_to_search[i] == target_element:
-			indices.append(i)
-	return indices

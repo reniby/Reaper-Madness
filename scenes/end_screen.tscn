@@ -2,8 +2,12 @@
 
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_87vmq"]
 [ext_resource type="Script" uid="uid://c1jlum5beks5p" path="res://scripts/score_screen.gd" id="2_2aptv"]
+[ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_g44xs"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_vyuli"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
+[ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="6_4j4el"]
+[ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
+[ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="8_um0j2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dllhw"]
 shader = ExtResource("2_vyuli")
@@ -14,6 +18,72 @@ shader_parameter/color = Color(0, 0, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(0, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(36, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(72, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72dis"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(108, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4m8"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(144, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm4xr"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(180, 0, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fix67"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_4j4el")
+}],
+"loop": true,
+"name": &"cyclops",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"john",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_um0j2")
+}],
+"loop": true,
+"name": &"ungabunga",
+"speed": 5.0
+}]
 
 [node name="EndScreen" type="Node2D" unique_id=952449054 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_87vmq")
@@ -28,13 +98,20 @@ offset_bottom = 341.0
 scale = Vector2(2, 1.909)
 color = Color(0.12549, 0.113725, 0.160784, 1)
 
-[node name="Score" type="Label" parent="." unique_id=859868058]
-offset_left = 227.0
-offset_top = 78.0
-offset_right = 927.0
-offset_bottom = 437.0
-theme_override_font_sizes/font_size = 80
-text = "Wins!"
+[node name="Title" type="Sprite2D" parent="CosmicBackgroundOuterSpace" unique_id=720605237]
+position = Vector2(354.75003, 196.30698)
+scale = Vector2(1.1649797, 1.1172273)
+texture = ExtResource("2_g44xs")
+
+[node name="Leaderboard" type="Label" parent="." unique_id=859868058]
+offset_left = 79.0
+offset_top = 38.0
+offset_right = 1071.0
+offset_bottom = 138.0
+theme_override_font_sizes/font_size = 85
+text = "Leaderboard"
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_2aptv")
 
 [node name="Vignette" type="ColorRect" parent="." unique_id=286652652]
@@ -45,10 +122,10 @@ offset_right = 1253.0
 offset_bottom = 694.0
 
 [node name="Replay" type="Button" parent="." unique_id=1526828982]
-offset_left = 2.0
-offset_top = 456.0
-offset_right = 1146.0
-offset_bottom = 527.0
+offset_left = 3.0
+offset_top = 468.0
+offset_right = 1147.0
+offset_bottom = 539.0
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
@@ -69,10 +146,10 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
 [node name="Menu" type="Button" parent="." unique_id=270745691]
-offset_left = 2.0
-offset_top = 539.0
-offset_right = 1149.0
-offset_bottom = 610.0
+offset_left = 3.0
+offset_top = 532.0
+offset_right = 1150.0
+offset_bottom = 603.0
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
@@ -94,3 +171,79 @@ position = Vector2(657, 37)
 rotation = 3.1415927
 scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
+
+[node name="1st" type="Label" parent="." unique_id=774486977]
+offset_left = 81.0
+offset_top = 138.0
+offset_right = 1073.0
+offset_bottom = 238.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="1st" unique_id=1343589574]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(343, 49)
+rotation = -3.1415925
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fix67")
+animation = &"john"
+
+[node name="2nd" type="Label" parent="." unique_id=1685811318]
+offset_left = 81.0
+offset_top = 208.0
+offset_right = 1073.0
+offset_bottom = 308.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="2nd" unique_id=324557772]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(343, 49.000008)
+rotation = -3.1415925
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fix67")
+animation = &"john"
+
+[node name="3rd" type="Label" parent="." unique_id=541288075]
+offset_left = 81.0
+offset_top = 278.0
+offset_right = 1073.0
+offset_bottom = 378.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="3rd" unique_id=1054691027]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(343, 49.000008)
+rotation = -3.1415925
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fix67")
+animation = &"john"
+
+[node name="4th" type="Label" parent="." unique_id=1250049]
+offset_left = 81.0
+offset_top = 354.0
+offset_right = 1073.0
+offset_bottom = 454.0
+theme_override_font_sizes/font_size = 50
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="4th" unique_id=1981697747]
+visible = false
+z_index = 67
+texture_filter = 1
+position = Vector2(343, 49.000008)
+rotation = -3.1415925
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_fix67")
+animation = &"john"

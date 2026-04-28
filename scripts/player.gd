@@ -38,6 +38,7 @@ var count = 0
 
 func _ready():
 	set_player_color(player)
+	Globals.scores[player] = 0
 	
 
 func _physics_process(delta):

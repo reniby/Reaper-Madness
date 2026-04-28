@@ -101,12 +101,16 @@ use_texture_padding = false
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iw1w7"]
 texture = ExtResource("5_dcmha")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 0, 8, 0, 8, 8, -8, 8)
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 0.8366375, 8, 1.208477, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0, -8, 0, -8, -8, 8, -8)
 1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -1.2084789, -8, -0.55776024)
 2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, 0, 8, -8, 8, -8, -8)
 2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, -8, -0.92959976, -8, -1.1155186, 8, -8, 8)
 3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 0, -8, 8, -8, 8, 8)
 3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(8, 8, 1.3014374, 8, 1.208477, -8, 8, -8)
 
 [resource]

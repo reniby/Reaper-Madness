@@ -67,15 +67,13 @@ func _ready():
 var numPlayers = 0
 var players = [false,false,false,false]
 var winner = 0
-var scores = [0, 0, 0, 0]
+var scores = [-1, -1, -1, -1]
 var colors = [-1, -1, -1, -1]
 
 var x_facing = 0
 var y_facing = 0
 var can_dash = true
 var map_idx = 0
-
-
 
 var actions_map = 	{
 		"num_dashes": 0, #done
@@ -91,7 +89,7 @@ func resetGlobals():
 	numPlayers = 0
 	players = [false,false,false,false]
 	winner = 0
-	scores = [0, 0, 0, 0]
+	scores = [-1, -1, -1, -1]
 	colors = [-1, -1, -1, -1]
 
 	x_facing = 0
