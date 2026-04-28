@@ -6,8 +6,10 @@
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_vyuli"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="6_4j4el"]
+[ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="7_um0j2"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="8_um0j2"]
+[ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="10_fix67"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_dllhw"]
 shader = ExtResource("2_vyuli")
@@ -19,14 +21,6 @@ shader_parameter/color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
-atlas = ExtResource("7_wke0n")
-region = Rect2(0, 0, 36, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
-atlas = ExtResource("7_wke0n")
-region = Rect2(36, 0, 36, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
 atlas = ExtResource("7_wke0n")
 region = Rect2(72, 0, 36, 32)
@@ -34,6 +28,10 @@ region = Rect2(72, 0, 36, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_72dis"]
 atlas = ExtResource("7_wke0n")
 region = Rect2(108, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(0, 0, 36, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ra4m8"]
 atlas = ExtResource("7_wke0n")
@@ -43,23 +41,24 @@ region = Rect2(144, 0, 36, 32)
 atlas = ExtResource("7_wke0n")
 region = Rect2(180, 0, 36, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_fix67"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
+atlas = ExtResource("7_wke0n")
+region = Rect2(36, 0, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qyl73"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_4j4el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_um0j2")
 }],
 "loop": true,
 "name": &"cyclops",
-"speed": 5.0
+"speed": 1.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0qf5w")
 }, {
@@ -67,10 +66,16 @@ animations = [{
 "texture": SubResource("AtlasTexture_72dis")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_ra4m8")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hm4xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
 }],
 "loop": true,
 "name": &"john",
@@ -79,6 +84,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("8_um0j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fix67")
 }],
 "loop": true,
 "name": &"ungabunga",
@@ -181,15 +189,14 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Anim" type="AnimatedSprite2D" parent="1st" unique_id=1343589574]
-visible = false
+[node name="Anim" type="AnimatedSprite2D" parent="1st" unique_id=289525473]
 z_index = 67
 texture_filter = 1
-position = Vector2(343, 49)
-rotation = -3.1415925
+position = Vector2(340, 50)
+rotation = 3.1415927
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_fix67")
-animation = &"john"
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
 
 [node name="2nd" type="Label" parent="." unique_id=1685811318]
 offset_left = 81.0
@@ -200,15 +207,14 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Anim" type="AnimatedSprite2D" parent="2nd" unique_id=324557772]
-visible = false
+[node name="Anim" type="AnimatedSprite2D" parent="2nd" unique_id=456374494]
 z_index = 67
 texture_filter = 1
-position = Vector2(343, 49.000008)
-rotation = -3.1415925
+position = Vector2(340, 50)
+rotation = 3.1415927
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_fix67")
-animation = &"john"
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
 
 [node name="3rd" type="Label" parent="." unique_id=541288075]
 offset_left = 81.0
@@ -219,15 +225,14 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Anim" type="AnimatedSprite2D" parent="3rd" unique_id=1054691027]
-visible = false
+[node name="Anim" type="AnimatedSprite2D" parent="3rd" unique_id=1543019386]
 z_index = 67
 texture_filter = 1
-position = Vector2(343, 49.000008)
-rotation = -3.1415925
+position = Vector2(340, 50)
+rotation = 3.1415927
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_fix67")
-animation = &"john"
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
 
 [node name="4th" type="Label" parent="." unique_id=1250049]
 offset_left = 81.0
@@ -238,12 +243,11 @@ theme_override_font_sizes/font_size = 50
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Anim" type="AnimatedSprite2D" parent="4th" unique_id=1981697747]
-visible = false
+[node name="Anim" type="AnimatedSprite2D" parent="4th" unique_id=202997814]
 z_index = 67
 texture_filter = 1
-position = Vector2(343, 49.000008)
-rotation = -3.1415925
+position = Vector2(340, 50)
+rotation = 3.1415927
 scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_fix67")
-animation = &"john"
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"

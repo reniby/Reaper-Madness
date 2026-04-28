@@ -22,6 +22,8 @@ func _ready():
 	
 	var labels = [p1,p2,p3,p4]
 	var anims = [a1,a2,a3,a4]
+	for i in anims:
+		i.visible = false
 	for i in Globals.numPlayers:
 		var currScore = Globals.scores[i]
 		var currPlayer = ranked[Globals.scores[i]][0]
