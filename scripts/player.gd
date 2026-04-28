@@ -23,8 +23,14 @@ const JUMP_VELOCITY = -800.0
 @onready var invincible: bool = false
 @onready var trail: Line2D = $Trail
 
+const PLAYER_LAYER = 2
+const COIN_LAYER = 3
 
-const SPIKE_PHYSICS_LAYER = 13
+const WALL_MASK = 1
+const PLAYER_MASK = 2
+const SPIKE_MASK = 3
+
+const SPIKE_PHYSICS_LAYER = 12
 const SPIKE_MOVING_PHSYICS_LAYER = 4
 var tail_obst: Line2D
 
@@ -116,14 +122,12 @@ func death():
 	
 	particles.emitting = false
 	particles.restart()
-	set_collision_layer_value(1, false)
-	set_collision_layer_value(2, false)
-	set_collision_layer_value(3, false)
-	set_collision_layer_value(5, false)
-	set_collision_mask_value(1, false)
-	set_collision_mask_value(2, false)
-	set_collision_mask_value(3, false)
-	set_collision_mask_value(5, false)
+	# Disable all
+	set_collision_layer_value(PLAYER_LAYER, false)
+	set_collision_layer_value(COIN_LAYER, false)
+	set_collision_mask_value(WALL_MASK, false)
+	set_collision_mask_value(PLAYER_MASK, false)
+	set_collision_mask_value(SPIKE_MASK, false)
 	death_timer.start()
 	trail.clear_points()
 	for coll in trail.shapes:
@@ -134,6 +138,10 @@ func _on_death_timer_timeout() -> void:
 	position.x = 0
 	position.y = 0
 	visible = true
+	# Re enable wall and coin
+	set_collision_layer_value(COIN_LAYER, true)
+	set_collision_mask_value(WALL_MASK, true)
+
 	trail.length = trail.starting_length
 	i_timer.start()
 	var tween = get_tree().create_tween()
@@ -142,14 +150,11 @@ func _on_death_timer_timeout() -> void:
 		tween.tween_property(anim, "modulate:a", 1, 0.25)
 		
 func _on_i_timer_timeout() -> void:
-	set_collision_layer_value(1, true)
-	set_collision_layer_value(2, true)
-	set_collision_layer_value(3, true)
-	set_collision_layer_value(5, true)
-	set_collision_mask_value(1, true)
-	set_collision_mask_value(2, true)
-	set_collision_mask_value(3, true)
-	set_collision_mask_value(5, true)
+	pass
+	# Re enable spike, player
+	set_collision_layer_value(PLAYER_LAYER, true)
+	set_collision_mask_value(PLAYER_MASK, true)
+	set_collision_mask_value(SPIKE_MASK, true)
 
 func _on_dash_timer_timeout() -> void:
 	can_dash = true

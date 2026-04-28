@@ -1,5 +1,37 @@
 extends Node
 
+# PLAYER LABELS
+# 1 = walls
+# 2 = player to player
+# 3 = coin
+# 5 = also coin ??
+
+# PLAYER MASKS
+# 1 = walls
+# 2 = player to player
+# 3 = spikes
+
+# COIN MASKS
+# 4 = Respawn on wall
+# 5 ??
+
+# PL1 Moving
+# L: 1 (player) 4 (coin respawn)
+# M: 1 (player)
+
+# PL1 Main
+# L: 1 (player)
+# M: 1 (player)
+
+# PL2 Moving
+# L: 3 --> 4 (Moving physics layer)
+# M: 1 (player)
+
+# PL2 Main
+# L: 3 (??) 4 (coin respawn) --> 12 (Main physics layer)
+# M: 1 (player)
+
+
 var character_input = [{
 	"up": "up_p1", 
 	"down": "down_p1",

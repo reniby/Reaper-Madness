@@ -114,7 +114,7 @@ point_count = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1327456773]
 scale = Vector2(1.2, 1.2)
-collision_layer = 23
+collision_layer = 6
 collision_mask = 7
 script = ExtResource("1_0pet2")
 
