@@ -75,6 +75,7 @@ metadata/_edit_use_anchors_ = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=558196204]
 wait_time = 60.0
+one_shot = true
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1240278015]
 one_shot = true
