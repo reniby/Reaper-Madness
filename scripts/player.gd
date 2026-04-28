@@ -17,6 +17,7 @@ const JUMP_VELOCITY = -800.0
 @onready var hit_particles: CPUParticles2D = $HitParticles
 @onready var shadow_anim: AnimatedSprite2D = $Shadow
 @onready var tail_scene = preload("res://scenes/trail.tscn")
+@onready var death_particles_scene = preload("res://scenes/player_utils/death_particles.tscn")
 @onready var can_drop_tail = true
 @onready var curr_speed = SPEED
 @onready var invincible: bool = false
@@ -104,13 +105,25 @@ func player_controller(delta):
 # Wall layer 2
 # Spike layer 3
 func death():
+	var death_particles = death_particles_scene.instantiate()
+	get_parent().add_child(death_particles)
+	death_particles.position = position
+	death_particles.set_as_top_level(true)
+	death_particles.particles.restart()
+	death_particles.particles.color = Globals.character_skin[Globals.colors[player]]["color"]
 	Globals.superlative_actions[player]['num_deaths'] += 1
 	visible = false
 	
 	particles.emitting = false
 	particles.restart()
+	set_collision_layer_value(1, false)
 	set_collision_layer_value(2, false)
 	set_collision_layer_value(3, false)
+	set_collision_layer_value(5, false)
+	set_collision_mask_value(1, false)
+	set_collision_mask_value(2, false)
+	set_collision_mask_value(3, false)
+	set_collision_mask_value(5, false)
 	death_timer.start()
 	trail.clear_points()
 	for coll in trail.shapes:
@@ -129,8 +142,14 @@ func _on_death_timer_timeout() -> void:
 		tween.tween_property(anim, "modulate:a", 1, 0.25)
 		
 func _on_i_timer_timeout() -> void:
+	set_collision_layer_value(1, true)
 	set_collision_layer_value(2, true)
 	set_collision_layer_value(3, true)
+	set_collision_layer_value(5, true)
+	set_collision_mask_value(1, true)
+	set_collision_mask_value(2, true)
+	set_collision_mask_value(3, true)
+	set_collision_mask_value(5, true)
 
 func _on_dash_timer_timeout() -> void:
 	can_dash = true

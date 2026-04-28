@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://pnji7gjj3xw5"]
+
+[ext_resource type="Script" uid="uid://ud8a4jr2whti" path="res://scenes/player_utils/death_particles.gd" id="1_6flaq"]
+
+[sub_resource type="Curve" id="Curve_nd7ji"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="DeathParticles" type="Node2D" unique_id=1050687752]
+script = ExtResource("1_6flaq")
+
+[node name="particles" type="CPUParticles2D" parent="." unique_id=1952155367]
+scale = Vector2(3, 3)
+emitting = false
+amount = 11
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 180.0
+scale_amount_min = 9.0
+scale_amount_max = 12.0
+scale_amount_curve = SubResource("Curve_nd7ji")

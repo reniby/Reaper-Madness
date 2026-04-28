@@ -108,6 +108,10 @@ frame_2/duration = 0.1
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.353933, 0.362637), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_smehm"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1327456773]
 scale = Vector2(1.2, 1.2)
 collision_layer = 23
@@ -186,6 +190,21 @@ wait_time = 3.0
 wait_time = 0.1
 one_shot = true
 autostart = true
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=989617838]
+scale = Vector2(3, 3)
+emitting = false
+amount = 11
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 120.0
+initial_velocity_max = 180.0
+scale_amount_min = 30.0
+scale_amount_max = 60.0
+scale_amount_curve = SubResource("Curve_smehm")
 
 [connection signal="timeout" from="Timer/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timer/ITimer" to="." method="_on_i_timer_timeout"]
