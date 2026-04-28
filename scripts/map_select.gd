@@ -2,6 +2,7 @@ extends Node2D
 @onready var arrow_l: Sprite2D = $Arrow
 @onready var arrow_r: Sprite2D = $Arrow2
 @onready var ARROW_SCALE = arrow_l.scale
+@onready var rng = RandomNumberGenerator.new()
 
 var map_options = []
 
@@ -32,6 +33,9 @@ func _process(_delta: float) -> void:
 	map_visibility()
 	arrow_ui(left_pressed, right_pressed)
 	if Input.is_action_just_pressed("start"):
+		if Globals.map_idx == len(map_options) - 1:
+			Globals.map_idx = rng.randi_range(0,len(map_options) - 2)
+			map_visibility()
 		get_tree().change_scene_to_file("res://scenes/catfight.tscn")
 
 
