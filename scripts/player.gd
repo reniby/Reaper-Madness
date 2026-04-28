@@ -23,7 +23,7 @@ const JUMP_VELOCITY = -800.0
 @onready var trail: Line2D = $Trail
 
 
-const SPIKE_LAYER = 3
+const SPIKE_PHYSICS_LAYER = 13
 var tail_obst: Line2D
 
 var x_facing = 0
@@ -57,7 +57,7 @@ func _physics_process(delta):
 		var collision = get_last_slide_collision()
 		var rid = collision.get_collider_rid()
 		var layer = PhysicsServer2D.body_get_collision_layer(rid)
-		if layer == (SPIKE_LAYER - 1) ** 2:
+		if layer == SPIKE_PHYSICS_LAYER:
 			death()
 
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * curr_speed * 1.2

@@ -109,7 +109,8 @@ texture = ExtResource("5_dcmha")
 
 [resource]
 physics_layer_0/collision_layer = 9
-physics_layer_1/collision_layer = 12
+physics_layer_1/collision_layer = 13
+physics_layer_1/collision_mask = 5
 sources/0 = SubResource("TileSetAtlasSource_yof7p")
 sources/1 = SubResource("TileSetAtlasSource_n85un")
 sources/2 = SubResource("TileSetAtlasSource_h88le")
