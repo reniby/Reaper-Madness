@@ -251,3 +251,13 @@ rotation = 3.1415927
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
+
+[node name="FadeFromBlack" type="ColorRect" parent="." unique_id=537045442]
+z_index = 4096
+offset_left = -142.0
+offset_top = -56.0
+offset_right = 549.0
+offset_bottom = 337.0
+scale = Vector2(2, 1.909)
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
