@@ -59,10 +59,12 @@ func _process(delta: float) -> void:
 				taken_colors.erase(temp_colors[player])
 			Globals.colors[player] = -1
 		# Leave Game
-		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']):
+		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
 			Globals.numPlayers -= 1
 			player_anims[player].visible = false
 			Globals.players[player] = false
+		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.numPlayers == 0:
+			get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 			if temp_colors[player] in taken_colors:
 				taken_colors.erase(temp_colors[player])
