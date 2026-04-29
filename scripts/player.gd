@@ -81,7 +81,7 @@ func _physics_process(delta):
 			
 	particles.initial_velocity_min = remap(velocity.length(),0, 1000,5,100)
 
-	alt_tail_drop()
+	#alt_tail_drop()
 	if trail.length > trail.starting_length:
 		trail.length = trail.length - (2 * delta)
 
