@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -800.0
 
 @export var player: int
@@ -46,7 +46,7 @@ var count = 0
 func _ready():
 	dir_timer = Timer.new()
 	add_child(dir_timer)
-	dir_timer.wait_time = randf_range(0.3,0.6)
+	dir_timer.wait_time = randf_range(0.6,0.8)
 	dir_timer.one_shot = true
 	dir_timer.start()
 	set_player_color()
@@ -94,8 +94,8 @@ func _physics_process(delta):
 func player_controller(delta):
 	
 	if not dir_timer.time_left:
-		direction = Vector2(rand_dir(), rand_dir()) #Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
-		dir_timer.wait_time = randf_range(0.3,0.6)
+		direction = direction.lerp(Vector2(rand_dir(), rand_dir()),0.8) #Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
+		dir_timer.wait_time = randf_range(0.6,0.8)
 		dir_timer.start()
 	if direction:
 		velocity = velocity.lerp(direction * curr_speed, 5*delta)
@@ -184,9 +184,13 @@ func set_player_color():
 	particles.color = Globals.character_skin[color_idx]['color']
 	hit_particles.color = Globals.character_skin[color_idx]['color']
 	anim.modulate = Globals.character_skin[color_idx]['color']
+	anim.modulate.a = 0.75
+	hit_particles.color.a = 0.75
+	trail.default_color.a = 0.75
+	particles.color.a = 0.75
 	
 func rand_dir():
-	var ranges = [Vector2(-1.0, -0.5), Vector2(0.5, 1.0)]
+	var ranges = [Vector2(-1.0, -0.3), Vector2(0.3, 1.0)]
 	var selected_range = ranges.pick_random() # GDScript 4.x feature
 	var result = randf_range(selected_range.x, selected_range.y)
 	
