@@ -52,12 +52,13 @@ func _physics_process(delta):
 	if start_timer.time_left:
 		return
 	player_controller(delta)
-
+	var temp_vel = velocity
 	move_and_slide()
 	# Collide with player
+	
 	if get_last_slide_collision() != null and get_last_slide_collision().get_collider() is CharacterBody2D:
 		var collision = get_last_slide_collision()
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * curr_speed * 1.2
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * temp_vel.length() * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
@@ -69,7 +70,7 @@ func _physics_process(delta):
 		if layer == SPIKE_PHYSICS_LAYER or layer == SPIKE_MOVING_PHSYICS_LAYER:
 			death()
 
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * curr_speed * 1.2
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * temp_vel.length() * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
