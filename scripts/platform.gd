@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var animatable_body_2d: AnimatableBody2D = $AnimatableBody2D
+@onready var body: AnimatableBody2D = $AnimatableBody2D
 @onready var tilemap: TileMapLayer = $AnimatableBody2D/TileMap
 
 @export var offset: Vector2 = Vector2(0, -320)
@@ -12,9 +12,24 @@ extends Node2D
 @export var e_spike: bool = false
 @export var w_spike: bool = false
 
+var velocity: Vector2
+var direction := 1
+var start: Vector2
+
 func _ready():
 	build_platform()
-	start_tween()
+	start = body.position
+
+func _physics_process(delta):
+	var speed = offset / (duration / 2.0)
+	velocity = speed * direction
+	body.position += velocity * delta
+
+	if direction == 1 and body.position.distance_to(start + offset) < 1:
+		direction = -1
+	elif direction == -1 and body.position.distance_to(start) < 1:
+		direction = 1
+
 
 func build_platform():
 	tilemap.clear()
@@ -48,11 +63,3 @@ func build_platform():
 			tilemap.set_cell(Vector2i(-1, y), 6, Vector2i(3, 0))
 		if e_spike:
 			tilemap.set_cell(Vector2i(size_x, y), 6, Vector2i(2, 0))
-
-func start_tween():
-	var start_pos = animatable_body_2d.position
-	var tween = get_tree().create_tween().set_process_mode(Tween.TWEEN_PROCESS_PHYSICS)
-	
-	tween.tween_property(animatable_body_2d, "position", start_pos + offset, duration / 2.0)
-	tween.tween_property(animatable_body_2d, "position", start_pos, duration / 2.0)
-	tween.finished.connect(start_tween)
