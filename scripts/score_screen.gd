@@ -29,7 +29,7 @@ func _ready():
 		var currPlayer = ranked[Globals.scores[i]][0]
 		ranked[Globals.scores[i]].pop_front() 
 		
-		labels[i].text = "Player " + str(currPlayer) + ": " + str(currScore)
+		labels[i].text = "Player " + str(currPlayer+1) + ": " + str(currScore)
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
 		labels[i].add_theme_color_override("font_color", color)
 		anims[i].play(Globals.character_skin[Globals.colors[currPlayer]]['anim'])
