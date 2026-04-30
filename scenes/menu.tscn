@@ -38,6 +38,29 @@ offset_top = -37.0
 offset_right = 1258.0
 offset_bottom = 716.0
 
+[node name="CharacterBody2D" parent="." unique_id=1327456773 instance=ExtResource("5_4ytvr")]
+position = Vector2(252, 487)
+scale = Vector2(1.44, 1.44)
+script = ExtResource("6_g3eks")
+
+[node name="CharacterBody2D2" parent="." unique_id=412767427 instance=ExtResource("5_4ytvr")]
+position = Vector2(932, 412)
+scale = Vector2(1.44, 1.44)
+script = ExtResource("6_g3eks")
+player = 1
+
+[node name="CharacterBody2D3" parent="." unique_id=273692827 instance=ExtResource("5_4ytvr")]
+position = Vector2(342.99997, 254)
+scale = Vector2(1.44, 1.44)
+script = ExtResource("6_g3eks")
+player = 2
+
+[node name="CharacterBody2D4" parent="." unique_id=297136796 instance=ExtResource("5_4ytvr")]
+position = Vector2(853, 83)
+scale = Vector2(1.44, 1.44)
+script = ExtResource("6_g3eks")
+player = 3
+
 [node name="Play" type="Button" parent="." unique_id=1307405460]
 offset_left = 4.0
 offset_top = 377.0
@@ -107,29 +130,6 @@ texture_filter = 1
 position = Vector2(579, 243)
 scale = Vector2(1.8, 1.8)
 texture = ExtResource("3_con2f")
-
-[node name="CharacterBody2D" parent="." unique_id=1327456773 instance=ExtResource("5_4ytvr")]
-position = Vector2(252, 487)
-scale = Vector2(1.44, 1.44)
-script = ExtResource("6_g3eks")
-
-[node name="CharacterBody2D2" parent="." unique_id=412767427 instance=ExtResource("5_4ytvr")]
-position = Vector2(932, 412)
-scale = Vector2(1.44, 1.44)
-script = ExtResource("6_g3eks")
-player = 1
-
-[node name="CharacterBody2D3" parent="." unique_id=273692827 instance=ExtResource("5_4ytvr")]
-position = Vector2(342.99997, 254)
-scale = Vector2(1.44, 1.44)
-script = ExtResource("6_g3eks")
-player = 2
-
-[node name="CharacterBody2D4" parent="." unique_id=297136796 instance=ExtResource("5_4ytvr")]
-position = Vector2(853, 83)
-scale = Vector2(1.44, 1.44)
-script = ExtResource("6_g3eks")
-player = 3
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1600557249]
 position = Vector2(252, 487)
