@@ -1,5 +1,6 @@
 extends Node2D
-
+#@onready var player_sprites: Node2D = $PlayerSprites
+@onready var player_sprites = [$CharacterBody2D, $CharacterBody2D2, $CharacterBody2D3, $CharacterBody2D4]
 @export var buttons: Array[Button] = []
 @export var scenes: Array[String] = []
 var button_dict = {}
@@ -8,6 +9,11 @@ var num_options: int
 var selected = 0
 
 func _ready():
+	for p in player_sprites:
+		p.trail.length = 50
+		#p.anim.modulate = Globals.character_skin[p.player]['color']
+		#p.trail.modulate = Globals.character_skin[p.player]['color']
+		#p.anim.play(Globals.character_skin[p.player]['anim'])
 	if has_node("FadeFromBlack"):
 		var fade_from_black = $FadeFromBlack
 		var tween = create_tween()
