@@ -18,6 +18,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	var left_pressed = false
 	var right_pressed = false
+
 	for player in range(4):
 		if Globals.players[player]:
 			if Input.is_action_pressed(Globals.character_input[player]['left']):
@@ -29,14 +30,16 @@ func _process(_delta: float) -> void:
 				Globals.map_idx = posmod((Globals.map_idx - 1), len(map_options))
 			if Input.is_action_just_pressed(Globals.character_input[player]['right']):
 				Globals.map_idx = posmod((Globals.map_idx + 1), len(map_options))
+		
+			if Input.is_action_just_pressed(Globals.character_input[player]['dash']):
+				if Globals.map_idx == len(map_options) - 1:
+					Globals.map_idx = rng.randi_range(0,len(map_options) - 2)
+					map_visibility()
+				get_tree().change_scene_to_file("res://scenes/catfight.tscn")
 	
 	map_visibility()
 	arrow_ui(left_pressed, right_pressed)
-	if Input.is_action_just_pressed("start"):
-		if Globals.map_idx == len(map_options) - 1:
-			Globals.map_idx = rng.randi_range(0,len(map_options) - 2)
-			map_visibility()
-		get_tree().change_scene_to_file("res://scenes/catfight.tscn")
+
 
 
 func map_visibility():
