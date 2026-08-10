@@ -1,9 +1,13 @@
 extends Node2D
 @onready var labels: Array[Label] = [$Label,$Label2,$Label3,$Label4]
 @onready var press_play: Label = $PressPlay
+@onready var hold_play: Label = $HoldPlay
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var player_anims: Array[AnimatedSprite2D] = [$PlayerAnim00, $PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 @onready var ARROW_SCALE = player_anims[0].get_child(0).scale
+@onready var dash_held = [0.0, 0.0, 0.0, 0.0]
+@onready var held_min = 3.0
+
 var rng = RandomNumberGenerator.new()
 var shake_strength = 0.0
 var randomStrength = 30.0
@@ -11,6 +15,7 @@ var shakeFade = 5.0
 var temp_colors = [0, 1, 2, 3]
 var taken_colors = [] # 0 - len(character_skin)
 var num_colors = len(Globals.character_skin)
+var held
 
 func apply_shake():
 	shake_strength = randomStrength
@@ -18,10 +23,17 @@ func apply_shake():
 var actions = ['left', 'right', 'up', 'down', 'dash', 'drop']
 
 func _process(delta: float) -> void:
-	for player in range(4): 
+	for player in range(4):
+		if Input.is_action_pressed(Globals.character_input[player]["dash"]):
+			dash_held[player] += delta
+		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
+			dash_held[player] = 0.0
+			hold_play.add_theme_color_override("font_color", Color(1,1,1))
+
 		var color_idx = temp_colors[player]
 		# Joined Game
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
+			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			player_anims[player].visible = true
 			player_anims[player].play()
 			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
@@ -89,8 +101,11 @@ func _process(delta: float) -> void:
 			labels[player].text = ""
 
 	if Globals.numPlayers > 1:
-		press_play.text = "Press X to join!\nPress 'Start' to play!"
-		if Input.is_action_just_pressed("start") and (len(taken_colors) == Globals.numPlayers):
+		press_play.text = "Press X to join!"
+		hold_play.text = "Press and hold X to start game once all players are ready!"
+		if (len(taken_colors) == Globals.numPlayers):
+			hold_play.add_theme_color_override("font_color", Color(1, 1-(dash_held.max()/held_min), 1-(dash_held.max()/held_min)))
+		if dash_held.max() >= held_min and (len(taken_colors) == Globals.numPlayers):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
