@@ -93,8 +93,23 @@ var character_skin = [{
 }
 ]
 
+var reset_timer
 func _ready():
 	resetGlobals()
+	reset_timer = Timer.new()
+	add_child(reset_timer)
+	reset_timer.wait_time = 180.0
+	reset_timer.one_shot = false
+	reset_timer.timeout.connect(_on_reset_timeout)
+	reset_timer.start()
+
+func _process(_delta):
+	if Input.is_anything_pressed():
+		reset_timer.start()
+
+func _on_reset_timeout() -> void:
+	resetGlobals()
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
 
 var numPlayers = 0
 var players = [false,false,false,false]
