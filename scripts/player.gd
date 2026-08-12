@@ -57,6 +57,7 @@ func _physics_process(delta):
 	# Collide with player
 	
 	if get_last_slide_collision() != null and get_last_slide_collision().get_collider() is CharacterBody2D:
+		Globals.player_bonk.play(0.3)
 		var collision = get_last_slide_collision()
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * temp_vel.length() * 1.2
 		hit_particles.global_position = collision.get_position()
@@ -64,6 +65,7 @@ func _physics_process(delta):
 		Globals.superlative_actions[player]['num_bonks'] += 1
 	# Collide with wall
 	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider() is TileMapLayer:
+		Globals.wall_bonk.play(0.2)
 		var collision = get_last_slide_collision()
 		var rid = collision.get_collider_rid()
 		var layer = PhysicsServer2D.body_get_collision_layer(rid)
@@ -95,6 +97,7 @@ func player_controller(delta):
 	else:
 		velocity = velocity.lerp(Vector2(0,0), 5 * delta)
 	if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and can_dash:
+		Globals.dash.play()
 		Globals.superlative_actions[player]['num_dashes'] += 1
 		velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
 		can_dash = false
@@ -112,6 +115,7 @@ func player_controller(delta):
 # Wall layer 2
 # Spike layer 3
 func death():
+	Globals.death.play()
 	var death_particles = death_particles_scene.instantiate()
 	get_parent().add_child(death_particles)
 	death_particles.position = position

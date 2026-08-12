@@ -12,11 +12,13 @@ func _process(_delta: float) -> void:
 			get_tree().change_scene_to_file("res://scenes/menu.tscn")
 		
 		if Input.is_action_just_pressed(Globals.character_input[player]["right"]) and selected != (len(tutorial_pages) - 1):
+			Globals.click.play()
 			var prev = selected
 			selected = (selected + 1) % num_options
 			tutorial_pages[prev].visible = false
 			tutorial_pages[selected].visible = true
 		elif Input.is_action_just_pressed(Globals.character_input[player]["left"]) and selected != 0:
+			Globals.click.play()
 			var prev = selected
 			selected = posmod(selected - 1, num_options)
 			tutorial_pages[prev].visible = false

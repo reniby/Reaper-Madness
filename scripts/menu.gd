@@ -20,6 +20,7 @@ func _ready():
 func _process(_delta):
 	for player in range(4):
 		if Input.is_action_just_pressed(Globals.character_input[player]["up"]):
+			Globals.click.play()
 			var prev = selected
 			selected = posmod(selected - 1, num_options)
 			buttons[selected].grab_focus()
@@ -28,6 +29,7 @@ func _process(_delta):
 			for arrow in buttons[selected].get_children():
 				arrow.visible = true
 		elif Input.is_action_just_pressed(Globals.character_input[player]["down"]):
+			Globals.click.play()
 			var prev = selected
 			selected = (selected + 1) % num_options
 			buttons[selected].grab_focus()
@@ -36,6 +38,7 @@ func _process(_delta):
 			for arrow in buttons[selected].get_children():
 				arrow.visible = true
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
+			Globals.confirm.play()
 			Globals.resetGlobals()
 			get_tree().change_scene_to_file(button_dict[buttons[selected]])
 			if has_node("FadeFromBlack"):

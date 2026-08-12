@@ -22,8 +22,10 @@ func _process(_delta: float) -> void:
 	for player in range(4):
 		if Globals.players[player]:
 			if Input.is_action_pressed(Globals.character_input[player]['left']):
+				Globals.click.play()
 				left_pressed = true
 			if Input.is_action_pressed(Globals.character_input[player]['right']):
+				Globals.click.play()
 				right_pressed = true
 				
 			if Input.is_action_just_pressed(Globals.character_input[player]['left']):
@@ -32,6 +34,7 @@ func _process(_delta: float) -> void:
 				Globals.map_idx = posmod((Globals.map_idx + 1), len(map_options))
 		
 			if Input.is_action_just_pressed(Globals.character_input[player]['dash']):
+				Globals.confirm.play()
 				if Globals.map_idx == len(map_options) - 1:
 					Globals.map_idx = rng.randi_range(0,len(map_options) - 2)
 					map_visibility()

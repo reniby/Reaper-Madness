@@ -31,6 +31,15 @@ extends Node
 # L: 3 (??) 4 (coin respawn) --> 12 (Main physics layer)
 # M: 1 (player)
 
+var click = AudioStreamPlayer.new()
+var confirm = AudioStreamPlayer.new()
+var pickup = AudioStreamPlayer.new()
+var death = AudioStreamPlayer.new()
+var flame_spawn = AudioStreamPlayer.new()
+var player_bonk = AudioStreamPlayer.new()
+var wall_bonk = AudioStreamPlayer.new()
+var dash = AudioStreamPlayer.new()
+
 
 var character_input = [{
 	"up": "up_p1", 
@@ -93,9 +102,30 @@ var character_skin = [{
 }
 ]
 
+var audio_player = AudioStreamPlayer.new()
+
 var reset_timer
 func _ready():
 	resetGlobals()
+	
+	click.stream = preload("res://assets/sound_effects/menu_click.mp3")
+	confirm.stream = preload("res://assets/sound_effects/character_join_confirm.mp3")
+	pickup.stream = preload("res://assets/sound_effects/coin_pickup.mp3")
+	death.stream = preload("res://assets/sound_effects/death.mp3")
+	flame_spawn.stream = preload("res://assets/sound_effects/flame_spawn.mp3")
+	player_bonk.stream = preload("res://assets/sound_effects/player_bonk.mp3")
+	wall_bonk.stream = preload("res://assets/sound_effects/wall_bonk.mp3")
+	dash.stream = preload("res://assets/sound_effects/dashing.mp3")
+	
+	add_child(click)
+	add_child(confirm)
+	add_child(pickup)
+	add_child(death)
+	add_child(flame_spawn)
+	add_child(player_bonk)
+	add_child(wall_bonk)
+	add_child(dash)
+	
 	reset_timer = Timer.new()
 	add_child(reset_timer)
 	reset_timer.wait_time = 180.0

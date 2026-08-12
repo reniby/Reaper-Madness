@@ -27,9 +27,11 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body is CharacterBody2D:
+		Globals.pickup.play()
 		pickup_behavior.call(body)
 		pickup_timer.start()
 	else:
+		Globals.flame_spawn.stop()
 		choose_location()
 		pickup_timer.start()
 	sprite.visible = false
@@ -49,11 +51,13 @@ func show_sprite() -> void:
 
 	sprite.scale = Vector2.ZERO
 	sprite.rotation = 0.0
+	Globals.flame_spawn.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "scale", Vector2.ONE, 0.3)
 	tween.parallel()
 	tween.tween_property(sprite, "rotation", 8.0 * PI, 0.3)
 	await tween.finished
+	
 
 	area.set_collision_mask_value(3, true)
 

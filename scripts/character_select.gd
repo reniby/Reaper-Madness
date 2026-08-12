@@ -6,7 +6,7 @@ extends Node2D
 @onready var player_anims: Array[AnimatedSprite2D] = [$PlayerAnim00, $PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 @onready var ARROW_SCALE = player_anims[0].get_child(0).scale
 @onready var dash_held = [0.0, 0.0, 0.0, 0.0]
-@onready var held_min = 3.0
+@onready var held_min = 1.0
 
 var rng = RandomNumberGenerator.new()
 var shake_strength = 0.0
@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 		var color_idx = temp_colors[player]
 		# Joined Game
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
+			Globals.confirm.play()
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			player_anims[player].visible = true
 			player_anims[player].play()
@@ -52,6 +53,7 @@ func _process(delta: float) -> void:
 				Globals.numPlayers += 1
 		# Selected Color
 		elif Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[player] == -1:
+			Globals.confirm.play()
 			taken_colors.append(temp_colors[player])
 			Globals.colors[player] = temp_colors[player]
 			for child in player_anims[player].get_children(): 
@@ -65,6 +67,7 @@ func _process(delta: float) -> void:
 				
 		# Deselect Color
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.colors[player] != -1:
+			Globals.confirm.play()
 			for child in player_anims[player].get_children(): 
 					child.visible = true
 			if temp_colors[player] in taken_colors:
@@ -72,6 +75,7 @@ func _process(delta: float) -> void:
 			Globals.colors[player] = -1
 		# Leave Game
 		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
+			Globals.confirm.play()
 			Globals.numPlayers -= 1
 			player_anims[player].visible = false
 			Globals.players[player] = false
@@ -84,12 +88,14 @@ func _process(delta: float) -> void:
 		arrowUI(player)
 		
 		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors:
+			Globals.click.play()
 			temp_colors[player] = posmod((temp_colors[player] - 1), num_colors)
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] =  posmod((temp_colors[player] - 1), num_colors)
 			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
 		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors:
+			Globals.click.play()
 			temp_colors[player] = (temp_colors[player] + 1) % num_colors
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] = posmod((temp_colors[player] + 1), num_colors)
