@@ -41,6 +41,8 @@ var player_bonk = AudioStreamPlayer.new()
 var wall_bonk = AudioStreamPlayer.new()
 var dash = AudioStreamPlayer.new()
 
+enum gameModeOptions {SOLO, VERSUS}
+var gameMode = gameModeOptions.VERSUS
 
 var character_input = [{
 	"up": "up_p1", 
@@ -166,6 +168,7 @@ var actions_map = 	{
 var superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]
 
 func resetGlobals():
+	gameMode = gameModeOptions.VERSUS
 	numPlayers = 0
 	players = [false,false,false,false]
 	winner = 0

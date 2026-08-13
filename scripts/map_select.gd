@@ -20,7 +20,7 @@ func _process(_delta: float) -> void:
 	var right_pressed = false
 
 	for player in range(4):
-		if Globals.players[player]:
+		if Globals.players[player] or Globals.gameMode == Globals.gameModeOptions.SOLO:
 			if Input.is_action_pressed(Globals.character_input[player]['left']):
 				left_pressed = true
 			if Input.is_action_pressed(Globals.character_input[player]['right']):
@@ -42,8 +42,6 @@ func _process(_delta: float) -> void:
 	
 	map_visibility()
 	arrow_ui(left_pressed, right_pressed)
-
-
 
 func map_visibility():
 	for i in range(len(map_options)):

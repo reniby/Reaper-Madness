@@ -1,0 +1,167 @@
+[gd_scene format=3 uid="uid://gwvdhdfv7ad2"]
+
+[ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_put6c"]
+[ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="2_1iycs"]
+[ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="3_rc4t7"]
+[ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="4_4arw1"]
+[ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="5_6p086"]
+[ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="6_jtb1n"]
+[ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="7_3gest"]
+[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="8_1ep1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(72, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_72dis"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(108, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(0, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ra4m8"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(144, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hm4xr"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(180, 0, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
+atlas = ExtResource("4_4arw1")
+region = Rect2(36, 0, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uxcyu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1iycs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rc4t7")
+}],
+"loop": true,
+"name": &"cyclops",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}],
+"loop": true,
+"name": &"john",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6p086")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jtb1n")
+}],
+"loop": true,
+"name": &"ungabunga",
+"speed": 5.0
+}]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqh0u"]
+shader = ExtResource("8_1ep1y")
+shader_parameter/alpha = 10.0
+shader_parameter/inner_radius = 0.0
+shader_parameter/outer_radius = 30.0
+shader_parameter/color = Color(0, 0, 0, 1)
+
+[node name="CharacterSelect" type="Node2D" unique_id=1717454599]
+script = ExtResource("1_put6c")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2077013772]
+position = Vector2(576, 325)
+scale = Vector2(2, 1.909)
+
+[node name="PlayerAnim00" type="AnimatedSprite2D" parent="." unique_id=714687960]
+z_index = 67
+texture_filter = 1
+position = Vector2(576.00006, 325)
+rotation = 3.1415927
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_uxcyu")
+animation = &"john"
+
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
+position = Vector2(-32, 0)
+rotation = 3.1415925
+texture = ExtResource("7_3gest")
+
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim00" unique_id=961067334]
+position = Vector2(32, 0)
+texture = ExtResource("7_3gest")
+
+[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
+offset_left = -132.0
+offset_top = -52.0
+offset_right = 559.0
+offset_bottom = 341.0
+scale = Vector2(2.16, 1.909)
+color = Color(0.12549, 0.113725, 0.160784, 1)
+
+[node name="Label" type="Label" parent="." unique_id=937990044]
+offset_left = 447.0
+offset_top = -1.0
+offset_right = 1071.0
+offset_bottom = 351.0
+scale = Vector2(0.44, 0.4)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PressPlay" type="Label" parent="." unique_id=62294375]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 478.0
+offset_right = 666.0
+offset_bottom = 528.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HoldPlay" type="Label" parent="." unique_id=934939786]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 518.0
+offset_top = 529.0
+offset_right = 666.0
+offset_bottom = 579.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=541900675]
+material = SubResource("ShaderMaterial_oqh0u")
+offset_left = -102.0
+offset_top = -39.0
+offset_right = 1274.0
+offset_bottom = 714.0

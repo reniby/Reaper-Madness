@@ -41,6 +41,10 @@ func _process(_delta):
 			Globals.confirm.play()
 			Globals.resetGlobals()
 			get_tree().change_scene_to_file(button_dict[buttons[selected]])
+			if buttons[selected].name == "Play":
+				Globals.gameMode = 1
+			elif buttons[selected].name == "Solo":
+				Globals.gameMode = 0
 			if has_node("FadeFromBlack"):
 				var fade_from_black = $FadeFromBlack
 				fade_from_black.color.a = 1

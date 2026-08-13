@@ -17,8 +17,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Menu" type="Node2D" unique_id=1556549266 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_ybihw")
-buttons = [NodePath("Play"), NodePath("Tutorial")]
-scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/tutorial.tscn"])
+buttons = [NodePath("Play"), NodePath("Solo"), NodePath("Tutorial")]
+scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/tutorial.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=146837343]
 offset_left = -106.0
@@ -43,16 +43,42 @@ offset_bottom = 448.0
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_vjb58")
-text = "play"
+text = "Versus"
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Play" unique_id=440165457]
 texture_filter = 1
-position = Vector2(500, 37)
+position = Vector2(487, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Play" unique_id=2083260806]
+texture_filter = 1
+position = Vector2(656, 37)
+rotation = 3.1415927
+scale = Vector2(2, 2)
+texture = ExtResource("3_mhnvy")
+
+[node name="Solo" type="Button" parent="." unique_id=795268886]
+offset_left = 4.0
+offset_top = 461.0
+offset_right = 1148.0
+offset_bottom = 532.0
+theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxFlat_vjb58")
+text = "Solo"
+flat = true
+
+[node name="Arrow" type="Sprite2D" parent="Solo" unique_id=723257597]
+visible = false
+texture_filter = 1
+position = Vector2(504, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_mhnvy")
+
+[node name="Arrow2" type="Sprite2D" parent="Solo" unique_id=271341702]
+visible = false
 texture_filter = 1
 position = Vector2(640, 37)
 rotation = 3.1415927
@@ -61,9 +87,9 @@ texture = ExtResource("3_mhnvy")
 
 [node name="Tutorial" type="Button" parent="." unique_id=1454431461]
 offset_left = 5.0
-offset_top = 495.0
+offset_top = 546.0
 offset_right = 1152.0
-offset_bottom = 566.0
+offset_bottom = 617.0
 theme_override_colors/font_color = Color(0.8745098, 0.8745098, 0.8745098, 0.49019608)
 theme_override_font_sizes/font_size = 50
 theme_override_styles/focus = SubResource("StyleBoxFlat_vjb58")
