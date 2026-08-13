@@ -65,12 +65,13 @@ func _physics_process(delta):
 		Globals.superlative_actions[player]['num_bonks'] += 1
 	# Collide with wall
 	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider() is TileMapLayer:
-		Globals.wall_bonk.play(0.2)
 		var collision = get_last_slide_collision()
 		var rid = collision.get_collider_rid()
 		var layer = PhysicsServer2D.body_get_collision_layer(rid)
 		if layer == SPIKE_PHYSICS_LAYER or layer == SPIKE_MOVING_PHSYICS_LAYER:
 			death()
+		else:
+			Globals.wall_bonk.play(0.2)
 
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * temp_vel.length() * 1.2
 		hit_particles.global_position = collision.get_position()
@@ -143,6 +144,7 @@ func _on_death_timer_timeout() -> void:
 	position.x = 0
 	position.y = 0
 	visible = true
+	Globals.player_spawn.play(0.2)
 	# Re enable wall and coin
 	set_collision_layer_value(COIN_LAYER, true)
 	set_collision_mask_value(WALL_MASK, true)
