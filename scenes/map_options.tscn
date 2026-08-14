@@ -60,7 +60,6 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Movement" type="TileMapLayer" parent="." unique_id=576588319]
-visible = false
 texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.2, 1.2)
@@ -92,11 +91,17 @@ scale = Vector2(0.8333333, 0.8333333)
 size_x = 3
 size_y = 3
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Movement/Platform" unique_id=1207683545]
+position = Vector2(0, -1)
+vertices = PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0)
+
 [node name="Platform2" parent="Movement" unique_id=1816260743 instance=ExtResource("5_f6dgi")]
 position = Vector2(257.5, -121.666664)
 offset = Vector2(0, 300)
 duration = 3.0
 size_x = 5
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Movement/Platform2" unique_id=1350040145]
 
 [node name="Platform3" parent="Movement" unique_id=375583107 instance=ExtResource("5_f6dgi")]
 position = Vector2(255.83333, 133.33334)
@@ -105,13 +110,18 @@ duration = 6.0
 size_x = 2
 size_y = 3
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Movement/Platform3" unique_id=898201023]
+
 [node name="Platform4" parent="Movement" unique_id=136324811 instance=ExtResource("5_f6dgi")]
 position = Vector2(-262.5, -150.83331)
 offset = Vector2(150, 0)
 duration = 3.0
 size_x = 2
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="Movement/Platform4" unique_id=840174005]
+
 [node name="SpikeyMovement" type="TileMapLayer" parent="." unique_id=540558244]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.2, 1.2)
@@ -144,11 +154,15 @@ n_spike = true
 s_spike = true
 w_spike = true
 
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="SpikeyMovement/Platform" unique_id=291979163]
+
 [node name="Platform2" parent="SpikeyMovement" unique_id=1732494170 instance=ExtResource("5_f6dgi")]
 position = Vector2(-287.5, 141.66666)
 n_spike = true
 s_spike = true
 e_spike = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="SpikeyMovement/Platform2" unique_id=1719087833]
 
 [node name="Platform3" parent="SpikeyMovement" unique_id=1405440225 instance=ExtResource("5_f6dgi")]
 position = Vector2(314.16666, 4.1666665)
@@ -157,6 +171,8 @@ n_spike = true
 s_spike = true
 e_spike = true
 w_spike = true
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="SpikeyMovement/Platform3" unique_id=221956521]
 
 [node name="Ls" type="TileMapLayer" parent="." unique_id=1458024550]
 visible = false

@@ -206,7 +206,19 @@ scale_amount_min = 30.0
 scale_amount_max = 60.0
 scale_amount_curve = SubResource("Curve_smehm")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1274178923]
+path_desired_distance = 5.0
+target_desired_distance = 5.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 50.0
+avoidance_mask = 2
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
 [connection signal="timeout" from="Timer/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timer/ITimer" to="." method="_on_i_timer_timeout"]
 [connection signal="timeout" from="Timer/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_bot_velocity_computed"]

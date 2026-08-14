@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -800.0
 @onready var dash_timer: Timer = $Timer/DashTimer
 @onready var speed_timer: Timer = $Timer/SpeedTimer
 @onready var start_timer: Timer = $Timer/StartTimer
+@onready var navigation: NavigationAgent2D = $NavigationAgent2D
 
 @onready var camera = $"../Camera2D"
 @onready var anim: AnimatedSprite2D = $Anim
@@ -48,8 +49,7 @@ var count = 0
 func _ready():
 	set_player_color(player)
 	Globals.scores[player] = 0
-	
-	
+	navigation.max_speed = SPEED
 
 func _physics_process(delta):
 	if start_timer.time_left:
@@ -208,5 +208,20 @@ func set_player_color(player_idx):
 	hit_particles.color = Globals.character_skin[color_idx]['color']
 	anim.modulate = Globals.character_skin[color_idx]['color']
 
-func bot_controller(delta):
-	velocity = Vector2(randf_range(-200,200),randf_range(-200,200))
+func bot_controller(_delta):
+	# Bot Movement
+	var mouse_position = get_global_mouse_position()
+	navigation.target_position = mouse_position
+	
+	var curr_pos = global_position
+	var next_pos = navigation.get_next_path_position()
+	var new_vel = curr_pos.direction_to(next_pos) * SPEED
+	
+	if navigation.avoidance_enabled:
+		navigation.set_velocity(new_vel)
+	else:
+		_on_bot_velocity_computed(new_vel)
+
+func _on_bot_velocity_computed(safe_velocity: Vector2) -> void:
+	if bot:
+		velocity = safe_velocity

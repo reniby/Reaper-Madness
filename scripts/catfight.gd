@@ -95,5 +95,3 @@ func spawn_player(bot = false, player = 0):
 	child.global_position = player_positions[player]
 	add_child(child)
 	players.append(child)
-	
-		

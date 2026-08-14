@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var body: AnimatableBody2D = $AnimatableBody2D
 @onready var tilemap: TileMapLayer = $AnimatableBody2D/TileMap
+#@onready var obstacle: NavigationObstacle2D = $NavigationObstacle2D
 
 @export var offset: Vector2 = Vector2(0, -320)
 @export var duration: float = 5.0
@@ -12,6 +13,9 @@ extends Node2D
 @export var e_spike: bool = false
 @export var w_spike: bool = false
 
+const PIXEL_WIDTH = 16
+const PIXEL_HEIGHT = 16
+
 var velocity: Vector2
 var direction := 1
 var start: Vector2
@@ -19,11 +23,16 @@ var start: Vector2
 func _ready():
 	build_platform()
 	start = body.position
+	#obstacle.radius = PIXEL_WIDTH / 2.0 * min(size_x, size_y)
+
 
 func _physics_process(delta):
 	var speed = offset / (duration / 2.0)
 	velocity = speed * direction
 	body.position += velocity * delta
+
+	#obstacle.position = body.position + Vector2(size_x * PIXEL_WIDTH / 2.0, size_y * PIXEL_HEIGHT / 2.0)
+	#obstacle.radius = 10
 
 	if direction == 1 and body.position.distance_to(start + offset) < 1:
 		direction = -1
@@ -52,6 +61,7 @@ func build_platform():
 				y_atlas = vertical[2]
 			
 			tilemap.set_cell(Vector2i(x, y), 2, Vector2i(x_atlas, y_atlas))
+			
 	
 	for x in range(size_x):
 		if n_spike:
