@@ -201,7 +201,10 @@ func solo_process(delta):
 			temp_colors[solo_player] = (temp_colors[solo_player] + 1) % num_colors
 			player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
 			player_anims[solo_player].play(Globals.character_skin[temp_colors[solo_player]]['anim'])
-
+	
+	for i in range(1,4):
+		temp_colors[i] = (temp_colors[solo_player] + i) % num_colors
+	
 	if Globals.colors[solo_player] != -1:
 		press_play.text = "Press X to select color!"
 		hold_play.text = "Press and hold X to start game!"

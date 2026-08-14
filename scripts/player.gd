@@ -3,7 +3,8 @@ extends CharacterBody2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -800.0
 
-@export var player: int
+@export var player: Variant
+@export var bot: bool
 @onready var death_timer: Timer = $Timer/DeathTimer
 @onready var i_timer: Timer = $Timer/ITimer
 @onready var dash_timer: Timer = $Timer/DashTimer
@@ -22,6 +23,7 @@ const JUMP_VELOCITY = -800.0
 @onready var curr_speed = SPEED
 @onready var invincible: bool = false
 @onready var trail: Line2D = $Trail
+@onready var direction = Vector2(0,0)
 
 const PLAYER_LAYER = 2
 const COIN_LAYER = 3
@@ -47,11 +49,15 @@ func _ready():
 	set_player_color(player)
 	Globals.scores[player] = 0
 	
+	
 
 func _physics_process(delta):
 	if start_timer.time_left:
 		return
-	player_controller(delta)
+	if not bot:
+		player_controller(delta)
+	else:
+		bot_controller(delta)
 	var temp_vel = velocity
 	move_and_slide()
 	# Collide with player
@@ -91,13 +97,32 @@ func _physics_process(delta):
 
 
 func player_controller(delta):
-	var direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
+	
+	if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		direction = Vector2(0,0)
+		for i in range(4):
+			var temp_direction = Input.get_vector(Globals.character_input[i]["left"], Globals.character_input[i]["right"], Globals.character_input[i]["up"], Globals.character_input[i]["down"])
+			if temp_direction != Vector2(0,0):
+				direction = temp_direction
+	else:
+		direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
+	
 	if direction:
 		velocity = velocity.lerp(direction * curr_speed, 5*delta)
 		Globals.superlative_actions[player]['dist_traveled'] += velocity.length() * delta
 	else:
 		velocity = velocity.lerp(Vector2(0,0), 5 * delta)
-	if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and can_dash:
+		
+	var dashing = false
+	if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		for i in range(4):
+			if Input.is_action_just_pressed(Globals.character_input[i]["dash"]):
+				dashing = true
+	else:
+		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]):
+			dashing = true
+		
+	if dashing and can_dash:
 		Globals.dash.play()
 		Globals.superlative_actions[player]['num_dashes'] += 1
 		velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
@@ -171,79 +196,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and get_parent().player != body.player and not invincible:
 		body.death()
 
-func tail_drop():
-	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
-		can_drop_tail = false
-		tail_obst = tail_scene.instantiate()
-		tail_obst.texture = trail.texture
-		tail_obst.width = trail.width
-		tail_obst.texture_mode = trail.texture_mode
-		tail_obst.default_color = trail.default_color
-		get_parent().add_child(tail_obst)
-		tail_obst.z_index = 100
-		tail_obst.player = player
-		var tail_obst_shapes = []
-		for i in range(1,len(trail.points)):
-			tail_obst.add_point(trail.points[i])
-			var shape = CollisionShape2D.new()
-			tail_obst.area.add_child(shape)
-			var segment = SegmentShape2D.new()
-			segment.a = trail.points[i-1]
-			segment.b = trail.points[i]
-			shape.shape = segment
-			tail_obst_shapes.append(shape)
-		
-		await get_tree().create_timer(1.0).timeout
-		
-		while tail_obst.points.size() > 0 and is_instance_valid(tail_obst):
-			tail_obst_shapes.pop_at(0).queue_free()
-			tail_obst_shapes.pop_at(len(tail_obst.shapes)-1).queue_free()
-			tail_obst.remove_point(0) 
-			
-			tail_obst.remove_point(len(tail_obst.points) - 1)
-			await get_tree().create_timer(0.05).timeout 
-		
-		if is_instance_valid(tail_obst):
-			can_drop_tail = true
-			tail_obst.queue_free()
-			
-			
-func alt_tail_drop():
-	var highlight_color = 'cyan'
-	
-	if Input.is_action_just_pressed(Globals.character_input[player]["drop"]) and can_drop_tail:
-		can_drop_tail = false
-		tail_obst = tail_scene.instantiate()
-		tail_obst.texture = trail.texture
-		tail_obst.width = trail.width
-		tail_obst.texture_mode = trail.texture_mode
-		tail_obst.default_color = highlight_color
-		tail_obst.length = 1
-		add_child(tail_obst)
-		tail_obst.player = player
-		
-	if Input.is_action_pressed(Globals.character_input[player]["drop"]):
-		if is_instance_valid(tail_obst) and tail_obst.length < trail.length:
-			tail_obst.length += 0.3
-	
-	if Input.is_action_just_released(Globals.character_input[player]["drop"]) and is_instance_valid(tail_obst):
-		trail.length = max(trail.length - tail_obst.length, trail.starting_length)
-		tail_obst.z_index = 3
-		tail_obst.reparent(get_parent())
-		tail_obst.default_color = Globals.character_skin[Globals.colors[player]]["color"]
-		await get_tree().create_timer(1.0).timeout
-		
-		while is_instance_valid(tail_obst) and tail_obst.points.size() > 1:
-			tail_obst.remove_point(0) 
-			tail_obst.shapes.pop_at(0).queue_free()
-			tail_obst.remove_point(len(tail_obst.points) - 1)
-			tail_obst.shapes.pop_at(len(tail_obst.shapes) - 1).queue_free()
-			await get_tree().create_timer(0.05).timeout 
-		
-		if is_instance_valid(tail_obst):
-			can_drop_tail = true
-			tail_obst.queue_free()
-
 func _on_speed_timer_timeout() -> void:
 	curr_speed = SPEED
 	
@@ -255,3 +207,6 @@ func set_player_color(player_idx):
 	particles.color = Globals.character_skin[color_idx]['color']
 	hit_particles.color = Globals.character_skin[color_idx]['color']
 	anim.modulate = Globals.character_skin[color_idx]['color']
+
+func bot_controller(delta):
+	velocity = Vector2(randf_range(-200,200),randf_range(-200,200))

@@ -42,7 +42,9 @@ func _ready():
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
 	#add_child(child)
-
+	if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		Globals.numPlayers = 4
+		
 	for i in range(Globals.numPlayers-1):
 		child = pickup_scene.instantiate()
 		child.pickup_type = "Coin"
@@ -50,16 +52,19 @@ func _ready():
 
 	for i in range(len(Globals.players)):
 		if Globals.players[i]:
-			child = player_scene.instantiate()
-			child.player = i
-			add_child(child)
-			child.global_position = player_positions[i]
-			players.append(child)
+			spawn_player(false, i)
+	
+	if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		spawn_player()
+		for i in range(1,4):
+			spawn_player(true, i)
+			
+				
 
 func _process(_delta):
 	DisplayServer.window_set_title(title + " | fps: " + str(Engine.get_frames_per_second()))
 	for i in range(len(Globals.scores)):
-		if Globals.players[i]:
+		if Globals.players[i] or (Globals.gameMode == Globals.gameModeOptions.SOLO):
 			player_scores[i].text = str(Globals.scores[i])
 
 func _on_game_timer_timeout() -> void:
@@ -82,3 +87,13 @@ func _on_post_timer_timeout() -> void:
 	Engine.time_scale = 1
 	fade2black.color.a = 0.0
 	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
+	
+func spawn_player(bot = false, player = 0):
+	var child = player_scene.instantiate()
+	child.bot = bot
+	child.player = player
+	child.global_position = player_positions[player]
+	add_child(child)
+	players.append(child)
+	
+		
