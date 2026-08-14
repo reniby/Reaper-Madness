@@ -40,6 +40,7 @@ var tail_obst: Line2D
 var x_facing = 0
 var y_facing = 0
 var can_dash = true
+var first_time = true
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -47,9 +48,12 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var count = 0
 
 func _ready():
+
 	set_player_color(player)
 	Globals.scores[player] = 0
 	navigation.max_speed = SPEED
+	if bot:
+		Globals.coin_spawned.connect(_on_coin_spawned)
 
 func _physics_process(delta):
 	if start_timer.time_left:
@@ -210,9 +214,8 @@ func set_player_color(player_idx):
 
 func bot_controller(_delta):
 	# Bot Movement
-	var mouse_position = get_global_mouse_position()
-	navigation.target_position = mouse_position
-	
+	#var mouse_position = get_global_mouse_position()
+	#navigation.target_position = mouse_position
 	var curr_pos = global_position
 	var next_pos = navigation.get_next_path_position()
 	var new_vel = curr_pos.direction_to(next_pos) * SPEED
@@ -225,3 +228,8 @@ func bot_controller(_delta):
 func _on_bot_velocity_computed(safe_velocity: Vector2) -> void:
 	if bot:
 		velocity = safe_velocity
+		
+func _on_coin_spawned(coin_position):
+	if navigation.distance_to_target() > position.distance_to(coin_position) or first_time or velocity == Vector2(0,0):
+		navigation.target_position = coin_position
+		first_time = false

@@ -43,6 +43,7 @@ var dash = AudioStreamPlayer.new()
 
 enum gameModeOptions {SOLO, VERSUS}
 var gameMode = gameModeOptions.VERSUS
+signal coin_spawned(coin_pos)
 
 var character_input = [{
 	"up": "up_p1", 

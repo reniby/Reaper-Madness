@@ -46,6 +46,7 @@ func _on_coin_timer_timeout() -> void:
 
 func show_sprite() -> void:
 	sprite.visible = true
+	Globals.coin_spawned.emit(position)
 	particles.emitting = true
 	particles.visible = true
 
@@ -58,6 +59,7 @@ func show_sprite() -> void:
 	tween.tween_property(sprite, "rotation", 8.0 * PI, 0.3)
 	await tween.finished
 	
+	
 
 	area.set_collision_mask_value(3, true)
 
@@ -65,6 +67,7 @@ func choose_location():
 	var x = rng.randf_range(-max_x, max_x)
 	var y = rng.randf_range(-max_y, max_y)
 	position = Vector2(x, y)
+	
 
 func coin_behavior(playerBody):
 	if playerBody.trail.length <= playerBody.trail.max_length:
