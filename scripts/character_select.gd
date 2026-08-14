@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 	elif Globals.gameMode == Globals.gameModeOptions.SOLO:
 		solo_process(delta)
 	
-	if shake_strength > 0:
+	if shake_strength > 0 and not held:
 		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
 		camera_2d.offset = random_offset()
 		
@@ -63,12 +63,16 @@ func versus_process(delta):
 		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
 			dash_held[player] = 0.0
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
+			camera_2d.offset = Vector2(0,0)
+			held = false
 
 		var color_idx = temp_colors[player]
 		# Joined Game, only versus
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
 			Globals.confirm.play()
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
+			camera_2d.offset = Vector2(0,0)
+			held = false
 			player_anims[player].visible = true
 			player_anims[player].play()
 			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
@@ -147,6 +151,7 @@ func versus_process(delta):
 		hold_play.text = "Press and hold X to start game once all players are ready!"
 		if (len(taken_colors) == Globals.numPlayers):
 			hold_play.add_theme_color_override("font_color", Color(1, 1-(dash_held.max()/held_min), 1-(dash_held.max()/held_min)))
+			start_game_shake()
 		if dash_held.max() >= held_min and (len(taken_colors) == Globals.numPlayers):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
@@ -163,6 +168,8 @@ func solo_process(delta):
 		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
 			dash_held[player] = 0.0
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
+			held = false
+			camera_2d.offset = Vector2(0,0)
 		
 		# Select Color
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[solo_player] == -1:
@@ -208,10 +215,16 @@ func solo_process(delta):
 	if Globals.colors[solo_player] != -1:
 		press_play.text = "Press X to select color!"
 		hold_play.text = "Press and hold X to start game!"
+		start_game_shake()
 		hold_play.add_theme_color_override("font_color", Color(1, 1 - (dash_held.max() / held_min), 1 - (dash_held.max() / held_min)))
+		
 		if dash_held.max() >= held_min:
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
 		press_play.text = "Press X to select color!"
 		hold_play.text = ""
+		
+func start_game_shake():
+	held = true
+	camera_2d.offset = Vector2(rng.randf_range(-dash_held.max() * randomStrength / 2,dash_held.max() * randomStrength / 2),rng.randf_range(-dash_held.max() * randomStrength / 2,dash_held.max() * randomStrength / 2))
