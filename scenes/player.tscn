@@ -116,6 +116,8 @@ point_count = 2
 scale = Vector2(1.2, 1.2)
 collision_layer = 6
 collision_mask = 7
+motion_mode = 1
+safe_margin = 2.0
 script = ExtResource("1_0pet2")
 
 [node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=1197259949]

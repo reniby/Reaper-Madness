@@ -131,3 +131,4 @@ texture_filter = 1
 texture_repeat = 1
 tile_map_data = PackedByteArray("AAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP//AAAAAAAAAAD/////AAAAAAAAAAD+/wAAAAAAAAAAAAD+////AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_apxtv")
+use_kinematic_bodies = true
