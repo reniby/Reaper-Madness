@@ -5,13 +5,15 @@ extends Node2D
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var player_anims: Array[AnimatedSprite2D] = [$PlayerAnim00]
 @onready var ARROW_SCALE = player_anims[0].get_child(0).scale
+@onready var dash_started = [0.0, 0.0, 0.0, 0.0]
 @onready var dash_held = [0.0, 0.0, 0.0, 0.0]
-@onready var held_min = 1.0
+@onready var held_min = 1000.0
 
 var mode = 1 #0 for solo, 1 for versus
 var rng = RandomNumberGenerator.new()
 var shake_strength = 0.0
 var randomStrength = 30.0
+var holdRandomStrength = 12.0 / 1000.0
 var shakeFade = 5.0
 var temp_colors = [0, 1, 2, 3]
 var taken_colors = [] # 0 - len(character_skin)
@@ -55,12 +57,15 @@ func arrow_ui(player, locked_player):
 		player_anims[locked_player].get_child(1).scale = ARROW_SCALE
 		player_anims[locked_player].get_child(1).modulate.a = 0.8
 
-func versus_process(delta):
+func versus_process(_delta):
 	for player in range(4):
 		# Hold to Start
-		if Input.is_action_pressed(Globals.character_input[player]["dash"]):
-			dash_held[player] += delta
+		if Input.is_action_pressed(Globals.character_input[player]["dash"]) and dash_started[player] == 0:
+			dash_started[player] = Time.get_ticks_msec()
+		elif Input.is_action_pressed(Globals.character_input[player]["dash"]):
+			dash_held[player] = Time.get_ticks_msec() - dash_started[player]
 		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
+			dash_started[player] = 0.0
 			dash_held[player] = 0.0
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			camera_2d.offset = Vector2(0,0)
@@ -150,7 +155,7 @@ func versus_process(delta):
 		press_play.text = "Press X to join!"
 		hold_play.text = "Press and hold X to start game once all players are ready!"
 		if (len(taken_colors) == Globals.numPlayers):
-			hold_play.add_theme_color_override("font_color", Color(1, 1-(dash_held.max()/held_min), 1-(dash_held.max()/held_min)))
+			hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("16aa00ff"), (dash_held.max() / held_min)))
 			start_game_shake()
 		if dash_held.max() >= held_min and (len(taken_colors) == Globals.numPlayers):
 			Globals.colors = temp_colors
@@ -158,19 +163,25 @@ func versus_process(delta):
 	else:
 		press_play.text = "Press X to join!"
 
-func solo_process(delta):
+func solo_process(_delta):
 	var solo_player = 0
 	
 	for player in range(4):
 		# Hold to Start
-		if Input.is_action_pressed(Globals.character_input[player]["dash"]):
-			dash_held[player] += delta
-		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
-			dash_held[player] = 0.0
+		if Input.is_action_pressed(Globals.character_input[player]["dash"]) and dash_started[player] == 0:
+			dash_started[player] = Time.get_ticks_msec()
+		elif Input.is_action_pressed(Globals.character_input[player]["dash"]):
+			dash_held[player] = Time.get_ticks_msec() - dash_started[player]
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			held = false
 			camera_2d.offset = Vector2(0,0)
-		
+		elif Input.is_action_just_released(Globals.character_input[player]["dash"]):
+			dash_started[player] = 0.0
+			dash_held[player] = 0.0
+			hold_play.add_theme_color_override("font_color", Color(1,1,1))
+			camera_2d.offset = Vector2(0,0)
+			held = false
+
 		# Select Color
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[solo_player] == -1:
 			apply_shake()
@@ -216,7 +227,7 @@ func solo_process(delta):
 		press_play.text = "Press X to select color!"
 		hold_play.text = "Press and hold X to start game!"
 		start_game_shake()
-		hold_play.add_theme_color_override("font_color", Color(1, 1 - (dash_held.max() / held_min), 1 - (dash_held.max() / held_min)))
+		hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("1baa02ff"), (dash_held.max() / held_min)))
 		
 		if dash_held.max() >= held_min:
 			Globals.colors = temp_colors
@@ -227,4 +238,4 @@ func solo_process(delta):
 		
 func start_game_shake():
 	held = true
-	camera_2d.offset = Vector2(rng.randf_range(-dash_held.max() * randomStrength / 2,dash_held.max() * randomStrength / 2),rng.randf_range(-dash_held.max() * randomStrength / 2,dash_held.max() * randomStrength / 2))
+	camera_2d.offset = Vector2(rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2),rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2))

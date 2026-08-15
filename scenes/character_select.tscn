@@ -104,7 +104,6 @@ rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"cyclops"
-frame_progress = 0.43101892
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
 position = Vector2(-32, 0)

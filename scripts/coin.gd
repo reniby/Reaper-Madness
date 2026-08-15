@@ -30,6 +30,8 @@ func _on_area_2d_body_entered(body: Node) -> void:
 		Globals.pickup.play()
 		pickup_behavior.call(body)
 		pickup_timer.start()
+		Globals.coin_change.emit()
+		Globals.coin_positions.erase(self)
 	else:
 		Globals.flame_spawn.stop()
 		choose_location()
@@ -46,7 +48,8 @@ func _on_coin_timer_timeout() -> void:
 
 func show_sprite() -> void:
 	sprite.visible = true
-	Globals.coin_spawned.emit(position)
+	Globals.coin_change.emit()
+	Globals.coin_positions.append(self)
 	particles.emitting = true
 	particles.visible = true
 
@@ -58,8 +61,6 @@ func show_sprite() -> void:
 	tween.parallel()
 	tween.tween_property(sprite, "rotation", 8.0 * PI, 0.3)
 	await tween.finished
-	
-	
 
 	area.set_collision_mask_value(3, true)
 

@@ -25,6 +25,7 @@ const JUMP_VELOCITY = -800.0
 @onready var invincible: bool = false
 @onready var trail: Line2D = $Trail
 @onready var direction = Vector2(0,0)
+@onready var coin_positions = []
 
 const PLAYER_LAYER = 2
 const COIN_LAYER = 3
@@ -41,32 +42,43 @@ var x_facing = 0
 var y_facing = 0
 var can_dash = true
 var first_time = true
+var bouncing = false
 
+var bounce_timer = 0.0
+const BOUNCE_TIME = 0.15
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var count = 0
 
 func _ready():
-
+	if bot:
+		Globals.coin_change.connect(_on_coin_change)
 	set_player_color(player)
 	Globals.scores[player] = 0
 	navigation.max_speed = SPEED
-	if bot:
-		Globals.coin_spawned.connect(_on_coin_spawned)
+	find_closest_coin()
 
 func _physics_process(delta):
 	if start_timer.time_left:
 		return
+
+	# Bounce timer
+	if bounce_timer > 0:
+		bounce_timer -= delta
+
 	if not bot:
 		player_controller(delta)
 	else:
 		bot_controller(delta)
 	var temp_vel = velocity
 	move_and_slide()
-	# Collide with player
 	
+	# Collide with player
 	if get_last_slide_collision() != null and get_last_slide_collision().get_collider() is CharacterBody2D:
+		if bot: 
+			bouncing = true
+			bounce_timer = BOUNCE_TIME
 		Globals.player_bonk.play(0.3)
 		var collision = get_last_slide_collision()
 		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * temp_vel.length() * 1.2
@@ -75,6 +87,9 @@ func _physics_process(delta):
 		Globals.superlative_actions[player]['num_bonks'] += 1
 	# Collide with wall
 	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider() is TileMapLayer:
+		if bot:
+			bouncing = true
+			bounce_timer = BOUNCE_TIME
 		var collision = get_last_slide_collision()
 		var rid = collision.get_collider_rid()
 		var layer = PhysicsServer2D.body_get_collision_layer(rid)
@@ -213,6 +228,9 @@ func set_player_color(player_idx):
 	anim.modulate = Globals.character_skin[color_idx]['color']
 
 func bot_controller(_delta):
+	if bounce_timer > 0:
+		return
+
 	# Bot Movement
 	#var mouse_position = get_global_mouse_position()
 	#navigation.target_position = mouse_position
@@ -226,10 +244,24 @@ func bot_controller(_delta):
 		_on_bot_velocity_computed(new_vel)
 
 func _on_bot_velocity_computed(safe_velocity: Vector2) -> void:
-	if bot:
+	if bot and bounce_timer <= 0:
 		velocity = safe_velocity
-		
-func _on_coin_spawned(coin_position):
-	if navigation.distance_to_target() > position.distance_to(coin_position) or first_time or velocity == Vector2(0,0):
-		navigation.target_position = coin_position
-		first_time = false
+
+func _on_coin_change():
+	find_closest_coin()
+
+func find_closest_coin():
+	if Globals.coin_positions.is_empty():
+		return
+
+	var closest_coin = Globals.coin_positions[0]
+	var closest_distance = global_position.distance_to(closest_coin.global_position)
+
+	for coin in Globals.coin_positions:
+		var distance = global_position.distance_to(coin.global_position)
+
+		if distance < closest_distance:
+			closest_coin = coin
+			closest_distance = distance
+
+	navigation.target_position = closest_coin.global_position
