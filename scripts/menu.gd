@@ -2,12 +2,15 @@ extends Node2D
 
 @export var buttons: Array[Button] = []
 @export var scenes: Array[String] = []
+@export var solo_scenes: Array[String] = []
 var button_dict = {}
 var num_options: int
 
 var selected = 0
 
 func _ready():
+	if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		scenes = solo_scenes
 	if has_node("FadeFromBlack"):
 		var fade_from_black = $FadeFromBlack
 		var tween = create_tween()

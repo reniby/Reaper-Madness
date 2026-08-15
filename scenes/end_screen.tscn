@@ -97,6 +97,7 @@ animations = [{
 script = ExtResource("1_87vmq")
 buttons = [NodePath("Replay"), NodePath("Menu")]
 scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
+solo_scenes = Array[String](["res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=1735164561]
 offset_left = -132.0

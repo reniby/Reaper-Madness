@@ -171,7 +171,7 @@ var superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actio
 
 func resetGlobals():
 	coin_positions = []
-	gameMode = gameModeOptions.VERSUS
+	#gameMode = gameModeOptions.VERSUS
 	numPlayers = 0
 	players = [false,false,false,false]
 	winner = 0

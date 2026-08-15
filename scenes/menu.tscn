@@ -19,6 +19,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 script = ExtResource("1_ybihw")
 buttons = [NodePath("Play"), NodePath("Solo"), NodePath("Tutorial")]
 scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/tutorial.tscn"])
+solo_scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/tutorial.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=146837343]
 offset_left = -106.0
