@@ -43,6 +43,7 @@ var y_facing = 0
 var can_dash = true
 var first_time = true
 var bouncing = false
+var starting_position
 
 var bounce_timer = 0.0
 const BOUNCE_TIME = 0.15
@@ -52,6 +53,7 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 var count = 0
 
 func _ready():
+	global_position = starting_position
 	if bot:
 		Globals.coin_change.connect(_on_coin_change)
 	set_player_color(player)
@@ -126,7 +128,7 @@ func player_controller(delta):
 	else:
 		direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
 	
-	if direction:
+	if direction and not death_timer.time_left:
 		velocity = velocity.lerp(direction * curr_speed, 5*delta)
 		Globals.superlative_actions[player]['dist_traveled'] += velocity.length() * delta
 	else:
@@ -151,10 +153,10 @@ func player_controller(delta):
 		var tween = get_tree().create_tween()
 		tween.tween_property(anim, "modulate", Color.RED, 0.5)
 		tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
-		
-	anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-	shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-	collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+	if not death_timer.time_left:
+		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 
 # Trail layer 2 (on area entered = death)
 # Wall layer 2
@@ -185,9 +187,10 @@ func death():
 		trail.shapes = []
 
 func _on_death_timer_timeout() -> void:
-	position.x = 0
-	position.y = 0
+	global_position = starting_position
 	visible = true
+	velocity = Vector2(0,0)
+	anim.rotation = 0
 	Globals.player_spawn.play(0.2)
 	# Re enable wall and coin
 	set_collision_layer_value(COIN_LAYER, true)

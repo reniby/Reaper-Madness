@@ -92,6 +92,6 @@ func spawn_player(bot = false, player = 0):
 	var child = player_scene.instantiate()
 	child.bot = bot
 	child.player = player
-	child.global_position = player_positions[player]
+	child.starting_position = player_positions[player]
 	add_child(child)
 	players.append(child)

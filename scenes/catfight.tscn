@@ -14,7 +14,7 @@ offset_top = -373.0
 offset_right = 13.0
 offset_bottom = 20.0
 scale = Vector2(2, 1.909)
-color = Color(0.270588, 0.156863, 0.235294, 1)
+color = Color(0.1254902, 0.11372549, 0.16078432, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Labels" type="Node" parent="." unique_id=1077733854]
@@ -80,6 +80,7 @@ one_shot = true
 one_shot = true
 
 [node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="." unique_id=460639015]
+visible = false
 z_index = 4096
 offset_left = -693.0
 offset_top = -396.0
