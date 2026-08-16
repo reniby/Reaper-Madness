@@ -36,6 +36,10 @@ const SPIKE_MASK = 3
 
 const SPIKE_PHYSICS_LAYER = 12
 const SPIKE_MOVING_PHSYICS_LAYER = 4
+
+const X_BOUND = 600
+const Y_BOUND = 300
+
 var tail_obst: Line2D
 
 var x_facing = 0
@@ -60,6 +64,7 @@ func _ready():
 	find_closest_coin()
 
 func _physics_process(delta):
+	check_in_map()
 	if start_timer.time_left:
 		return
 
@@ -116,7 +121,6 @@ func _physics_process(delta):
 
 
 func player_controller(delta):
-	
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		direction = Vector2(0,0)
 		for i in range(4):
@@ -265,3 +269,10 @@ func find_closest_coin():
 			closest_distance = distance
 
 	navigation.target_position = closest_coin.global_position
+
+func check_in_map():
+	if not death_timer.time_left and (
+		abs(position.x) > abs(X_BOUND) or 
+		abs(position.y) > abs(Y_BOUND)
+	):
+		death()
