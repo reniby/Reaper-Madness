@@ -80,36 +80,41 @@ func _physics_process(delta):
 		bot_controller(delta)
 	var temp_vel = velocity
 	move_and_slide()
-	
+	var last_collision = get_last_slide_collision()
+	var alt_temp_vel = 50
 	# Collide with player
-	if get_last_slide_collision() != null and get_last_slide_collision().get_collider() is CharacterBody2D:
+	if last_collision != null and last_collision.get_collider() is CharacterBody2D:
 		if bot: 
 			bouncing = true
 			bounce_timer = BOUNCE_TIME
 		Globals.player_bonk.play(0.3)
-		var collision = get_last_slide_collision()
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * temp_vel.length() * 1.2
+		var collision = last_collision
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * [temp_vel.length(), alt_temp_vel].max() * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
 	# Collide with wall
-	elif get_last_slide_collision() != null and get_last_slide_collision().get_collider() is TileMapLayer:
+	elif last_collision != null and (last_collision.get_collider() is TileMapLayer or last_collision.get_collider() is AnimatableBody2D):
 		if bot:
 			bouncing = true
 			bounce_timer = BOUNCE_TIME
-		var collision = get_last_slide_collision()
+		var collision = last_collision
 		var rid = collision.get_collider_rid()
 		var layer = PhysicsServer2D.body_get_collision_layer(rid)
+		
 		if layer == SPIKE_PHYSICS_LAYER or layer == SPIKE_MOVING_PHSYICS_LAYER:
 			death()
 		else:
 			Globals.wall_bonk.play(0.2)
-
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * temp_vel.length() * 1.2
+			
+		if last_collision.get_collider() is AnimatableBody2D:
+			alt_temp_vel = last_collision.get_collider().get_parent().velocity.length() * 2
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * [temp_vel.length(), alt_temp_vel].max() * 1.2
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
 	particles.rotation = anim.rotation + PI/2
+
 	if velocity.length() < 50:
 		particles.emitting = false
 	else:
