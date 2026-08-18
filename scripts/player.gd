@@ -239,7 +239,7 @@ func set_player_color(player_idx):
 	hit_particles.color = Globals.character_skin[color_idx]['color']
 	anim.modulate = Globals.character_skin[color_idx]['color']
 
-func bot_controller(_delta):
+func bot_controller(delta):
 	if bounce_timer > 0:
 		return
 
@@ -254,6 +254,10 @@ func bot_controller(_delta):
 		navigation.set_velocity(new_vel)
 	else:
 		_on_bot_velocity_computed(new_vel)
+	if not death_timer.time_left:
+		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 
 func _on_bot_velocity_computed(safe_velocity: Vector2) -> void:
 	if bot and bounce_timer <= 0:
