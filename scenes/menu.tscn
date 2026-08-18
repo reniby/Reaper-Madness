@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_ybihw"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_0rmuw"]
-[ext_resource type="Texture2D" uid="uid://b112eg0v1oc3p" path="res://assets/ui/Title.png" id="3_con2f"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_mhnvy"]
+[ext_resource type="Texture2D" uid="uid://c0ko23himejc2" path="res://assets/ui/reaper-logo.png" id="4_mhnvy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_81fud"]
 shader = ExtResource("2_0rmuw")
@@ -27,7 +27,7 @@ offset_top = -32.0
 offset_right = 585.0
 offset_bottom = 361.0
 scale = Vector2(2, 1.909)
-color = Color(0.12549, 0.113725, 0.160784, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="Vignette" type="ColorRect" parent="." unique_id=1319771228]
 material = SubResource("ShaderMaterial_81fud")
@@ -128,6 +128,6 @@ vertical_alignment = 1
 [node name="Title" type="Sprite2D" parent="." unique_id=706596826]
 modulate = Color(1, 1, 1, 0.8509804)
 texture_filter = 1
-position = Vector2(579, 243)
-scale = Vector2(1.8, 1.8)
-texture = ExtResource("3_con2f")
+position = Vector2(574, 182)
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("4_mhnvy")
