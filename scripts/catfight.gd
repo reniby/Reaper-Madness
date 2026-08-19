@@ -79,7 +79,7 @@ func _on_game_timer_timeout() -> void:
 	var tween = create_tween()
 	tween.tween_property(Engine, "time_scale", 0.1, 0.3)
 	tween.parallel()
-	tween.tween_property(fade2black, "color:a", 1, 0.4)
+	tween.tween_property(fade2black, "color:a", 1, 0.3)
 
 	post_timer.start()
 

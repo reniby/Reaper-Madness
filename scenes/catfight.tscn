@@ -80,7 +80,6 @@ one_shot = true
 one_shot = true
 
 [node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="." unique_id=460639015]
-visible = false
 z_index = 4096
 offset_left = -693.0
 offset_top = -396.0
