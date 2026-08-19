@@ -3,20 +3,13 @@
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_87vmq"]
 [ext_resource type="Script" uid="uid://c1jlum5beks5p" path="res://scripts/score_screen.gd" id="2_2aptv"]
 [ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_g44xs"]
-[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_vyuli"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="6_4j4el"]
 [ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="7_um0j2"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="8_um0j2"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="10_fix67"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_dllhw"]
-shader = ExtResource("2_vyuli")
-shader_parameter/alpha = 10.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 30.0
-shader_parameter/color = Color(0, 0, 0, 1)
+[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="10_um0j2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -122,13 +115,6 @@ text = "Leaderboard"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_2aptv")
-
-[node name="Vignette" type="ColorRect" parent="." unique_id=286652652]
-material = SubResource("ShaderMaterial_dllhw")
-offset_left = -123.0
-offset_top = -59.0
-offset_right = 1253.0
-offset_bottom = 694.0
 
 [node name="Replay" type="Button" parent="." unique_id=1526828982]
 offset_left = 3.0
@@ -262,3 +248,5 @@ offset_bottom = 337.0
 scale = Vector2(2, 1.909)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
+
+[node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("10_um0j2")]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bnycs8o7hatbv"]
 
 [ext_resource type="Script" uid="uid://dpahu8oa4ca0d" path="res://scripts/catfight.gd" id="1_rkgal"]
+[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="2_ph8dp"]
 [ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
 
 [node name="Catfight" type="Node2D" unique_id=1905470785]
@@ -79,8 +80,11 @@ one_shot = true
 [node name="StartTimer" type="Timer" parent="." unique_id=1240278015]
 one_shot = true
 
+[node name="fog" parent="." unique_id=1998912291 instance=ExtResource("2_ph8dp")]
+z_index = 2
+position = Vector2(-678, -373)
+
 [node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="." unique_id=460639015]
-visible = false
 z_index = 4096
 offset_left = -693.0
 offset_top = -396.0
