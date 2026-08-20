@@ -19,6 +19,7 @@ var temp_colors = [0, 1, 2, 3]
 var taken_colors = [] # 0 - len(character_skin)
 var num_colors = len(Globals.character_skin)
 var held
+var solo_player = 0
 
 func apply_shake():
 	shake_strength = randomStrength
@@ -30,6 +31,8 @@ func _ready():
 		player_anims += [$PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 		labels += [$Label2,$Label3,$Label4]
 		press_play += [$PressPlay2, $PressPlay3, $PressPlay4]
+	else:
+		player_anims[solo_player].play()
 
 func _process(delta: float) -> void:
 	if Globals.gameMode == Globals.gameModeOptions.VERSUS:
@@ -137,14 +140,14 @@ func versus_process(_delta):
 		arrow_ui(player, player)
 
 		# Scrool colors
-		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors:
+		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors and Globals.players[player]:
 			Globals.click.play()
 			temp_colors[player] = posmod((temp_colors[player] - 1), num_colors)
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] =  posmod((temp_colors[player] - 1), num_colors)
 			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
-		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors:
+		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors and Globals.players[player]:
 			Globals.click.play()
 			temp_colors[player] = (temp_colors[player] + 1) % num_colors
 			while (temp_colors[player] in taken_colors):
@@ -169,7 +172,6 @@ func versus_process(_delta):
 		hold_play.text = ""
 
 func solo_process(_delta):
-	var solo_player = 0
 	
 	for player in range(4):
 		# Hold to Start

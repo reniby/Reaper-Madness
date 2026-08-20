@@ -332,8 +332,7 @@ offset_bottom = 544.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
-text = "Press CONFIRM to select
-a reaper"
+text = "Press Confirm to select color!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -360,7 +359,7 @@ position = Vector2(576.00006, 433.00003)
 rotation = -3.1415925
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_rv33c")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=588823759]
 position = Vector2(-26.666641, 0)

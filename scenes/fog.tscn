@@ -18,7 +18,7 @@ seamless = true
 shader = ExtResource("1_ntoob")
 shader_parameter/pos = Vector2(0, 0)
 shader_parameter/textureResolution = 1280.0
-shader_parameter/moveDir = Vector2(-0.2, 0.1)
+shader_parameter/moveDir = Vector2(-0.5, 0.35)
 shader_parameter/noise = SubResource("NoiseTexture2D_e072f")
 shader_parameter/noise2 = SubResource("NoiseTexture2D_8fuky")
 
