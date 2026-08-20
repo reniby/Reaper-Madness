@@ -47,6 +47,6 @@ text = "New York, NY"
 horizontal_alignment = 2
 
 [node name="Divider" type="Sprite2D" parent="." unique_id=2088750592]
-position = Vector2(574, 602)
-scale = Vector2(0.5, 0.5)
+position = Vector2(575, 602)
+scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("4_4kmhl")
