@@ -94,4 +94,5 @@ func spawn_player(bot = false, player = 0):
 	child.player = player
 	child.starting_position = player_positions[player]
 	add_child(child)
+	child.z_index = 5
 	players.append(child)

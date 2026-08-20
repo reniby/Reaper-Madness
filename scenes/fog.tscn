@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://brdetjp2ap3g0"]
+
+[ext_resource type="Shader" uid="uid://conpt4tfqms7i" path="res://shaders/fog.gdshader" id="1_ntoob"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ntoob"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e072f"]
+noise = SubResource("FastNoiseLite_ntoob")
+seamless = true
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1o7ot"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8fuky"]
+noise = SubResource("FastNoiseLite_1o7ot")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8fuky"]
+shader = ExtResource("1_ntoob")
+shader_parameter/pos = Vector2(0, 0)
+shader_parameter/textureResolution = 1280.0
+shader_parameter/moveDir = Vector2(-0.2, 0.1)
+shader_parameter/noise = SubResource("NoiseTexture2D_e072f")
+shader_parameter/noise2 = SubResource("NoiseTexture2D_8fuky")
+
+[sub_resource type="Gradient" id="Gradient_ntoob"]
+colors = PackedColorArray(1, 1, 1, 0.42352942, 0, 0, 0, 1)
+metadata/_snap_enabled = true
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_e072f"]
+gradient = SubResource("Gradient_ntoob")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
+[node name="Node2D" type="Node2D" unique_id=1998912291]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1136178826]
+material = SubResource("ShaderMaterial_8fuky")
+offset_right = 1400.0
+offset_bottom = 800.0
+color = Color(1, 1, 1, 0.047058824)
+
+[node name="dark" type="CanvasModulate" parent="." unique_id=1057085064]
+z_index = 6
+z_as_relative = false
+color = Color(0.16515383, 0.14955491, 0.20159182, 1)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1453270789]
+energy = 0.2
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=2135134195]
+position = Vector2(191.87999, 141.40005)
+scale = Vector2(9.4800005, 7.400002)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D2" type="PointLight2D" parent="." unique_id=1603941800]
+position = Vector2(1030.8801, 152.40005)
+scale = Vector2(9.4800005, 7.400002)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D3" type="PointLight2D" parent="." unique_id=977418791]
+position = Vector2(192.87999, 618.4)
+scale = Vector2(9.4800005, 7.400002)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D4" type="PointLight2D" parent="." unique_id=1939785417]
+position = Vector2(1033.8801, 523.4)
+scale = Vector2(9.4800005, 7.400002)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D5" type="PointLight2D" parent="." unique_id=520718584]
+position = Vector2(652.88, 551.4)
+scale = Vector2(7.2162743, 5.693737)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D6" type="PointLight2D" parent="." unique_id=1035344981]
+position = Vector2(650.88, 180.40007)
+scale = Vector2(7.2162743, 5.693737)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D7" type="PointLight2D" parent="." unique_id=1749545376]
+position = Vector2(441.88, 346.40012)
+scale = Vector2(7.2162743, 5.693737)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="PointLight2D8" type="PointLight2D" parent="." unique_id=245108629]
+position = Vector2(723, 269)
+scale = Vector2(7.2162743, 5.693737)
+color = Color(0.25490198, 0.23529412, 0.30588236, 0.5411765)
+energy = 5.07
+shadow_color = Color(0.25490198, 0.23529412, 0.30588236, 0.02745098)
+shadow_filter_smooth = 44.9
+texture = SubResource("GradientTexture2D_e072f")
+offset = Vector2(1, 1)
+
+[node name="Node" type="Node" parent="." unique_id=52195270]
