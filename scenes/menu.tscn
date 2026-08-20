@@ -45,13 +45,13 @@ flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Play" unique_id=440165457]
 texture_filter = 1
-position = Vector2(452, 36)
+position = Vector2(452, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Play" unique_id=2083260806]
 texture_filter = 1
-position = Vector2(690, 36)
+position = Vector2(690, 37)
 rotation = 3.1415927
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
@@ -68,16 +68,14 @@ text = "Solo"
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Solo" unique_id=723257597]
-visible = false
 texture_filter = 1
 position = Vector2(516, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Solo" unique_id=271341702]
-visible = false
 texture_filter = 1
-position = Vector2(628, 38)
+position = Vector2(628, 37)
 rotation = 3.1415927
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
@@ -96,16 +94,14 @@ text = "Credits
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Tutorial" unique_id=1902989282]
-visible = false
 texture_filter = 1
-position = Vector2(489, 38)
+position = Vector2(489, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Tutorial" unique_id=1787567120]
-visible = false
 texture_filter = 1
-position = Vector2(658, 38)
+position = Vector2(658, 37)
 rotation = 3.1415927
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
@@ -137,7 +133,7 @@ offset_left = 884.0
 offset_top = 615.0
 offset_right = 1134.0
 offset_bottom = 635.0
-text = "New York, NY"
+text = "irreparable.itch.io"
 horizontal_alignment = 2
 
 [node name="Divider" type="Sprite2D" parent="." unique_id=1280816838]
