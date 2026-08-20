@@ -332,8 +332,7 @@ offset_bottom = 544.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 20
-text = "Press CONFIRM to select
-a reaper"
+text = "Press Confirm to select color!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -140,14 +140,14 @@ func versus_process(_delta):
 		arrow_ui(player, player)
 
 		# Scrool colors
-		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors:
+		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and temp_colors[player] not in taken_colors and Globals.players[player]:
 			Globals.click.play()
 			temp_colors[player] = posmod((temp_colors[player] - 1), num_colors)
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] =  posmod((temp_colors[player] - 1), num_colors)
 			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
-		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors:
+		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors and Globals.players[player]:
 			Globals.click.play()
 			temp_colors[player] = (temp_colors[player] + 1) % num_colors
 			while (temp_colors[player] in taken_colors):
