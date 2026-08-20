@@ -68,12 +68,14 @@ text = "Solo"
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Solo" unique_id=723257597]
+visible = false
 texture_filter = 1
 position = Vector2(516, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Solo" unique_id=271341702]
+visible = false
 texture_filter = 1
 position = Vector2(628, 37)
 rotation = 3.1415927
@@ -94,12 +96,14 @@ text = "Credits
 flat = true
 
 [node name="Arrow" type="Sprite2D" parent="Tutorial" unique_id=1902989282]
+visible = false
 texture_filter = 1
 position = Vector2(489, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Arrow2" type="Sprite2D" parent="Tutorial" unique_id=1787567120]
+visible = false
 texture_filter = 1
 position = Vector2(658, 37)
 rotation = 3.1415927
