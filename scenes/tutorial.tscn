@@ -1,10 +1,9 @@
 [gd_scene format=3 uid="uid://brpj57313qykx"]
 
 [ext_resource type="Script" uid="uid://dn6ix8tmxuq3v" path="res://scripts/tutorial.gd" id="1_c13y7"]
-[ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_8ho6b"]
-[ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_ph3nu"]
-[ext_resource type="PackedScene" uid="uid://cowem0i0pp2jf" path="res://scenes/pickup.tscn" id="4_4kmhl"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="5_cq4me"]
+[ext_resource type="Texture2D" uid="uid://h4tvjump7pti" path="res://assets/ui/2026-08-19_21.06.55.png" id="3_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="4_4kmhl"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="5_cq4me"]
 
 [node name="Tutorial" type="Node2D" unique_id=10344891]
 script = ExtResource("1_c13y7")
@@ -15,66 +14,39 @@ offset_top = -52.0
 offset_right = 559.0
 offset_bottom = 341.0
 scale = Vector2(2.16, 1.909)
-color = Color(0.12549, 0.113725, 0.160784, 1)
-
-[node name="TutorialPage" type="Sprite2D" parent="." unique_id=1204051232]
-position = Vector2(576, 337)
-scale = Vector2(2, 2)
-texture = ExtResource("2_8ho6b")
-
-[node name="Pg1" type="Label" parent="." unique_id=384659697]
-offset_left = 153.0
-offset_top = 49.0
-offset_right = 998.0
-offset_bottom = 537.0
-theme_override_font_sizes/font_size = 32
-text = "
-CONTROLS:
-
-Joystick to Move
-
-Press 'X' to dash"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Arrow" type="Sprite2D" parent="Pg1" unique_id=754256068]
-texture_filter = 1
-position = Vector2(776, 266)
-scale = Vector2(2, 2)
-texture = ExtResource("3_ph3nu")
-
-[node name="Pg2" type="Label" parent="." unique_id=1648847313]
-visible = false
-offset_left = 154.0
-offset_top = 50.0
-offset_right = 998.0
-offset_bottom = 602.0
-theme_override_font_sizes/font_size = 32
-text = "
-
-Collect Spirits (   ) to Increase
-Score and Tail Length
-
-Kill opponents with your tail
-To block their progress
-
-Highest Score Wins!
-
-Press 'X' to start game"
-horizontal_alignment = 1
-
-[node name="Arrow2" type="Sprite2D" parent="Pg2" unique_id=332646663]
-texture_filter = 1
-position = Vector2(59, 276)
-rotation = -3.1415925
-scale = Vector2(2, 2)
-texture = ExtResource("3_ph3nu")
-
-[node name="Pickup" parent="Pg2" unique_id=640530036 instance=ExtResource("4_4kmhl")]
-top_level = true
-texture_filter = 1
-position = Vector2(597, 158)
-scale = Vector2(2, 2)
-script = null
+color = Color(0, 0, 0, 1)
 
 [node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("5_cq4me")]
+
+[node name="2026081921_06_55" type="Sprite2D" parent="." unique_id=149706198]
+position = Vector2(566.00006, 301)
+scale = Vector2(0.42546582, 0.42546585)
+texture = ExtResource("3_ph3nu")
+
+[node name="Middle" type="Label" parent="." unique_id=1130371188]
+offset_left = 450.0
+offset_top = 615.0
+offset_right = 700.0
+offset_bottom = 635.0
+text = "Developed by Irreparable Games"
+horizontal_alignment = 1
+
+[node name="Left" type="Label" parent="." unique_id=433715366]
+offset_left = 20.0
+offset_top = 615.0
+offset_right = 270.0
+offset_bottom = 635.0
+text = "www.irreparablegames.com"
+
+[node name="Right" type="Label" parent="." unique_id=1347360073]
+offset_left = 884.0
+offset_top = 615.0
+offset_right = 1134.0
+offset_bottom = 635.0
+text = "New York, NY"
+horizontal_alignment = 2
+
+[node name="Divider" type="Sprite2D" parent="." unique_id=2088750592]
+position = Vector2(574, 602)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_4kmhl")
