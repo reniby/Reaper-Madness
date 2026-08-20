@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cyn08vqntdp1u"]
 
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_udr5a"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="2_5cdo8"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="2_5cdo8"]
 [ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_p75u7"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_bow2h"]
 [ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="3_bqp8h"]
@@ -9,6 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_uxcyu"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="4_5wdeo"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="5_w1hxv"]
+[ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="10_fqvby"]
+[ext_resource type="Texture2D" uid="uid://ckvxkob2exns2" path="res://assets/ui/joystick-px.png" id="10_pj2qx"]
+[ext_resource type="PackedScene" uid="uid://cowem0i0pp2jf" path="res://scenes/pickup.tscn" id="11_0sghn"]
+[ext_resource type="Texture2D" uid="uid://bx3vadeh4qcgj" path="res://assets/ui/button1-px.png" id="11_ckm5t"]
+[ext_resource type="Texture2D" uid="uid://cs7ghi456ryhm" path="res://assets/ui/button2-px.png" id="12_qgi8m"]
+[ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="12_yxv22"]
+[ext_resource type="Texture2D" uid="uid://d3sw7tsdfconu" path="res://assets/ui/divider2.png" id="16_3338a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
 atlas = ExtResource("3_bow2h")
@@ -82,12 +89,21 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qgi8m"]
+light_mode = 1
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_oqh0u"]
 shader = ExtResource("2_p75u7")
 shader_parameter/alpha = 10.0
 shader_parameter/inner_radius = 0.0
 shader_parameter/outer_radius = 30.0
 shader_parameter/color = Color(0, 0, 0, 1)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pj2qx"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckm5t"]
+light_mode = 1
 
 [node name="CharacterSelect" type="Node2D" unique_id=1717454599]
 script = ExtResource("1_udr5a")
@@ -97,10 +113,9 @@ position = Vector2(576, 325)
 scale = Vector2(2, 1.909)
 
 [node name="PlayerAnim00" type="AnimatedSprite2D" parent="." unique_id=714687960]
-visible = false
 z_index = 67
 texture_filter = 1
-position = Vector2(180, 162.00002)
+position = Vector2(180, 154)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
@@ -178,9 +193,7 @@ offset_top = -52.0
 offset_right = 559.0
 offset_bottom = 341.0
 scale = Vector2(2.16, 1.909)
-color = Color(0.12549, 0.113725, 0.160784, 1)
-
-[node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("2_5cdo8")]
+color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=937990044]
 offset_left = 40.0
@@ -222,37 +235,199 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressPlay" type="Label" parent="." unique_id=62294375]
+[node name="PressPlay1" type="Label" parent="." unique_id=62294375]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 518.0
-offset_top = 286.0
-offset_right = 666.0
-offset_bottom = 336.0
+offset_left = 20.0
+offset_top = 19.5
+offset_right = 220.0
+offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
-horizontal_alignment = 1
+theme_override_font_sizes/font_size = 20
+text = "Press CONFIRM
+to join"
+vertical_alignment = 1
+
+[node name="PressPlay2" type="Label" parent="." unique_id=1312309222]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 924.0
+offset_top = 19.5
+offset_right = 1124.0
+offset_bottom = 72.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Press CONFIRM
+to join"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PressPlay3" type="Label" parent="." unique_id=2079394257]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 571.5
+offset_right = 220.0
+offset_bottom = 624.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Press CONFIRM
+to join"
+vertical_alignment = 1
+
+[node name="PressPlay4" type="Label" parent="." unique_id=1231784863]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 924.0
+offset_top = 571.5
+offset_right = 1124.0
+offset_bottom = 624.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 20
+text = "Press CONFIRM
+to join"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="HoldPlay" type="Label" parent="." unique_id=934939786]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_qgi8m")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 518.0
-offset_top = 337.0
-offset_right = 666.0
-offset_bottom = 387.0
+offset_left = 355.5
+offset_top = 445.0
+offset_right = 798.5
+offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 36
+theme_override_fonts/font = ExtResource("10_fqvby")
+theme_override_font_sizes/font_size = 35
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Vignette" type="ColorRect" parent="." unique_id=541900675]
 material = SubResource("ShaderMaterial_oqh0u")
-offset_left = -102.0
-offset_top = -39.0
-offset_right = 1274.0
-offset_bottom = 714.0
+offset_left = -108.0
+offset_top = -81.0
+offset_right = 1268.0
+offset_bottom = 672.0
+
+[node name="UI2" type="Node2D" parent="." unique_id=348025005]
+material = SubResource("CanvasItemMaterial_pj2qx")
+
+[node name="JoystickPx" type="Sprite2D" parent="UI2" unique_id=701189333]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(435, 338)
+texture = ExtResource("10_pj2qx")
+
+[node name="Button1Px" type="Sprite2D" parent="UI2" unique_id=1537702757]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(435, 367)
+texture = ExtResource("11_ckm5t")
+
+[node name="Button2Px" type="Sprite2D" parent="UI2" unique_id=811654226]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(434, 396)
+texture = ExtResource("12_qgi8m")
+
+[node name="Body" type="Label" parent="UI2" unique_id=385574003]
+material = SubResource("CanvasItemMaterial_ckm5t")
+offset_left = 413.0
+offset_top = 275.0
+offset_right = 739.0
+offset_bottom = 318.0
+text = "Reap as many             as you can
+without colliding into your opponents’ tail"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Pickup" parent="UI2/Body" unique_id=640530036 instance=ExtResource("11_0sghn")]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(174, 11)
+script = null
+
+[node name="H1" type="Label" parent="UI2" unique_id=523239812]
+material = SubResource("CanvasItemMaterial_ckm5t")
+offset_left = 496.0
+offset_top = 215.0
+offset_right = 656.0
+offset_bottom = 251.0
+theme_override_fonts/font = ExtResource("10_fqvby")
+theme_override_font_sizes/font_size = 35
+text = "How to play"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Divider" type="Sprite2D" parent="UI2" unique_id=838360406]
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(576, 263)
+scale = Vector2(0.3, 0.5)
+texture = ExtResource("12_yxv22")
+
+[node name="Move" type="Label" parent="UI2" unique_id=1163933401]
+material = SubResource("CanvasItemMaterial_ckm5t")
+offset_left = 699.0
+offset_top = 331.0
+offset_right = 740.0
+offset_bottom = 351.0
+text = "MOVE"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Dash" type="Label" parent="UI2" unique_id=2136428646]
+material = SubResource("CanvasItemMaterial_ckm5t")
+offset_left = 622.0
+offset_top = 358.0
+offset_right = 740.0
+offset_bottom = 378.0
+text = "DASH / CONFIRM"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Back" type="Label" parent="UI2" unique_id=1614733139]
+material = SubResource("CanvasItemMaterial_ckm5t")
+offset_left = 622.0
+offset_top = 387.0
+offset_right = 740.0
+offset_bottom = 407.0
+text = "BACK"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Divider2" type="Sprite2D" parent="UI2" unique_id=225098547]
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(577.99994, 341)
+scale = Vector2(0.377, 0.5)
+texture = ExtResource("16_3338a")
+
+[node name="Divider4" type="Sprite2D" parent="UI2" unique_id=327992112]
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(579.7695, 398)
+scale = Vector2(0.38303939, 0.5)
+texture = ExtResource("16_3338a")
+
+[node name="Divider3" type="Sprite2D" parent="UI2" unique_id=1747280143]
+material = SubResource("CanvasItemMaterial_ckm5t")
+position = Vector2(540.7773, 368.25)
+scale = Vector2(0.24990714, 0.5)
+texture = ExtResource("16_3338a")
+
+[node name="Fog" parent="." unique_id=1998912291 instance=ExtResource("2_5cdo8")]
+position = Vector2(-19, 0)

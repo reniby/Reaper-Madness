@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://brpj57313qykx"]
 
 [ext_resource type="Script" uid="uid://dn6ix8tmxuq3v" path="res://scripts/tutorial.gd" id="1_c13y7"]
-[ext_resource type="Texture2D" uid="uid://h4tvjump7pti" path="res://assets/ui/2026-08-19_21.06.55.png" id="3_ph3nu"]
+[ext_resource type="Texture2D" uid="uid://h4tvjump7pti" path="res://assets/ui/credits.png" id="3_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="4_4kmhl"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="5_cq4me"]
 
