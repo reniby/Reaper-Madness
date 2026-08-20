@@ -1,29 +1,29 @@
-[gd_scene format=3 uid="uid://bnycs8o7hatbv"]
+[gd_scene load_steps=5 format=3 uid="uid://bnycs8o7hatbv"]
 
-[ext_resource type="Script" uid="uid://dpahu8oa4ca0d" path="res://scripts/catfight.gd" id="1_rkgal"]
+[ext_resource type="Script" path="res://scripts/catfight.gd" id="1_rkgal"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="2_ph8dp"]
-[ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
+[ext_resource type="Script" path="res://scripts/timer.gd" id="7_o0l6i"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ph8dp"]
 light_mode = 1
 
-[node name="Catfight" type="Node2D" unique_id=1905470785]
+[node name="Catfight" type="Node2D"]
 script = ExtResource("1_rkgal")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=263288207]
+[node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=1378515724]
+[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="."]
 offset_left = -678.0
 offset_top = -373.0
 offset_right = 13.0
 offset_bottom = 20.0
 scale = Vector2(2, 1.909)
-color = Color(0.1254902, 0.11372549, 0.16078432, 1)
+color = Color(0.12549, 0.113725, 0.160784, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Labels" type="Node" parent="." unique_id=1077733854]
+[node name="Labels" type="Node" parent="."]
 
-[node name="Timer" type="Label" parent="Labels" unique_id=2052455892]
+[node name="Timer" type="Label" parent="Labels"]
 material = SubResource("CanvasItemMaterial_ph8dp")
 offset_left = -21.0
 offset_top = -293.0
@@ -33,7 +33,7 @@ theme_override_font_sizes/font_size = 36
 script = ExtResource("7_o0l6i")
 metadata/_edit_use_anchors_ = true
 
-[node name="P1" type="Label" parent="Labels" unique_id=661552059]
+[node name="P1" type="Label" parent="Labels"]
 material = SubResource("CanvasItemMaterial_ph8dp")
 offset_left = -640.0
 offset_top = -322.0
@@ -45,7 +45,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="P2" type="Label" parent="Labels" unique_id=1807882464]
+[node name="P2" type="Label" parent="Labels"]
 material = SubResource("CanvasItemMaterial_ph8dp")
 offset_left = 362.0
 offset_top = -317.0
@@ -57,7 +57,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="P3" type="Label" parent="Labels" unique_id=506200639]
+[node name="P3" type="Label" parent="Labels"]
 material = SubResource("CanvasItemMaterial_ph8dp")
 offset_left = -633.0
 offset_top = 184.0
@@ -69,7 +69,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="P4" type="Label" parent="Labels" unique_id=547626473]
+[node name="P4" type="Label" parent="Labels"]
 material = SubResource("CanvasItemMaterial_ph8dp")
 offset_left = 358.0
 offset_top = 181.0
@@ -81,18 +81,18 @@ horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="GameTimer" type="Timer" parent="." unique_id=558196204]
+[node name="GameTimer" type="Timer" parent="."]
 wait_time = 60.0
 one_shot = true
 
-[node name="StartTimer" type="Timer" parent="." unique_id=1240278015]
+[node name="StartTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="fog" parent="." unique_id=1998912291 instance=ExtResource("2_ph8dp")]
+[node name="fog" parent="." instance=ExtResource("2_ph8dp")]
 z_index = 2
 position = Vector2(-678, -373)
 
-[node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="." unique_id=460639015]
+[node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="."]
 z_index = 4096
 offset_left = -693.0
 offset_top = -396.0
