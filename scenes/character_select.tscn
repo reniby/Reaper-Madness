@@ -19,27 +19,27 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qokh3"]
 light_mode = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_amb8a"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(72, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_72dis"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyirb"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(108, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sp2ya"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8gq5i"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(0, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ra4m8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gssxi"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(144, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hm4xr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmaqs"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(180, 0, 36, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k0w6g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_46j3a"]
 atlas = ExtResource("3_bow2h")
 region = Rect2(36, 0, 36, 32)
 
@@ -58,22 +58,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0qf5w")
+"texture": SubResource("AtlasTexture_amb8a")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72dis")
+"texture": SubResource("AtlasTexture_dyirb")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sp2ya")
+"texture": SubResource("AtlasTexture_8gq5i")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ra4m8")
+"texture": SubResource("AtlasTexture_gssxi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hm4xr")
+"texture": SubResource("AtlasTexture_xmaqs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_k0w6g")
+"texture": SubResource("AtlasTexture_46j3a")
 }],
 "loop": true,
 "name": &"john",
