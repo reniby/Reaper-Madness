@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn4ovl3r77f7v"]
+[gd_scene format=3 uid="uid://gwvdhdfv7ad2"]
 
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_put6c"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="2_1iycs"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="5_6p086"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="6_jtb1n"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="7_3gest"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="8_put6c"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="8_put6c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
 atlas = ExtResource("4_4arw1")
@@ -124,7 +124,7 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PressPlay" type="Label" parent="." unique_id=62294375]
+[node name="PressPlay1" type="Label" parent="." unique_id=62294375]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

@@ -89,6 +89,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_3338a"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qgi8m"]
 light_mode = 1
 
@@ -105,7 +108,7 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckm5t"]
 light_mode = 1
 
-[node name="CharacterSelect" type="Node2D" unique_id=1717454599]
+[node name="CharacterSelect2" type="Node2D" unique_id=1717454599]
 script = ExtResource("1_udr5a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2077013772]
@@ -113,6 +116,7 @@ position = Vector2(576, 325)
 scale = Vector2(2, 1.909)
 
 [node name="PlayerAnim00" type="AnimatedSprite2D" parent="." unique_id=714687960]
+visible = false
 z_index = 67
 texture_filter = 1
 position = Vector2(180, 154)
@@ -196,6 +200,7 @@ scale = Vector2(2.16, 1.909)
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="." unique_id=937990044]
+visible = false
 offset_left = 40.0
 offset_top = -1.0
 offset_right = 664.0
@@ -206,6 +211,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="." unique_id=2050298951]
+visible = false
 offset_left = 840.0
 offset_top = -1.0
 offset_right = 1464.0
@@ -216,6 +222,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label3" type="Label" parent="." unique_id=1553367601]
+visible = false
 offset_left = 40.0
 offset_top = 509.0
 offset_right = 664.0
@@ -226,6 +233,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label4" type="Label" parent="." unique_id=30624848]
+visible = false
 offset_left = 840.0
 offset_top = 509.0
 offset_right = 1464.0
@@ -236,7 +244,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="PressPlay1" type="Label" parent="." unique_id=62294375]
-visible = false
+material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -252,7 +260,7 @@ to join"
 vertical_alignment = 1
 
 [node name="PressPlay2" type="Label" parent="." unique_id=1312309222]
-visible = false
+material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -269,7 +277,7 @@ horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="PressPlay3" type="Label" parent="." unique_id=2079394257]
-visible = false
+material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -285,7 +293,7 @@ to join"
 vertical_alignment = 1
 
 [node name="PressPlay4" type="Label" parent="." unique_id=1231784863]
-visible = false
+material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

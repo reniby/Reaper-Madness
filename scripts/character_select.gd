@@ -1,6 +1,6 @@
 extends Node2D
 @onready var labels: Array[Label] = [$Label]
-@onready var press_play: Label = $PressPlay
+@onready var press_play: Array[Label] = [$PressPlay1]
 @onready var hold_play: Label = $HoldPlay
 @onready var camera_2d: Camera2D = $Camera2D
 @onready var player_anims: Array[AnimatedSprite2D] = [$PlayerAnim00]
@@ -29,6 +29,7 @@ func _ready():
 	if Globals.gameMode == Globals.gameModeOptions.VERSUS:
 		player_anims += [$PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 		labels += [$Label2,$Label3,$Label4]
+		press_play += [$PressPlay2, $PressPlay3, $PressPlay4]
 
 func _process(delta: float) -> void:
 	if Globals.gameMode == Globals.gameModeOptions.VERSUS:
@@ -74,6 +75,7 @@ func versus_process(_delta):
 		var color_idx = temp_colors[player]
 		# Joined Game, only versus
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
+			press_play[player].text = "Player " + str(player + 1) + " joined!\nPress back to leave."
 			Globals.confirm.play()
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			camera_2d.offset = Vector2(0,0)
@@ -86,8 +88,8 @@ func versus_process(_delta):
 			var tween = get_tree().create_tween()
 			var player_tween = get_tree().create_tween()
 			player_anims[player].scale = Vector2(10,10)
-			labels[player].add_theme_font_size_override("font_size", 150)
-			tween.tween_property(labels[player], "theme_override_font_sizes/font_size", 70, 0.5)
+			press_play[player].add_theme_font_size_override("font_size", 150)
+			tween.tween_property(press_play[player], "theme_override_font_sizes/font_size", 20, 0.5)
 			player_tween.tween_property(player_anims[player], "scale", Vector2(3,3), 0.5)
 			Globals.players[player] = true
 			
@@ -119,6 +121,7 @@ func versus_process(_delta):
 
 		# Return to Main Menu
 		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
+			press_play[player].text = "Press confirm\nto join"
 			Globals.confirm.play()
 			Globals.numPlayers -= 1
 			player_anims[player].visible = false
@@ -152,7 +155,7 @@ func versus_process(_delta):
 			labels[player].text = ""
 	
 	if Globals.numPlayers > Globals.gameMode:
-		press_play.text = "Press X to join!"
+		#press_play.text = "Press X to join!"
 		hold_play.text = "Press and hold X to start game once all players are ready!"
 		if (len(taken_colors) == Globals.numPlayers):
 			hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("16aa00ff"), (dash_held.max() / held_min)))
@@ -161,7 +164,7 @@ func versus_process(_delta):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
-		press_play.text = "Press X to join!"
+		hold_play.text = ""
 
 func solo_process(_delta):
 	var solo_player = 0
@@ -195,6 +198,7 @@ func solo_process(_delta):
 
 		# Deselect Color
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.colors[solo_player] != -1:
+			press_play[solo_player].visible = true
 			Globals.confirm.play()
 			for child in player_anims[solo_player].get_children(): 
 				child.visible = true
@@ -224,7 +228,7 @@ func solo_process(_delta):
 		temp_colors[i] = (temp_colors[solo_player] + i) % num_colors
 	
 	if Globals.colors[solo_player] != -1:
-		press_play.text = "Press X to select color!"
+		press_play[solo_player].text = "Press X to select color!"
 		hold_play.text = "Press and hold X to start game!"
 		start_game_shake()
 		hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("1baa02ff"), (dash_held.max() / held_min)))
@@ -233,7 +237,7 @@ func solo_process(_delta):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
-		press_play.text = "Press X to select color!"
+		press_play[solo_player].text = "Press X to select color!"
 		hold_play.text = ""
 		
 func start_game_shake():
