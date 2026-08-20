@@ -19,6 +19,7 @@ var temp_colors = [0, 1, 2, 3]
 var taken_colors = [] # 0 - len(character_skin)
 var num_colors = len(Globals.character_skin)
 var held
+var solo_player = 0
 
 func apply_shake():
 	shake_strength = randomStrength
@@ -30,6 +31,8 @@ func _ready():
 		player_anims += [$PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 		labels += [$Label2,$Label3,$Label4]
 		press_play += [$PressPlay2, $PressPlay3, $PressPlay4]
+	else:
+		player_anims[solo_player].play()
 
 func _process(delta: float) -> void:
 	if Globals.gameMode == Globals.gameModeOptions.VERSUS:
@@ -169,7 +172,6 @@ func versus_process(_delta):
 		hold_play.text = ""
 
 func solo_process(_delta):
-	var solo_player = 0
 	
 	for player in range(4):
 		# Hold to Start
