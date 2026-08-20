@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_udr5a"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="2_5cdo8"]
-[ext_resource type="Shader" uid="uid://cbi3hddie2e4d" path="res://shaders/vignette.gdshader" id="2_p75u7"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_bow2h"]
 [ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="3_bqp8h"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="3_fa52j"]
@@ -16,6 +15,9 @@
 [ext_resource type="Texture2D" uid="uid://cs7ghi456ryhm" path="res://assets/ui/button2-px.png" id="12_qgi8m"]
 [ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="12_yxv22"]
 [ext_resource type="Texture2D" uid="uid://d3sw7tsdfconu" path="res://assets/ui/divider2.png" id="16_3338a"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qokh3"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
 atlas = ExtResource("3_bow2h")
@@ -95,20 +97,13 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qgi8m"]
 light_mode = 1
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_oqh0u"]
-shader = ExtResource("2_p75u7")
-shader_parameter/alpha = 10.0
-shader_parameter/inner_radius = 0.0
-shader_parameter/outer_radius = 30.0
-shader_parameter/color = Color(0, 0, 0, 1)
-
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_pj2qx"]
 light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckm5t"]
 light_mode = 1
 
-[node name="CharacterSelect2" type="Node2D" unique_id=1717454599]
+[node name="CharacterSelect" type="Node2D" unique_id=1717454599]
 script = ExtResource("1_udr5a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2077013772]
@@ -119,76 +114,88 @@ scale = Vector2(2, 1.909)
 visible = false
 z_index = 67
 texture_filter = 1
-position = Vector2(180, 154)
+material = SubResource("CanvasItemMaterial_qokh3")
+position = Vector2(113, 133.00003)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"cyclops"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
-position = Vector2(-32, 0)
+position = Vector2(-26.666641, 0)
 rotation = 3.1415925
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
 [node name="Arrow2" type="Sprite2D" parent="PlayerAnim00" unique_id=961067334]
-position = Vector2(32, 0)
+position = Vector2(26.666668, 0)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=792302842]
+[node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=1064257944]
 visible = false
 z_index = 67
 texture_filter = 1
-position = Vector2(970, 162)
+material = SubResource("CanvasItemMaterial_qokh3")
+position = Vector2(112.99999, 495)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"ungabunga"
+animation = &"cyclops"
 
-[node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=965623381]
-position = Vector2(-32, 0)
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=798920566]
+position = Vector2(-26.666641, 0)
 rotation = 3.1415925
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=1599230647]
-position = Vector2(32, 0)
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=1141993499]
+position = Vector2(26.666668, 0)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=42665377]
+[node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=2067507177]
 visible = false
 z_index = 67
 texture_filter = 1
-position = Vector2(180, 490)
+material = SubResource("CanvasItemMaterial_qokh3")
+position = Vector2(1039, 133.00002)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"ungabunga"
+animation = &"cyclops"
 
-[node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=1565067929]
-position = Vector2(-32, 0)
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=802041168]
+position = Vector2(-26.666641, 0)
 rotation = 3.1415925
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=113650100]
-position = Vector2(32, 0)
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=358077605]
+position = Vector2(26.666668, 0)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="PlayerAnim11" type="AnimatedSprite2D" parent="." unique_id=1886855270]
+[node name="PlayerAnim11" type="AnimatedSprite2D" parent="." unique_id=1679720252]
 visible = false
 z_index = 67
 texture_filter = 1
-position = Vector2(970, 490)
+material = SubResource("CanvasItemMaterial_qokh3")
+position = Vector2(1039, 493.00003)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"ungabunga"
+animation = &"cyclops"
 
-[node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1154744739]
-position = Vector2(-32, 0)
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1714192633]
+position = Vector2(-26.666641, 0)
 rotation = 3.1415925
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="Arrow2" type="Sprite2D" parent="PlayerAnim11" unique_id=430949028]
-position = Vector2(32, 0)
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim11" unique_id=2055131693]
+position = Vector2(26.666668, 0)
+scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=112580432]
@@ -325,13 +332,6 @@ theme_override_fonts/font = ExtResource("10_fqvby")
 theme_override_font_sizes/font_size = 35
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Vignette" type="ColorRect" parent="." unique_id=541900675]
-material = SubResource("ShaderMaterial_oqh0u")
-offset_left = -108.0
-offset_top = -81.0
-offset_right = 1268.0
-offset_bottom = 672.0
 
 [node name="UI2" type="Node2D" parent="." unique_id=348025005]
 material = SubResource("CanvasItemMaterial_pj2qx")

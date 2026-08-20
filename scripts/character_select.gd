@@ -48,9 +48,11 @@ func arrow_ui(player, locked_player):
 	if Input.is_action_pressed(Globals.character_input[player]['left']):
 		player_anims[locked_player].get_child(1).scale = ARROW_SCALE * 1.1
 		player_anims[locked_player].get_child(1).modulate.a = 1
+
 	elif Input.is_action_pressed(Globals.character_input[player]['right']):
 		player_anims[locked_player].get_child(0).scale = ARROW_SCALE * 1.1
 		player_anims[locked_player].get_child(0).modulate.a = 1
+
 	elif Input.is_action_just_released(Globals.character_input[player]['left']) or Input.is_action_just_released(Globals.character_input[player]['right']):
 		player_anims[locked_player].get_child(0).scale = ARROW_SCALE
 		player_anims[locked_player].get_child(0).modulate.a = 0.8
