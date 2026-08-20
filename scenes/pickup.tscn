@@ -163,6 +163,7 @@ shape = SubResource("RectangleShape2D_1b022")
 one_shot = true
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1609246211]
+texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_j0obd")
 animation = &"Ghost"
 autoplay = "Ghost"
