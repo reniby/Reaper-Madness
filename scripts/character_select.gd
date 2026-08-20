@@ -189,6 +189,7 @@ func solo_process(_delta):
 
 		# Select Color
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[solo_player] == -1:
+			press_play[solo_player].text = "Press and hold to start game!"
 			apply_shake()
 			Globals.confirm.play()
 			taken_colors.append(temp_colors[solo_player])
@@ -200,7 +201,7 @@ func solo_process(_delta):
 
 		# Deselect Color
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.colors[solo_player] != -1:
-			press_play[solo_player].visible = true
+			press_play[solo_player].text = "Press Confirm to select color!"
 			Globals.confirm.play()
 			for child in player_anims[solo_player].get_children(): 
 				child.visible = true
@@ -230,16 +231,16 @@ func solo_process(_delta):
 		temp_colors[i] = (temp_colors[solo_player] + i) % num_colors
 	
 	if Globals.colors[solo_player] != -1:
-		press_play[solo_player].text = "Press X to select color!"
-		hold_play.text = "Press and hold X to start game!"
+		#press_play[solo_player].text = "Press Confirm to select color!"
+		#hold_play.text = "Press and hold X to start game!"
 		start_game_shake()
-		hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("1baa02ff"), (dash_held.max() / held_min)))
+		press_play[solo_player].add_theme_color_override("font_color", Color.WHITE.lerp(Color("1baa02ff"), (dash_held.max() / held_min)))
 		
 		if dash_held.max() >= held_min:
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
-		press_play[solo_player].text = "Press X to select color!"
+		press_play[solo_player].text = "Press Confirm to select color!"
 		hold_play.text = ""
 		
 func start_game_shake():
