@@ -10,6 +10,7 @@ var rng = RandomNumberGenerator.new()
 @onready var sprite: AnimatedSprite2D = $Sprite
 @onready var pickup_timer: Timer = $PickupTimer
 @onready var pickup_behavior: Callable
+@onready var point_light_2d: PointLight2D = $PointLight2D
 
 @export_enum("Coin", "Speed") var pickup_type: String
 
@@ -41,6 +42,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 	particles.restart()
 	particles.emitting = false
 	particles.visible = false
+	point_light_2d.visible = false
 
 func _on_coin_timer_timeout() -> void:
 	choose_location()
@@ -48,6 +50,7 @@ func _on_coin_timer_timeout() -> void:
 
 func show_sprite() -> void:
 	sprite.visible = true
+	point_light_2d.visible = true
 	Globals.coin_change.emit()
 	Globals.coin_positions.append(self)
 	particles.emitting = true

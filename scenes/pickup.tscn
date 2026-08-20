@@ -129,6 +129,16 @@ animations = [{
 _data = [Vector2(0.0406504, 0.981831), 0.0, 0.0, 0, 0, Vector2(0.833333, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_gyxxy"]
+offsets = PackedFloat32Array(0, 0.89224136)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4m06l"]
+gradient = SubResource("Gradient_gyxxy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.5, 0)
+
 [node name="Pickup" type="Node2D" unique_id=640530036]
 scale = Vector2(1.2, 1.2)
 script = ExtResource("1_7cqbe")
@@ -170,6 +180,11 @@ initial_velocity_min = 10.0
 initial_velocity_max = 50.0
 scale_amount_curve = SubResource("Curve_gyxxy")
 color = Color(0.713726, 0.909804, 0.74902, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=902371352]
+scale = Vector2(0.7, 0.7)
+color = Color(0.39215687, 0.65882355, 0.3882353, 1)
+texture = SubResource("GradientTexture2D_4m06l")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="PickupTimer" to="." method="_on_coin_timer_timeout"]

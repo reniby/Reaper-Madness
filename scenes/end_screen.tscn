@@ -9,7 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="8_um0j2"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="10_fix67"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="10_um0j2"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="10_um0j2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um0j2"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -106,6 +109,7 @@ scale = Vector2(1.1649797, 1.1172273)
 texture = ExtResource("2_g44xs")
 
 [node name="Leaderboard" type="Label" parent="." unique_id=859868058]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 79.0
 offset_top = 38.0
 offset_right = 1071.0
@@ -117,6 +121,7 @@ vertical_alignment = 1
 script = ExtResource("2_2aptv")
 
 [node name="Replay" type="Button" parent="." unique_id=1526828982]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 3.0
 offset_top = 468.0
 offset_right = 1147.0
@@ -141,6 +146,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
 [node name="Menu" type="Button" parent="." unique_id=270745691]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 3.0
 offset_top = 532.0
 offset_right = 1150.0
@@ -168,6 +174,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
 [node name="1st" type="Label" parent="." unique_id=774486977]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 81.0
 offset_top = 138.0
 offset_right = 1073.0
@@ -186,6 +193,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="2nd" type="Label" parent="." unique_id=1685811318]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 81.0
 offset_top = 208.0
 offset_right = 1073.0
@@ -204,6 +212,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="3rd" type="Label" parent="." unique_id=541288075]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 81.0
 offset_top = 278.0
 offset_right = 1073.0
@@ -222,6 +231,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="4th" type="Label" parent="." unique_id=1250049]
+material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 81.0
 offset_top = 354.0
 offset_right = 1073.0

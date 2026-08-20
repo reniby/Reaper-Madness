@@ -3,7 +3,10 @@
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_ybihw"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://c0ko23himejc2" path="res://assets/ui/reaper-logo.png" id="4_mhnvy"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="5_4ytvr"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="5_4ytvr"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_mhnvy"]
+light_mode = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vjb58"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -22,7 +25,10 @@ offset_bottom = 361.0
 scale = Vector2(2, 1.909)
 color = Color(0, 0, 0, 1)
 
+[node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("5_4ytvr")]
+
 [node name="Play" type="Button" parent="." unique_id=1307405460]
+material = SubResource("CanvasItemMaterial_mhnvy")
 offset_left = 4.0
 offset_top = 377.0
 offset_right = 1148.0
@@ -47,6 +53,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Solo" type="Button" parent="." unique_id=795268886]
+material = SubResource("CanvasItemMaterial_mhnvy")
 offset_left = 4.0
 offset_top = 461.0
 offset_right = 1148.0
@@ -73,6 +80,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Tutorial" type="Button" parent="." unique_id=1454431461]
+material = SubResource("CanvasItemMaterial_mhnvy")
 offset_left = 5.0
 offset_top = 546.0
 offset_right = 1152.0
@@ -117,5 +125,3 @@ texture_filter = 1
 position = Vector2(574, 182)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("4_mhnvy")
-
-[node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("5_4ytvr")]

@@ -85,9 +85,6 @@ texture = ExtResource("2_06xp3")
 4:4/0 = 0
 4:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_iw1w7")
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_iw1w7"]
-light_mode = 1
-
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_qumku"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_dcmha"]
@@ -97,55 +94,43 @@ light_mode = 1
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h88le"]
 texture = ExtResource("3_qumku")
 0:0/0 = 0
-0:0/0/material = SubResource("CanvasItemMaterial_iw1w7")
 0:0/0/z_index = 8
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
-1:0/0/material = SubResource("CanvasItemMaterial_iw1w7")
 1:0/0/z_index = 8
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:0/0 = 0
-2:0/0/material = SubResource("CanvasItemMaterial_iw1w7")
 2:0/0/z_index = 8
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:0/0 = 0
-3:0/0/material = SubResource("CanvasItemMaterial_iw1w7")
 3:0/0/z_index = 8
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:0/0 = 0
 4:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ycv0v")
 0:1/0 = 0
-0:1/0/material = SubResource("CanvasItemMaterial_iw1w7")
 0:1/0/z_index = 8
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
-1:1/0/material = SubResource("CanvasItemMaterial_iw1w7")
 1:1/0/z_index = 8
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:1/0 = 0
-2:1/0/material = SubResource("CanvasItemMaterial_iw1w7")
 2:1/0/z_index = 8
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0 = 0
-3:1/0/material = SubResource("CanvasItemMaterial_iw1w7")
 3:1/0/z_index = 8
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:1/0 = 0
 4:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ycv0v")
 0:2/0 = 0
-0:2/0/material = SubResource("CanvasItemMaterial_iw1w7")
 0:2/0/z_index = 8
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:2/0 = 0
-1:2/0/material = SubResource("CanvasItemMaterial_iw1w7")
 1:2/0/z_index = 8
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:2/0 = 0
-2:2/0/material = SubResource("CanvasItemMaterial_iw1w7")
 2:2/0/z_index = 8
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:2/0 = 0
-3:2/0/material = SubResource("CanvasItemMaterial_iw1w7")
 3:2/0/z_index = 8
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
