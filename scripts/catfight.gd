@@ -6,6 +6,7 @@ extends Node2D
 @onready var fade2black: ColorRect = $CosmicBackgroundOuterSpace2
 @onready var ready_to_slow: bool = false
 @onready var player_ui: Array[Node2D] = [$Labels/P1,$Labels/P2,$Labels/P3,$Labels/P4]
+@onready var kill_death_scores: Array[Label] = [$Labels/P1/KillDeathNode/KillDeathScore,$Labels/P2/KillDeathNode/KillDeathScore,$Labels/P3/KillDeathNode/KillDeathScore,$Labels/P4/KillDeathNode/KillDeathScore]
 
 
 var players = []
@@ -39,7 +40,7 @@ func _ready():
 	for i in range(len(player_scores)):
 		var color = Color(Globals.character_skin[Globals.colors[i]]['color'])
 		color.a = 0.5 
-		player_ui[i].modulate = color#add_theme_color_override("font_color", color)
+		player_ui[i].modulate = color #add_theme_color_override("font_color", color)
 
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
@@ -61,14 +62,15 @@ func _ready():
 		spawn_player()
 		for i in range(1,4):
 			spawn_player(true, i)
+			player_ui[i].visible = true
 			
-				
 
 func _process(_delta):
 	DisplayServer.window_set_title(title + " | fps: " + str(Engine.get_frames_per_second()))
 	for i in range(len(Globals.scores)):
 		if Globals.players[i] or (Globals.gameMode == Globals.gameModeOptions.SOLO):
 			player_scores[i].text = str(Globals.scores[i]).pad_zeros(2)
+			kill_death_scores[i].text = str(Globals.superlative_actions[i]["num_kills"]) + str(":") + str(Globals.superlative_actions[i]["num_deaths"])
 
 func _on_game_timer_timeout() -> void:
 	if ready_to_slow:

@@ -46,4 +46,5 @@ func _physics_process(_delta):
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and player != body.player:
+		Globals.superlative_actions[player]['num_kills'] += 1
 		body.death()
