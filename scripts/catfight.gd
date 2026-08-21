@@ -1,10 +1,12 @@
 extends Node2D
 
 @export var pickup_scene: PackedScene = preload("res://scenes/pickup.tscn")
-@onready var player_scores: Array[Label] = [$Labels/P1, $Labels/P2, $Labels/P3, $Labels/P4]
+@onready var player_scores: Array[Label] = [$Labels/P1/ScoreNode/PlayerScore, $Labels/P2/ScoreNode/PlayerScore, $Labels/P3/ScoreNode/PlayerScore, $Labels/P4/ScoreNode/PlayerScore]
 @onready var game_timer: Timer = $GameTimer
 @onready var fade2black: ColorRect = $CosmicBackgroundOuterSpace2
 @onready var ready_to_slow: bool = false
+@onready var player_ui: Array[Node2D] = [$Labels/P1,$Labels/P2,$Labels/P3,$Labels/P4]
+
 
 var players = []
 var post_timer: Timer
@@ -37,7 +39,7 @@ func _ready():
 	for i in range(len(player_scores)):
 		var color = Color(Globals.character_skin[Globals.colors[i]]['color'])
 		color.a = 0.5 
-		player_scores[i].add_theme_color_override("font_color", color)
+		player_ui[i].modulate = color#add_theme_color_override("font_color", color)
 
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
@@ -53,6 +55,7 @@ func _ready():
 	for i in range(len(Globals.players)):
 		if Globals.players[i]:
 			spawn_player(false, i)
+			player_ui[i].visible = true
 	
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		spawn_player()
@@ -65,7 +68,7 @@ func _process(_delta):
 	DisplayServer.window_set_title(title + " | fps: " + str(Engine.get_frames_per_second()))
 	for i in range(len(Globals.scores)):
 		if Globals.players[i] or (Globals.gameMode == Globals.gameModeOptions.SOLO):
-			player_scores[i].text = str(Globals.scores[i])
+			player_scores[i].text = str(Globals.scores[i]).pad_zeros(2)
 
 func _on_game_timer_timeout() -> void:
 	if ready_to_slow:

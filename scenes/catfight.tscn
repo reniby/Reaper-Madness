@@ -8,6 +8,9 @@
 [ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="5_8stkw"]
 [ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8stkw"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_37nfc"]
 light_mode = 1
 
@@ -40,7 +43,9 @@ metadata/_edit_use_anchors_ = true
 [node name="Labels" type="Node" parent="." unique_id=1407675066]
 
 [node name="P1" type="Node2D" parent="Labels" unique_id=490804126]
-position = Vector2(-344, -616)
+visible = false
+material = SubResource("CanvasItemMaterial_8stkw")
+position = Vector2(-232, -560)
 
 [node name="ScoreNode" type="Node2D" parent="Labels/P1" unique_id=57078532]
 
@@ -98,7 +103,9 @@ text = "0:0"
 horizontal_alignment = 2
 
 [node name="P2" type="Node2D" parent="Labels" unique_id=1474954881]
-position = Vector2(-344, 44)
+visible = false
+material = SubResource("CanvasItemMaterial_8stkw")
+position = Vector2(-232, -17)
 
 [node name="ScoreNode" type="Node2D" parent="Labels/P2" unique_id=1866065141]
 
@@ -108,7 +115,6 @@ offset_left = -314.0
 offset_top = 263.0
 offset_right = -294.0
 offset_bottom = 283.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
 text = "P2"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
@@ -153,13 +159,14 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="P3" type="Node2D" parent="Labels" unique_id=1849715429]
-position = Vector2(896, -616)
+visible = false
+material = SubResource("CanvasItemMaterial_8stkw")
+position = Vector2(760, -560)
 
 [node name="ScoreNode" type="Node2D" parent="Labels/P3" unique_id=1522902279]
 
@@ -217,7 +224,9 @@ text = "0:0"
 horizontal_alignment = 2
 
 [node name="P4" type="Node2D" parent="Labels" unique_id=350817925]
-position = Vector2(896, 44)
+visible = false
+material = SubResource("CanvasItemMaterial_8stkw")
+position = Vector2(760, -17)
 
 [node name="ScoreNode" type="Node2D" parent="Labels/P4" unique_id=668913153]
 
@@ -227,7 +236,6 @@ offset_left = -238.0
 offset_top = 263.0
 offset_right = -218.0
 offset_bottom = 283.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
 text = "P4"
 horizontal_alignment = 1
 
@@ -270,27 +278,27 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
 [node name="Timer" type="Label" parent="Labels" unique_id=1931475838]
 material = SubResource("CanvasItemMaterial_ph8dp")
 anchors_preset = -1
+anchor_left = -0.014756944
 anchor_right = -0.014756944
-offset_left = -24.0
-offset_top = -378.0
-offset_right = 36.0
-offset_bottom = -302.0
+offset_left = -15.0
+offset_top = -315.0
+offset_right = 45.0
+offset_bottom = -234.0
 theme_override_fonts/font = ExtResource("5_8stkw")
-theme_override_font_sizes/font_size = 75
+theme_override_font_sizes/font_size = 65
 text = "59"
 horizontal_alignment = 1
 script = ExtResource("7_o0l6i")
 metadata/_edit_use_anchors_ = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1028739495]
-wait_time = 3.0
+wait_time = 60.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1244812544]
