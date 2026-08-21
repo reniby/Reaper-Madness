@@ -19,7 +19,7 @@ color = Color(0, 0, 0, 1)
 [node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("5_cq4me")]
 
 [node name="2026081921_06_55" type="Sprite2D" parent="." unique_id=149706198]
-position = Vector2(566.00006, 301)
+position = Vector2(577, 327)
 scale = Vector2(0.42546582, 0.42546585)
 texture = ExtResource("3_ph3nu")
 
@@ -43,7 +43,7 @@ offset_left = 884.0
 offset_top = 615.0
 offset_right = 1134.0
 offset_bottom = 635.0
-text = "irreparable.itch.io"
+text = "NO AI, NOR AI-DERIVED ASSETS"
 horizontal_alignment = 2
 
 [node name="Divider" type="Sprite2D" parent="." unique_id=2088750592]

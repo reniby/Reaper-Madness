@@ -137,7 +137,7 @@ offset_left = 884.0
 offset_top = 615.0
 offset_right = 1134.0
 offset_bottom = 635.0
-text = "irreparable.itch.io"
+text = "NO AI NOR AI-DERIVED ASSETS"
 horizontal_alignment = 2
 
 [node name="Divider" type="Sprite2D" parent="." unique_id=1280816838]

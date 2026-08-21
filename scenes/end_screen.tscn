@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://ch0b7cixe4j2h"]
+[gd_scene format=3 uid="uid://ch0b7cixe4j2h"]
 
-[ext_resource type="Script" path="res://scripts/menu.gd" id="1_87vmq"]
-[ext_resource type="Script" path="res://scripts/score_screen.gd" id="2_2aptv"]
-[ext_resource type="Texture2D" uid="uid://cxl6sy3xqckdn" path="res://assets/ui/tutorial_page.png" id="2_g44xs"]
+[ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_87vmq"]
+[ext_resource type="Script" uid="uid://c1jlum5beks5p" path="res://scripts/score_screen.gd" id="2_2aptv"]
+[ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="2_qyl73"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
+[ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="4_7ycdd"]
+[ext_resource type="FontFile" uid="uid://bht2qyd3i3cqc" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="5_d62ht"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="6_4j4el"]
 [ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="7_um0j2"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
@@ -13,9 +15,6 @@
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um0j2"]
 light_mode = 1
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0qf5w"]
 atlas = ExtResource("7_wke0n")
@@ -89,167 +88,248 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="EndScreen" type="Node2D" node_paths=PackedStringArray("buttons")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="EndScreen" type="Node2D" unique_id=1744773325 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_87vmq")
-buttons = [NodePath("Replay"), NodePath("Menu")]
+buttons = [NodePath("Menu/Replay"), NodePath("Menu/Menu")]
 scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
 solo_scenes = Array[String](["res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
 
-[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="."]
+[node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=717152328]
 offset_left = -132.0
 offset_top = -52.0
 offset_right = 559.0
 offset_bottom = 341.0
 scale = Vector2(2, 1.909)
-color = Color(0.12549, 0.113725, 0.160784, 1)
+color = Color(0, 0, 0, 1)
 
-[node name="Title" type="Sprite2D" parent="CosmicBackgroundOuterSpace"]
-position = Vector2(354.75, 196.307)
-scale = Vector2(1.16498, 1.11723)
-texture = ExtResource("2_g44xs")
-
-[node name="Leaderboard" type="Label" parent="."]
+[node name="Leaderboard" type="Label" parent="." unique_id=38571372]
 material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 79.0
-offset_top = 38.0
-offset_right = 1071.0
-offset_bottom = 138.0
-theme_override_font_sizes/font_size = 85
-text = "Leaderboard"
+offset_left = 72.0
+offset_top = -12.0
+offset_right = 1064.0
+offset_bottom = 88.0
+theme_override_fonts/font = ExtResource("2_qyl73")
+theme_override_font_sizes/font_size = 35
+text = "Scoreboard"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_2aptv")
 
-[node name="Replay" type="Button" parent="."]
+[node name="Divider" type="Sprite2D" parent="Leaderboard" unique_id=1681793809]
+position = Vector2(499, 90)
+scale = Vector2(0.4, 0.5)
+texture = ExtResource("4_7ycdd")
+
+[node name="1st" type="Label" parent="." unique_id=741275316]
 material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 3.0
-offset_top = 468.0
-offset_right = 1147.0
-offset_bottom = 539.0
+offset_left = 421.0
+offset_top = 95.0
+offset_right = 721.0
+offset_bottom = 195.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "P1"
+vertical_alignment = 1
+
+[node name="1st" type="Label" parent="1st" unique_id=293327780]
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="1st" unique_id=1043253417]
+z_index = 67
+texture_filter = 1
+position = Vector2(150, 50)
+rotation = 3.14159
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
+
+[node name="2nd" type="Label" parent="." unique_id=1686729134]
+material = SubResource("CanvasItemMaterial_um0j2")
+offset_left = 421.0
+offset_top = 175.0
+offset_right = 721.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "P2"
+vertical_alignment = 1
+
+[node name="2nd" type="Label" parent="2nd" unique_id=1364975176]
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="2nd" unique_id=884928803]
+z_index = 67
+texture_filter = 1
+position = Vector2(150, 50)
+rotation = 3.14159
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
+
+[node name="3rd" type="Label" parent="." unique_id=1381533509]
+material = SubResource("CanvasItemMaterial_um0j2")
+offset_left = 421.0
+offset_top = 255.0
+offset_right = 721.0
+offset_bottom = 355.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "P3"
+vertical_alignment = 1
+
+[node name="3rd" type="Label" parent="3rd" unique_id=414188515]
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="3rd" unique_id=2106898279]
+z_index = 67
+texture_filter = 1
+position = Vector2(150, 50)
+rotation = 3.14159
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
+
+[node name="4th" type="Label" parent="." unique_id=1138049700]
+material = SubResource("CanvasItemMaterial_um0j2")
+offset_left = 421.0
+offset_top = 335.0
+offset_right = 721.0
+offset_bottom = 435.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "P4"
+vertical_alignment = 1
+
+[node name="4th" type="Label" parent="4th" unique_id=1802936887]
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_right = 300.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Anim" type="AnimatedSprite2D" parent="4th" unique_id=1170083499]
+z_index = 67
+texture_filter = 1
+position = Vector2(150, 50)
+rotation = 3.14159
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_qyl73")
+animation = &"cyclops"
+
+[node name="Menu" type="Node2D" parent="." unique_id=1414623389]
+position = Vector2(0, -50)
+
+[node name="Replay" type="Button" parent="Menu" unique_id=304928455]
+material = SubResource("CanvasItemMaterial_um0j2")
+offset_top = 476.0
+offset_right = 1144.0
+offset_bottom = 547.0
 theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 0.490196)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
-text = "Replay"
+text = "Rematch"
 flat = true
 
-[node name="Arrow" type="Sprite2D" parent="Replay"]
+[node name="Arrow" type="Sprite2D" parent="Menu/Replay" unique_id=1317880693]
 texture_filter = 1
-position = Vector2(482, 37)
+position = Vector2(466, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
-[node name="Arrow2" type="Sprite2D" parent="Replay"]
+[node name="Arrow2" type="Sprite2D" parent="Menu/Replay" unique_id=746719185]
 texture_filter = 1
-position = Vector2(662, 37)
+position = Vector2(678, 37)
 rotation = 3.14159
 scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
-[node name="Menu" type="Button" parent="."]
+[node name="CharacterSelect" type="Button" parent="Menu" unique_id=1687739480]
 material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 3.0
-offset_top = 532.0
-offset_right = 1150.0
-offset_bottom = 603.0
+offset_top = 524.0
+offset_right = 1147.0
+offset_bottom = 595.0
 theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 0.490196)
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
+text = "Character select
+"
+flat = true
+
+[node name="Arrow" type="Sprite2D" parent="Menu/CharacterSelect" unique_id=570889008]
+visible = false
+texture_filter = 1
+position = Vector2(394, 37)
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")
+
+[node name="Arrow2" type="Sprite2D" parent="Menu/CharacterSelect" unique_id=477919610]
+visible = false
+texture_filter = 1
+position = Vector2(753, 37)
+rotation = 3.14159
+scale = Vector2(2, 2)
+texture = ExtResource("3_jc7ji")
+
+[node name="Menu" type="Button" parent="Menu" unique_id=436908941]
+material = SubResource("CanvasItemMaterial_um0j2")
+offset_top = 570.0
+offset_right = 1147.0
+offset_bottom = 641.0
+theme_override_colors/font_color = Color(0.87451, 0.87451, 0.87451, 0.490196)
+theme_override_font_sizes/font_size = 30
 theme_override_styles/focus = SubResource("StyleBoxFlat_87vmq")
 text = "Menu
 "
 flat = true
 
-[node name="Arrow" type="Sprite2D" parent="Menu"]
+[node name="Arrow" type="Sprite2D" parent="Menu/Menu" unique_id=1614705906]
 visible = false
 texture_filter = 1
-position = Vector2(490, 37)
+position = Vector2(498, 37)
 scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
-[node name="Arrow2" type="Sprite2D" parent="Menu"]
+[node name="Arrow2" type="Sprite2D" parent="Menu/Menu" unique_id=2044312289]
 visible = false
 texture_filter = 1
-position = Vector2(657, 37)
+position = Vector2(649, 37)
 rotation = 3.14159
 scale = Vector2(2, 2)
 texture = ExtResource("3_jc7ji")
 
-[node name="1st" type="Label" parent="."]
-material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 81.0
-offset_top = 138.0
-offset_right = 1073.0
-offset_bottom = 238.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Anim" type="AnimatedSprite2D" parent="1st"]
-z_index = 67
-texture_filter = 1
-position = Vector2(340, 50)
-rotation = 3.14159
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &"cyclops"
-
-[node name="2nd" type="Label" parent="."]
-material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 81.0
-offset_top = 208.0
-offset_right = 1073.0
-offset_bottom = 308.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Anim" type="AnimatedSprite2D" parent="2nd"]
-z_index = 67
-texture_filter = 1
-position = Vector2(340, 50)
-rotation = 3.14159
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &"cyclops"
-
-[node name="3rd" type="Label" parent="."]
-material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 81.0
-offset_top = 278.0
-offset_right = 1073.0
-offset_bottom = 378.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Anim" type="AnimatedSprite2D" parent="3rd"]
-z_index = 67
-texture_filter = 1
-position = Vector2(340, 50)
-rotation = 3.14159
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &"cyclops"
-
-[node name="4th" type="Label" parent="."]
-material = SubResource("CanvasItemMaterial_um0j2")
-offset_left = 81.0
-offset_top = 354.0
-offset_right = 1073.0
-offset_bottom = 454.0
-theme_override_font_sizes/font_size = 50
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="Anim" type="AnimatedSprite2D" parent="4th"]
-z_index = 67
-texture_filter = 1
-position = Vector2(340, 50)
-rotation = 3.14159
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &"cyclops"
-
-[node name="FadeFromBlack" type="ColorRect" parent="."]
+[node name="FadeFromBlack" type="ColorRect" parent="." unique_id=1180362967]
+visible = false
 z_index = 4096
 offset_left = -142.0
 offset_top = -56.0
@@ -259,4 +339,19 @@ scale = Vector2(2, 1.909)
 color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" parent="." instance=ExtResource("10_um0j2")]
+[node name="Fog" parent="." unique_id=1162132948 instance=ExtResource("10_um0j2")]
+
+[node name="Timer" type="Node2D" parent="." unique_id=600870737]
+
+[node name="Divider" type="Sprite2D" parent="Timer" unique_id=1937621125]
+position = Vector2(575, 602)
+scale = Vector2(0.53982294, 0.5)
+texture = ExtResource("4_7ycdd")
+
+[node name="Middle" type="Label" parent="Timer" unique_id=1034752498]
+offset_left = 427.0
+offset_top = 615.0
+offset_right = 726.0
+offset_bottom = 635.0
+text = "Returning to main menu in 20 seconds..."
+horizontal_alignment = 1
