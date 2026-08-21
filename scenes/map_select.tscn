@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://cdali7s4s0o56" path="res://scripts/map_select.gd" id="1_sslow"]
 [ext_resource type="TileSet" uid="uid://bgufloeki6cgl" path="res://tile_set.tres" id="3_5q6ap"]
-[ext_resource type="PackedScene" uid="uid://nyciixfxj7pm" path="res://scenes/fog.tscn" id="4_1m77x"]
+[ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="4_1m77x"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="5_8fs2h"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1m77x"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_2x4ji"]
+light_mode = 1
 
 [node name="MapSelect" type="Node2D" unique_id=1905470785]
 script = ExtResource("1_sslow")
@@ -12,17 +18,21 @@ script = ExtResource("1_sslow")
 
 [node name="Label" type="Label" parent="." unique_id=141476587]
 z_index = 20
-offset_left = -194.0
-offset_top = -282.0
-offset_right = 231.0
-offset_bottom = -232.0
-theme_override_font_sizes/font_size = 40
-text = "Press 'Start' To Select Map!"
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_1m77x")
+offset_left = -275.0
+offset_top = -273.0
+offset_right = 277.0
+offset_bottom = -236.0
+theme_override_font_sizes/font_size = 20
+text = "Press CONFIRM to select an arena"
+horizontal_alignment = 1
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1881971258]
 z_index = 5
 texture_filter = 1
-position = Vector2(-500, 0)
+material = SubResource("CanvasItemMaterial_2x4ji")
+position = Vector2(-532, 0)
 rotation = 3.1415925
 scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
@@ -30,7 +40,8 @@ texture = ExtResource("5_8fs2h")
 [node name="Arrow2" type="Sprite2D" parent="." unique_id=275598536]
 z_index = 5
 texture_filter = 1
-position = Vector2(500, 0)
+material = SubResource("CanvasItemMaterial_2x4ji")
+position = Vector2(532, 0)
 scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
 
