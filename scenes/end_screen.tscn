@@ -94,8 +94,8 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 [node name="EndScreen" type="Node2D" unique_id=1744773325 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_87vmq")
 buttons = [NodePath("Menu/Replay"), NodePath("Menu/CharacterSelect"), NodePath("Menu/Menu")]
-scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
-solo_scenes = Array[String](["res://scenes/character_select_solo.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
+scenes = Array[String](["res://scenes/catfight.tscn", "res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
+solo_scenes = Array[String](["res://scenes/catfight.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=717152328]
 offset_left = -132.0
