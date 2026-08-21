@@ -176,11 +176,8 @@ func resetGlobals():
 	players = [false,false,false,false]
 	winner = 0
 	scores = [-1, -1, -1, -1]
-	colors = [-1, -1, -1, -1]
-
 	x_facing = 0
 	y_facing = 0
 	can_dash = true
 	map_idx = 0
-	
 	superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]

@@ -27,6 +27,7 @@ func apply_shake():
 var actions = ['left', 'right', 'up', 'down', 'dash', 'drop']
 
 func _ready():
+	Globals.colors = [-1,-1,-1,-1]
 	if Globals.gameMode == Globals.gameModeOptions.VERSUS:
 		player_anims += [$PlayerAnim01, $PlayerAnim10, $PlayerAnim11]
 		labels += [$Label2,$Label3,$Label4]

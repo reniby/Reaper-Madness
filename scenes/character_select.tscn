@@ -104,7 +104,7 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ckm5t"]
 light_mode = 1
 
-[node name="CharacterSelect" type="Node2D" unique_id=1717454599]
+[node name="CharacterSelect2" type="Node2D" unique_id=1717454599]
 script = ExtResource("1_udr5a")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2077013772]
