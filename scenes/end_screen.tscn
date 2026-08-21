@@ -124,6 +124,7 @@ scale = Vector2(0.4, 0.5)
 texture = ExtResource("4_7ycdd")
 
 [node name="1st" type="Label" parent="." unique_id=741275316]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 95.0
@@ -155,6 +156,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="2nd" type="Label" parent="." unique_id=1686729134]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 175.0
@@ -186,6 +188,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="3rd" type="Label" parent="." unique_id=1381533509]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 255.0
@@ -217,6 +220,7 @@ sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
 [node name="4th" type="Label" parent="." unique_id=1138049700]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 335.0

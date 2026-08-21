@@ -36,6 +36,7 @@ func _ready():
 		var currPlayer = ranked[Globals.scores[i]][0]
 		ranked[Globals.scores[i]].pop_front() 
 		
+		labels[i].visible = true
 		labels[i].text = "P" + str(currPlayer+1)
 		scores[i].text = str(currScore)
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
