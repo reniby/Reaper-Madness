@@ -1,10 +1,11 @@
 extends Node2D
 
 @export var pickup_scene: PackedScene = preload("res://scenes/pickup.tscn")
-@onready var player_scores: Array[Label] = [$Labels/P1, $Labels/P2, $Labels/P3, $Labels/P4]
+@onready var player_scores: Array[Label] = [$Labels/P1/ScoreNode/PlayerScore, $Labels/P2/ScoreNode/PlayerScore, $Labels/P3/ScoreNode/PlayerScore, $Labels/P4/ScoreNode/PlayerScore]
 @onready var game_timer: Timer = $GameTimer
 @onready var fade2black: ColorRect = $CosmicBackgroundOuterSpace2
 @onready var ready_to_slow: bool = false
+
 
 var players = []
 var post_timer: Timer
