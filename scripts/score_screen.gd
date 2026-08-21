@@ -8,6 +8,12 @@ extends Label
 @onready var a2: AnimatedSprite2D = $"../2nd/Anim"
 @onready var a3: AnimatedSprite2D = $"../3rd/Anim"
 @onready var a4: AnimatedSprite2D = $"../4th/Anim"
+@onready var score1: Label = $"../1st/1st"
+@onready var score2: Label = $"../2nd/2nd"
+@onready var score3: Label = $"../3rd/3rd"
+@onready var score4: Label = $"../4th/4th"
+@onready var timer_label: Label = $"../Timer/Middle"
+@onready var timer: Timer = $"../Timer/Timer"
 
 var ranked = {}
 
@@ -21,6 +27,7 @@ func _ready():
 	Globals.scores.reverse()
 	
 	var labels = [p1,p2,p3,p4]
+	var scores = [score1,score2,score3,score4]
 	var anims = [a1,a2,a3,a4]
 	for i in anims:
 		i.visible = false
@@ -29,14 +36,15 @@ func _ready():
 		var currPlayer = ranked[Globals.scores[i]][0]
 		ranked[Globals.scores[i]].pop_front() 
 		
-		labels[i].text = "Player " + str(currPlayer+1) + ": " + str(currScore)
+		labels[i].text = "P" + str(currPlayer+1)
+		scores[i].text = str(currScore)
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
 		labels[i].add_theme_color_override("font_color", color)
+		scores[i].add_theme_color_override("font_color", color)
 		anims[i].play(Globals.character_skin[Globals.colors[currPlayer]]['anim'])
 		anims[i].self_modulate = Globals.character_skin[Globals.colors[currPlayer]]['color']
 		anims[i].visible = true
-		var new_anim = anims[i].duplicate()
-		anims[i].get_parent().add_child(new_anim)
-		new_anim.position.x = new_anim.position.x + 310
-		new_anim.play()
+
+func _process(_deltada):
+	timer_label.text = "Returning to main menu in " + str(int(timer.time_left)) + " seconds..."
 	

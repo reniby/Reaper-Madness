@@ -93,9 +93,9 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="EndScreen" type="Node2D" unique_id=1744773325 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_87vmq")
-buttons = [NodePath("Menu/Replay"), NodePath("Menu/Menu")]
-scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
-solo_scenes = Array[String](["res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
+buttons = [NodePath("Menu/Replay"), NodePath("Menu/CharacterSelect"), NodePath("Menu/Menu")]
+scenes = Array[String](["res://scenes/character_select.tscn", "res://scenes/character_select.tscn", "res://scenes/menu.tscn"])
+solo_scenes = Array[String](["res://scenes/character_select_solo.tscn", "res://scenes/character_select_solo.tscn", "res://scenes/menu.tscn"])
 
 [node name="CosmicBackgroundOuterSpace" type="ColorRect" parent="." unique_id=717152328]
 offset_left = -132.0
@@ -355,3 +355,8 @@ offset_right = 726.0
 offset_bottom = 635.0
 text = "Returning to main menu in 20 seconds..."
 horizontal_alignment = 1
+
+[node name="Timer" type="Timer" parent="Timer" unique_id=1205492507]
+wait_time = 30.0
+one_shot = true
+autostart = true
