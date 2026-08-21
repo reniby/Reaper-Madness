@@ -10,6 +10,7 @@ const JUMP_VELOCITY = -800.0
 @onready var dash_timer: Timer = $Timer/DashTimer
 @onready var speed_timer: Timer = $Timer/SpeedTimer
 @onready var start_timer: Timer = $Timer/StartTimer
+@onready var bot_dash_timer: Timer = $Timer/BotDashTimer
 @onready var navigation: NavigationAgent2D = $NavigationAgent2D
 
 @onready var camera = $"../Camera2D"
@@ -60,12 +61,15 @@ func _ready():
 	global_position = starting_position
 	if bot:
 		Globals.coin_change.connect(_on_coin_change)
+		bot_dash_timer.start()
 	set_player_color(player)
 	Globals.scores[player] = 0
 	navigation.max_speed = SPEED
 	find_closest_coin()
 
 func _physics_process(delta):
+	if global_position.distance_to(navigation.target_position) < 50:
+		find_closest_coin()
 	check_in_map()
 	if start_timer.time_left:
 		return
@@ -89,7 +93,7 @@ func _physics_process(delta):
 			bounce_timer = BOUNCE_TIME
 		Globals.player_bonk.play(0.3)
 		var collision = last_collision
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * [temp_vel.length(), alt_temp_vel].max() * 1.2
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - 3*PI/4), sin(get_angle_to(collision.get_position()) - 3*PI/4)).normalized() * [temp_vel.length(), alt_temp_vel].max() * 1
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
@@ -153,15 +157,7 @@ func player_controller(delta):
 			dashing = true
 		
 	if dashing and can_dash:
-		Globals.dash.play()
-		Globals.superlative_actions[player]['num_dashes'] += 1
-		velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
-		can_dash = false
-		dash_timer.start()
-		invincible = true
-		var tween = get_tree().create_tween()
-		tween.tween_property(anim, "modulate", Color.RED, 0.5)
-		tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
+		dash(player)
 	if not death_timer.time_left:
 		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
 		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
@@ -223,6 +219,10 @@ func _on_dash_timer_timeout() -> void:
 	can_dash = true
 	invincible = false
 
+func _on_bot_dash_timer_timeout() -> void:
+	if bot and can_dash and not dash_timer.time_left:
+		dash(player)
+
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and get_parent().player != body.player and not invincible:
 		body.death()
@@ -240,7 +240,7 @@ func set_player_color(player_idx):
 	anim.modulate = Globals.character_skin[color_idx]['color']
 
 func bot_controller(delta):
-	if bounce_timer > 0:
+	if bounce_timer > 0 or invincible:
 		return
 
 	# Bot Movement
@@ -275,12 +275,12 @@ func find_closest_coin():
 
 	for coin in Globals.coin_positions:
 		var distance = global_position.distance_to(coin.global_position)
-
 		if distance < closest_distance:
 			closest_coin = coin
 			closest_distance = distance
 
 	navigation.target_position = closest_coin.global_position
+	
 
 func check_in_map():
 	if not death_timer.time_left and (
@@ -288,3 +288,14 @@ func check_in_map():
 		abs(position.y) > abs(Y_BOUND)
 	):
 		death()
+
+func dash(player_num):
+	Globals.dash.play()
+	Globals.superlative_actions[player_num]['num_dashes'] += 1
+	velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
+	can_dash = false
+	dash_timer.start()
+	invincible = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(anim, "modulate", Color.RED, 0.5)
+	tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
