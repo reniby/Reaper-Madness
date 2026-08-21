@@ -1,8 +1,24 @@
 [gd_scene format=3 uid="uid://bnycs8o7hatbv"]
 
 [ext_resource type="Script" uid="uid://dpahu8oa4ca0d" path="res://scripts/catfight.gd" id="1_rkgal"]
+[ext_resource type="Texture2D" uid="uid://daqp11nobowv0" path="res://assets/ui/hudflame.png" id="2_o7ie5"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="2_ph8dp"]
+[ext_resource type="Texture2D" uid="uid://dnocnhnx1ngps" path="res://assets/ui/hudkd.png" id="3_8stkw"]
+[ext_resource type="Texture2D" uid="uid://d3sw7tsdfconu" path="res://assets/ui/divider2.png" id="4_w7b0f"]
+[ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="5_8stkw"]
 [ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_37nfc"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ejg2r"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ycjp3"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lw6wd"]
+light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ph8dp"]
 light_mode = 1
@@ -23,62 +39,254 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Labels" type="Node" parent="." unique_id=1407675066]
 
+[node name="P1" type="Node2D" parent="Labels" unique_id=490804126]
+position = Vector2(-344, -616)
+
+[node name="ScoreNode" type="Node2D" parent="Labels/P1" unique_id=57078532]
+
+[node name="PlayerName" type="Label" parent="Labels/P1/ScoreNode" unique_id=1085584996]
+texture_filter = 1
+offset_left = -314.0
+offset_top = 263.0
+offset_right = -294.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
+text = "P1"
+horizontal_alignment = 1
+
+[node name="FlameIcon" type="Sprite2D" parent="Labels/P1/ScoreNode" unique_id=22540948]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_37nfc")
+position = Vector2(-278, 280)
+scale = Vector2(1.5833334, 1.5833334)
+texture = ExtResource("2_o7ie5")
+
+[node name="PlayerScore" type="Label" parent="Labels/P1/ScoreNode" unique_id=2025192784]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ejg2r")
+offset_left = -261.0
+offset_top = 257.0
+offset_right = -216.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 38
+text = "00"
+
+[node name="KillDeathNode" type="Node2D" parent="Labels/P1" unique_id=2099285608]
+
+[node name="KillDeathIcon" type="Sprite2D" parent="Labels/P1/KillDeathNode" unique_id=1388840389]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ycjp3")
+position = Vector2(-299, 306)
+texture = ExtResource("3_8stkw")
+
+[node name="KillDeathDivider" type="Sprite2D" parent="Labels/P1/KillDeathNode" unique_id=1417700887]
+modulate = Color(1, 1, 1, 0.7058824)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lw6wd")
+position = Vector2(-263, 307)
+scale = Vector2(0.05, 0.5)
+texture = ExtResource("4_w7b0f")
+
+[node name="KillDeathScore" type="Label" parent="Labels/P1/KillDeathNode" unique_id=1732582932]
+texture_filter = 1
+offset_left = -241.0
+offset_top = 296.0
+offset_right = -218.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
+text = "0:0"
+horizontal_alignment = 2
+
+[node name="P2" type="Node2D" parent="Labels" unique_id=1474954881]
+position = Vector2(-344, 44)
+
+[node name="ScoreNode" type="Node2D" parent="Labels/P2" unique_id=1866065141]
+
+[node name="PlayerName" type="Label" parent="Labels/P2/ScoreNode" unique_id=1769020919]
+texture_filter = 1
+offset_left = -314.0
+offset_top = 263.0
+offset_right = -294.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
+text = "P2"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="FlameIcon" type="Sprite2D" parent="Labels/P2/ScoreNode" unique_id=2010859343]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_37nfc")
+position = Vector2(-278, 280)
+scale = Vector2(1.5833334, 1.5833334)
+texture = ExtResource("2_o7ie5")
+
+[node name="PlayerScore" type="Label" parent="Labels/P2/ScoreNode" unique_id=1570183370]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ejg2r")
+offset_left = -261.0
+offset_top = 257.0
+offset_right = -216.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 38
+text = "00"
+metadata/_edit_use_anchors_ = true
+
+[node name="KillDeathNode" type="Node2D" parent="Labels/P2" unique_id=1143345310]
+
+[node name="KillDeathIcon" type="Sprite2D" parent="Labels/P2/KillDeathNode" unique_id=475408893]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ycjp3")
+position = Vector2(-299, 306)
+texture = ExtResource("3_8stkw")
+
+[node name="KillDeathDivider" type="Sprite2D" parent="Labels/P2/KillDeathNode" unique_id=1510721649]
+modulate = Color(1, 1, 1, 0.7058824)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lw6wd")
+position = Vector2(-263, 307)
+scale = Vector2(0.05, 0.5)
+texture = ExtResource("4_w7b0f")
+
+[node name="KillDeathScore" type="Label" parent="Labels/P2/KillDeathNode" unique_id=981373333]
+texture_filter = 1
+offset_left = -241.0
+offset_top = 296.0
+offset_right = -218.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
+text = "0:0"
+horizontal_alignment = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="P3" type="Node2D" parent="Labels" unique_id=1849715429]
+position = Vector2(896, -616)
+
+[node name="ScoreNode" type="Node2D" parent="Labels/P3" unique_id=1522902279]
+
+[node name="PlayerName" type="Label" parent="Labels/P3/ScoreNode" unique_id=764229483]
+texture_filter = 1
+offset_left = -238.0
+offset_top = 263.0
+offset_right = -218.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
+text = "P3"
+horizontal_alignment = 1
+
+[node name="FlameIcon" type="Sprite2D" parent="Labels/P3/ScoreNode" unique_id=723201143]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_37nfc")
+position = Vector2(-254, 280)
+scale = Vector2(1.5833334, 1.5833334)
+texture = ExtResource("2_o7ie5")
+
+[node name="PlayerScore" type="Label" parent="Labels/P3/ScoreNode" unique_id=217777045]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ejg2r")
+offset_left = -315.0
+offset_top = 257.0
+offset_right = -270.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 38
+text = "00"
+
+[node name="KillDeathNode" type="Node2D" parent="Labels/P3" unique_id=2028565075]
+
+[node name="KillDeathIcon" type="Sprite2D" parent="Labels/P3/KillDeathNode" unique_id=641007914]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ycjp3")
+position = Vector2(-299, 306)
+texture = ExtResource("3_8stkw")
+
+[node name="KillDeathDivider" type="Sprite2D" parent="Labels/P3/KillDeathNode" unique_id=1017487143]
+modulate = Color(1, 1, 1, 0.7058824)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lw6wd")
+position = Vector2(-263, 307)
+scale = Vector2(0.05, 0.5)
+texture = ExtResource("4_w7b0f")
+
+[node name="KillDeathScore" type="Label" parent="Labels/P3/KillDeathNode" unique_id=1423897933]
+texture_filter = 1
+offset_left = -241.0
+offset_top = 296.0
+offset_right = -218.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
+text = "0:0"
+horizontal_alignment = 2
+
+[node name="P4" type="Node2D" parent="Labels" unique_id=350817925]
+position = Vector2(896, 44)
+
+[node name="ScoreNode" type="Node2D" parent="Labels/P4" unique_id=668913153]
+
+[node name="PlayerName" type="Label" parent="Labels/P4/ScoreNode" unique_id=362727385]
+texture_filter = 1
+offset_left = -238.0
+offset_top = 263.0
+offset_right = -218.0
+offset_bottom = 283.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 0.7058824)
+text = "P4"
+horizontal_alignment = 1
+
+[node name="FlameIcon" type="Sprite2D" parent="Labels/P4/ScoreNode" unique_id=281929312]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_37nfc")
+position = Vector2(-254, 280)
+scale = Vector2(1.5833334, 1.5833334)
+texture = ExtResource("2_o7ie5")
+
+[node name="PlayerScore" type="Label" parent="Labels/P4/ScoreNode" unique_id=1035772409]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ejg2r")
+offset_left = -315.0
+offset_top = 257.0
+offset_right = -270.0
+offset_bottom = 303.0
+theme_override_font_sizes/font_size = 38
+text = "00"
+
+[node name="KillDeathNode" type="Node2D" parent="Labels/P4" unique_id=1153230060]
+
+[node name="KillDeathIcon" type="Sprite2D" parent="Labels/P4/KillDeathNode" unique_id=1375653374]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_ycjp3")
+position = Vector2(-299, 306)
+texture = ExtResource("3_8stkw")
+
+[node name="KillDeathDivider" type="Sprite2D" parent="Labels/P4/KillDeathNode" unique_id=332596889]
+modulate = Color(1, 1, 1, 0.7058824)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_lw6wd")
+position = Vector2(-263, 307)
+scale = Vector2(0.05, 0.5)
+texture = ExtResource("4_w7b0f")
+
+[node name="KillDeathScore" type="Label" parent="Labels/P4/KillDeathNode" unique_id=1400729398]
+texture_filter = 1
+offset_left = -241.0
+offset_top = 296.0
+offset_right = -218.0
+offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
+text = "0:0"
+horizontal_alignment = 2
+
 [node name="Timer" type="Label" parent="Labels" unique_id=1931475838]
 material = SubResource("CanvasItemMaterial_ph8dp")
-offset_left = -21.0
-offset_top = -293.0
-offset_right = 19.0
-offset_bottom = -248.0
-theme_override_font_sizes/font_size = 36
+anchors_preset = -1
+anchor_right = -0.014756944
+offset_left = -24.0
+offset_top = -378.0
+offset_right = 36.0
+offset_bottom = -302.0
+theme_override_fonts/font = ExtResource("5_8stkw")
+theme_override_font_sizes/font_size = 75
+text = "59"
+horizontal_alignment = 1
 script = ExtResource("7_o0l6i")
-metadata/_edit_use_anchors_ = true
-
-[node name="P1" type="Label" parent="Labels" unique_id=1194128531]
-material = SubResource("CanvasItemMaterial_ph8dp")
-offset_left = -640.0
-offset_top = -322.0
-offset_right = -16.0
-offset_bottom = 30.0
-scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 150
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="P2" type="Label" parent="Labels" unique_id=304467453]
-material = SubResource("CanvasItemMaterial_ph8dp")
-offset_left = 362.0
-offset_top = -317.0
-offset_right = 986.0
-offset_bottom = 35.0
-scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 150
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="P3" type="Label" parent="Labels" unique_id=1600055810]
-material = SubResource("CanvasItemMaterial_ph8dp")
-offset_left = -633.0
-offset_top = 184.0
-offset_right = -9.0
-offset_bottom = 536.0
-scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 150
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="P4" type="Label" parent="Labels" unique_id=1606075510]
-material = SubResource("CanvasItemMaterial_ph8dp")
-offset_left = 358.0
-offset_top = 181.0
-offset_right = 982.0
-offset_bottom = 533.0
-scale = Vector2(0.44, 0.4)
-theme_override_font_sizes/font_size = 150
-horizontal_alignment = 1
-vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1028739495]
@@ -87,10 +295,6 @@ one_shot = true
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1244812544]
 one_shot = true
-
-[node name="fog" parent="." unique_id=1408709461 instance=ExtResource("2_ph8dp")]
-z_index = 2
-position = Vector2(-678, -373)
 
 [node name="CosmicBackgroundOuterSpace2" type="ColorRect" parent="." unique_id=2097056437]
 z_index = 4096
@@ -101,5 +305,9 @@ offset_bottom = -3.0
 scale = Vector2(2, 1.909)
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
+
+[node name="fog" parent="." unique_id=1408709461 instance=ExtResource("2_ph8dp")]
+z_index = 2
+position = Vector2(-678, -373)
 
 [connection signal="timeout" from="GameTimer" to="." method="_on_game_timer_timeout"]
