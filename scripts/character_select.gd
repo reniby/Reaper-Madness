@@ -80,7 +80,7 @@ func versus_process(_delta):
 		var color_idx = temp_colors[player]
 		# Joined Game, only versus
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and !Globals.players[player]:
-			press_play[player].text = "Player " + str(player + 1) + " joined!\nPress back to leave."
+			press_play[player].text = "P" + str(player + 1) + " joined!\nPress BACK to leave"
 			Globals.confirm.play()
 			hold_play.add_theme_color_override("font_color", Color(1,1,1))
 			camera_2d.offset = Vector2(0,0)
@@ -126,7 +126,7 @@ func versus_process(_delta):
 
 		# Return to Main Menu
 		elif Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.players[player]:
-			press_play[player].text = "Press confirm\nto join"
+			press_play[player].text = "Press CONFIRM\nto join"
 			Globals.confirm.play()
 			Globals.numPlayers -= 1
 			player_anims[player].visible = false
@@ -154,14 +154,14 @@ func versus_process(_delta):
 				temp_colors[player] = posmod((temp_colors[player] + 1), num_colors)
 			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
-		if Globals.players[player]:
-			labels[player].text = "Player %d Joined\nPress 'O' to leave" % (player+1)
-		else:
-			labels[player].text = ""
+		#if Globals.players[player]:
+			#labels[player].text = "Player %d Joined\nPress 'O' to leave" % (player+1)
+		#else:
+			#labels[player].text = ""
 	
 	if Globals.numPlayers > Globals.gameMode:
 		#press_play.text = "Press X to join!"
-		hold_play.text = "Press and hold X to start game once all players are ready!"
+		hold_play.text = "Hold CONFIRM to start!"
 		if (len(taken_colors) == Globals.numPlayers):
 			hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("16aa00ff"), (dash_held.max() / held_min)))
 			start_game_shake()
@@ -191,7 +191,7 @@ func solo_process(_delta):
 
 		# Select Color
 		if Input.is_action_just_pressed(Globals.character_input[player]["dash"]) and Globals.colors[solo_player] == -1:
-			press_play[solo_player].text = "Press and hold to start game!"
+			press_play[solo_player].text = "Hold CONFIRM to start!"
 			apply_shake()
 			Globals.confirm.play()
 			taken_colors.append(temp_colors[solo_player])
@@ -203,7 +203,7 @@ func solo_process(_delta):
 
 		# Deselect Color
 		if Input.is_action_just_pressed(Globals.character_input[player]['drop']) and Globals.colors[solo_player] != -1:
-			press_play[solo_player].text = "Press Confirm to select color!"
+			press_play[solo_player].text = "Press CONFIRM to select color!"
 			Globals.confirm.play()
 			for child in player_anims[solo_player].get_children(): 
 				child.visible = true
@@ -242,7 +242,7 @@ func solo_process(_delta):
 			Globals.colors = temp_colors
 			get_tree().change_scene_to_file("res://scenes/map_select.tscn")
 	else:
-		press_play[solo_player].text = "Press Confirm to select color!"
+		press_play[solo_player].text = "Press CONFIRM to select color!"
 		hold_play.text = ""
 		
 func start_game_shake():

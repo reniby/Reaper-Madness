@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_uxcyu"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="4_5wdeo"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="5_w1hxv"]
+[ext_resource type="FontFile" uid="uid://bht2qyd3i3cqc" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="8_pj2qx"]
 [ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="10_fqvby"]
 [ext_resource type="Texture2D" uid="uid://ckvxkob2exns2" path="res://assets/ui/joystick-px.png" id="10_pj2qx"]
 [ext_resource type="PackedScene" uid="uid://cowem0i0pp2jf" path="res://scenes/pickup.tscn" id="11_0sghn"]
@@ -132,7 +133,7 @@ position = Vector2(26.666668, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=1064257944]
+[node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=1064257944]
 visible = false
 z_index = 67
 texture_filter = 1
@@ -143,18 +144,18 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"cyclops"
 
-[node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=798920566]
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=798920566]
 position = Vector2(-26.666641, 0)
 rotation = 3.1415925
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=1141993499]
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=1141993499]
 position = Vector2(26.666668, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="PlayerAnim01" type="AnimatedSprite2D" parent="." unique_id=2067507177]
+[node name="PlayerAnim10" type="AnimatedSprite2D" parent="." unique_id=2067507177]
 visible = false
 z_index = 67
 texture_filter = 1
@@ -165,13 +166,13 @@ scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
 animation = &"cyclops"
 
-[node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=802041168]
+[node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=802041168]
 position = Vector2(-26.666641, 0)
 rotation = 3.1415925
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
 
-[node name="Arrow2" type="Sprite2D" parent="PlayerAnim01" unique_id=358077605]
+[node name="Arrow2" type="Sprite2D" parent="PlayerAnim10" unique_id=358077605]
 position = Vector2(26.666668, 0)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uxcyu")
@@ -217,7 +218,7 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="." unique_id=2050298951]
+[node name="Label3" type="Label" parent="." unique_id=2050298951]
 visible = false
 offset_left = 840.0
 offset_top = -1.0
@@ -228,7 +229,7 @@ theme_override_font_sizes/font_size = 24
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label3" type="Label" parent="." unique_id=1553367601]
+[node name="Label2" type="Label" parent="." unique_id=1553367601]
 visible = false
 offset_left = 40.0
 offset_top = 509.0
@@ -266,7 +267,7 @@ text = "Press CONFIRM
 to join"
 vertical_alignment = 1
 
-[node name="PressPlay2" type="Label" parent="." unique_id=1312309222]
+[node name="PressPlay3" type="Label" parent="." unique_id=1312309222]
 material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
@@ -283,7 +284,7 @@ to join"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="PressPlay3" type="Label" parent="." unique_id=2079394257]
+[node name="PressPlay2" type="Label" parent="." unique_id=2079394257]
 material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
@@ -328,8 +329,9 @@ offset_right = 798.5
 offset_bottom = 495.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("10_fqvby")
-theme_override_font_sizes/font_size = 35
+theme_override_fonts/font = ExtResource("8_pj2qx")
+theme_override_font_sizes/font_size = 30
+text = "Hold CONFIRM to start!"
 horizontal_alignment = 1
 vertical_alignment = 1
 

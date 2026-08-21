@@ -55,20 +55,20 @@ var character_input = [{
 	"drop": "tail_drop_p1"
 },
 {
-	"up": "up_p2", 
-	"down": "down_p2",
-	"left": "left_p2",
-	"right": "right_p2",
-	"dash": "dash_p2",
-	"drop": "tail_drop_p2"
-},
-{
 	"up": "up_p3", 
 	"down": "down_p3",
 	"left": "left_p3",
 	"right": "right_p3",
 	"dash": "dash_p3",
 	"drop": "tail_drop_p3"
+},
+{
+	"up": "up_p2", 
+	"down": "down_p2",
+	"left": "left_p2",
+	"right": "right_p2",
+	"dash": "dash_p2",
+	"drop": "tail_drop_p2"
 },
 {
 	"up": "up_p4", 
