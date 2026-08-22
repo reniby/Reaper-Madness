@@ -9,6 +9,8 @@ var num_options: int
 var selected = 0
 
 func _ready():
+	if not GlobalAudio.menu_music.playing:
+		GlobalAudio.menu_music.play()
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		scenes = solo_scenes
 	if has_node("FadeFromBlack"):

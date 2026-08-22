@@ -13,6 +13,8 @@ extends Label
 var ranked = {}
 
 func _ready():
+	GlobalAudio.game_music.stop()
+	GlobalAudio.menu_music.play()
 	for s in len(Globals.scores):
 		if Globals.scores[s] not in ranked:
 			ranked[Globals.scores[s]] = []

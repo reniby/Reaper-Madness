@@ -29,6 +29,8 @@ var player_positions = [
 
 
 func _ready():
+	GlobalAudio.menu_music.stop()
+	GlobalAudio.game_music.play()
 	ready_set.scale = Vector2(18,18)
 	ready_set_text.modulate.a = 0.0
 	var tween = get_tree().create_tween()
