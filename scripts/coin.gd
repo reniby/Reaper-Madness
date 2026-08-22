@@ -15,6 +15,9 @@ var rng = RandomNumberGenerator.new()
 @export_enum("Coin", "Speed") var pickup_type: String
 
 func _ready() -> void:
+	visible = false
+	await get_tree().create_timer(3).timeout
+	visible = true
 	if pickup_type == "Coin":
 		sprite.play("Ghost")
 		pickup_timer.wait_time = 1
@@ -34,9 +37,10 @@ func _on_area_2d_body_entered(body: Node) -> void:
 		Globals.coin_change.emit()
 		Globals.coin_positions.erase(self)
 	else:
-		Globals.flame_spawn.stop()
-		choose_location()
-		pickup_timer.start()
+		#Globals.flame_spawn.stop()
+		#choose_location()
+		#pickup_timer.start()
+		print("IN WALL")
 	sprite.visible = false
 	area.set_collision_mask_value(3, false)
 	particles.restart()
@@ -46,7 +50,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 
 func _on_coin_timer_timeout() -> void:
 	choose_location()
-	show_sprite()
+	#show_sprite()
 
 func show_sprite() -> void:
 	sprite.visible = true
@@ -68,9 +72,19 @@ func show_sprite() -> void:
 	area.set_collision_mask_value(3, true)
 
 func choose_location():
+	print("choosing location")
 	var x = rng.randf_range(-max_x, max_x)
 	var y = rng.randf_range(-max_y, max_y)
 	position = Vector2(x, y)
+	await get_tree().process_frame
+
+	for body in area.get_overlapping_bodies():
+		if body is TileMapLayer:
+			choose_location()
+			return
+	print('showing sprite')
+	show_sprite()
+			
 	
 
 func coin_behavior(playerBody):

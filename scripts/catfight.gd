@@ -7,6 +7,8 @@ extends Node2D
 @onready var ready_to_slow: bool = false
 @onready var player_ui: Array[Node2D] = [$Labels/P1,$Labels/P2,$Labels/P3,$Labels/P4]
 @onready var kill_death_scores: Array[Label] = [$Labels/P1/KillDeathNode/KillDeathScore,$Labels/P2/KillDeathNode/KillDeathScore,$Labels/P3/KillDeathNode/KillDeathScore,$Labels/P4/KillDeathNode/KillDeathScore]
+@onready var ready_set: Node2D = $ReadySet
+@onready var ready_set_text: Label = $ReadySet/ReadySetText
 
 
 var players = []
@@ -14,15 +16,42 @@ var post_timer: Timer
 var player_scene: PackedScene = preload("res://scenes/player.tscn")
 var map_options_scene: PackedScene = preload("res://scenes/map_options.tscn")
 var title = "Reaper Madness :D"
+
+const TWEEN_TIME = 3
+const TWEEN_STEPS = 6.0
  
 var player_positions = [
-	Vector2(-120, -30),
-	Vector2(-40, -30),
-	Vector2(40, -30),
-	Vector2(120, -30)
+	Vector2(-475, -220),
+	Vector2(-475, 220),
+	Vector2(475, -220),
+	Vector2(475, 220)
 ]
 
+
 func _ready():
+
+	ready_set.scale = Vector2(18,18)
+	ready_set_text.modulate.a = 0.0
+	var tween = get_tree().create_tween()
+	#tween.set_parallel()
+	
+	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from_current().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
+	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
+
+
+	tween.tween_property(ready_set_text, "modulate:a", 0.0, 0.0)
+	tween.tween_property(ready_set_text,"text", "Set!",0.0).from("Set!")
+	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
+	
+	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
+	tween.tween_property(ready_set_text, "modulate:a", 0.0, 0.0)
+	tween.tween_property(ready_set_text,"text", "Reap!",0.0).from("Set!")
+	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
+	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
+	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
+	
 	post_timer = Timer.new()
 	post_timer.one_shot = true
 	post_timer.wait_time = 1.0
@@ -41,7 +70,15 @@ func _ready():
 		var color = Color(Globals.character_skin[Globals.colors[i]]['color'])
 		color.a = 0.5 
 		player_ui[i].modulate = color #add_theme_color_override("font_color", color)
-
+		player_ui[i].modulate.a = 1
+	
+	#for i in range(len(Globals.players)):
+		#if Globals.players[i]:
+			#player_ui[i].visible = true
+	#
+	#if Globals.gameMode == Globals.gameModeOptions.SOLO:
+		#for i in range(1,4):
+			#player_ui[i].visible = true
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
 	#add_child(child)
@@ -64,9 +101,12 @@ func _ready():
 			spawn_player(true, i)
 			player_ui[i].visible = true
 			
+	await tween.finished
+	ready_set.visible = false
+	game_timer.start()
+			
 
 func _process(_delta):
-	DisplayServer.window_set_title(title + " | fps: " + str(Engine.get_frames_per_second()))
 	for i in range(len(Globals.scores)):
 		if Globals.players[i] or (Globals.gameMode == Globals.gameModeOptions.SOLO):
 			player_scores[i].text = str(Globals.scores[i]).pad_zeros(2)
@@ -101,3 +141,7 @@ func spawn_player(bot = false, player = 0):
 	add_child(child)
 	child.z_index = 5
 	players.append(child)
+	child.process_mode = Node.PROCESS_MODE_DISABLED
+	await get_tree().create_timer(TWEEN_TIME).timeout
+	child.process_mode = Node.PROCESS_MODE_INHERIT
+	
