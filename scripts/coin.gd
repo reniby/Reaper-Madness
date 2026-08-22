@@ -27,7 +27,6 @@ func _ready() -> void:
 		pickup_timer.wait_time = 5
 		pickup_behavior = Callable(self, "speed_behavior")
 	choose_location()
-	show_sprite()
 
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body is CharacterBody2D:
@@ -36,21 +35,12 @@ func _on_area_2d_body_entered(body: Node) -> void:
 		pickup_timer.start()
 		Globals.coin_change.emit()
 		Globals.coin_positions.erase(self)
+		hide_sprite()
 	else:
-		#Globals.flame_spawn.stop()
-		#choose_location()
-		#pickup_timer.start()
-		print("IN WALL")
-	sprite.visible = false
-	area.set_collision_mask_value(3, false)
-	particles.restart()
-	particles.emitting = false
-	particles.visible = false
-	point_light_2d.visible = false
+		choose_location()
 
 func _on_coin_timer_timeout() -> void:
 	choose_location()
-	#show_sprite()
 
 func show_sprite() -> void:
 	sprite.visible = true
@@ -59,7 +49,6 @@ func show_sprite() -> void:
 	Globals.coin_positions.append(self)
 	particles.emitting = true
 	particles.visible = true
-
 	sprite.scale = Vector2.ZERO
 	sprite.rotation = 0.0
 	Globals.flame_spawn.play()
@@ -68,24 +57,28 @@ func show_sprite() -> void:
 	tween.parallel()
 	tween.tween_property(sprite, "rotation", 8.0 * PI, 0.3)
 	await tween.finished
-
 	area.set_collision_mask_value(3, true)
 
+func hide_sprite():
+	sprite.visible = false
+	area.set_collision_mask_value(3, false)
+	particles.restart()
+	particles.emitting = false
+	particles.visible = false
+	point_light_2d.visible = false
+
 func choose_location():
-	print("choosing location")
 	var x = rng.randf_range(-max_x, max_x)
 	var y = rng.randf_range(-max_y, max_y)
 	position = Vector2(x, y)
+	await get_tree().physics_frame
 	await get_tree().process_frame
 
 	for body in area.get_overlapping_bodies():
 		if body is TileMapLayer:
 			choose_location()
 			return
-	print('showing sprite')
 	show_sprite()
-			
-	
 
 func coin_behavior(playerBody):
 	if playerBody.trail.length <= playerBody.trail.max_length:

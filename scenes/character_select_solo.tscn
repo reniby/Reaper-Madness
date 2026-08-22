@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bn4ovl3r77f7v"]
+[gd_scene format=3 uid="uid://gwvdhdfv7ad2"]
 
 [ext_resource type="Script" uid="uid://d6iio84e004t" path="res://scripts/character_select.gd" id="1_put6c"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="2_1iycs"]
