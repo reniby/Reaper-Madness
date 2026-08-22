@@ -32,7 +32,7 @@ horizontal_alignment = 1
 z_index = 5
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_2x4ji")
-position = Vector2(-532, 0)
+position = Vector2(-520, 0)
 rotation = 3.1415925
 scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
@@ -41,7 +41,7 @@ texture = ExtResource("5_8fs2h")
 z_index = 5
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_2x4ji")
-position = Vector2(532, 0)
+position = Vector2(520, 0)
 scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
 
