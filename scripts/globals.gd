@@ -169,10 +169,13 @@ var actions_map = 	{
 }
 var superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]
 
-func resetGlobals():
-	coin_positions = []
+func resetCharselect():
+	colors = [-1,-1,-1,-1]
 	numPlayers = 0
 	players = [false,false,false,false]
+
+func resetGlobals():
+	coin_positions = []
 	winner = 0
 	scores = [0,0,0,0]
 	x_facing = 0
