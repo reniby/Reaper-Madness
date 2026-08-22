@@ -151,7 +151,7 @@ func _on_reset_timeout() -> void:
 var numPlayers = 0
 var players = [false,false,false,false]
 var winner = 0
-var scores = [0,0,0,0]
+var scores = [-1, -1, -1, -1]
 var colors = [-1, -1, -1, -1]
 
 var x_facing = 0
@@ -177,7 +177,7 @@ func resetCharselect():
 func resetGlobals():
 	coin_positions = []
 	winner = 0
-	scores = [0,0,0,0]
+	scores = [-1, -1, -1, -1]
 	x_facing = 0
 	y_facing = 0
 	can_dash = true

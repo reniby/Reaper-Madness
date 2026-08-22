@@ -29,7 +29,6 @@ var player_positions = [
 
 
 func _ready():
-
 	ready_set.scale = Vector2(18,18)
 	ready_set_text.modulate.a = 0.0
 	var tween = get_tree().create_tween()
@@ -87,14 +86,14 @@ func _ready():
 	for i in range(len(Globals.players)):
 		if Globals.players[i]:
 			spawn_player(false, i)
-			player_ui[i].visible = true
 	
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
-		spawn_player()
-		player_ui[0].visible = true
-		for i in range(1,2):
-			spawn_player(true, i)
-			player_ui[i].visible = true
+		var num_bots = 3
+		for i in range(num_bots + 1):
+			if i == 0:
+				spawn_player()
+			else:
+				spawn_player(true, i)
 
 	await tween.finished
 	ready_set.visible = false
@@ -129,6 +128,8 @@ func _on_post_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/end_screen.tscn")
 	
 func spawn_player(bot = false, player = 0):
+	player_ui[player].visible = true
+	Globals.scores[player] = 0
 	var child = player_scene.instantiate()
 	child.bot = bot
 	child.player = player
