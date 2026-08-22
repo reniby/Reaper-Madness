@@ -352,15 +352,19 @@ position = Vector2(575, 602)
 scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("4_7ycdd")
 
-[node name="Middle" type="Label" parent="Timer" unique_id=1034752498]
+[node name="Middle" type="RichTextLabel" parent="Timer" unique_id=925833717]
 offset_left = 427.0
 offset_top = 615.0
 offset_right = 726.0
 offset_bottom = 635.0
-text = "Returning to main menu in 20 seconds..."
+bbcode_enabled = true
+text = "Returning to main menu in [color=16aa00ff]20[/color] seconds..."
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Timer" unique_id=1205492507]
 wait_time = 30.0
 one_shot = true
 autostart = true
+
+[connection signal="timeout" from="Timer/Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer/Timer" to="Leaderboard" method="_on_timer_timeout"]

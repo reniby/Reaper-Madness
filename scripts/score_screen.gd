@@ -12,7 +12,7 @@ extends Label
 @onready var score2: Label = $"../2nd/2nd"
 @onready var score3: Label = $"../3rd/3rd"
 @onready var score4: Label = $"../4th/4th"
-@onready var timer_label: Label = $"../Timer/Middle"
+@onready var timer_label: RichTextLabel = $"../Timer/Middle"
 @onready var timer: Timer = $"../Timer/Timer"
 
 var ranked = {}
@@ -46,6 +46,9 @@ func _ready():
 		anims[i].self_modulate = Globals.character_skin[Globals.colors[currPlayer]]['color']
 		anims[i].visible = true
 
-func _process(_deltada):
-	timer_label.text = "Returning to main menu in " + str(int(timer.time_left)) + " seconds..."
-	
+func _process(_delta):
+	timer_label.text = "Returning to main menu in " + "[color=16aa00ff]" + str(int(timer.time_left)) + "[/color]" + " seconds..."
+
+
+func _on_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/menu.tscn")
