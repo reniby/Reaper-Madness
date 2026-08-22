@@ -51,7 +51,7 @@ var bouncing = false
 var starting_position
 
 var bounce_timer = 0.0
-const BOUNCE_TIME = 0.15
+const BOUNCE_TIME = 0.05
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -113,7 +113,10 @@ func _physics_process(delta):
 			
 		if last_collision.get_collider() is AnimatableBody2D:
 			alt_temp_vel = last_collision.get_collider().get_parent().velocity.length() * 2
-		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * [temp_vel.length(), alt_temp_vel].max() * 1.2
+
+		var over = max(0, velocity.length() - SPEED)
+		var mul = 0.7 + (0.5 / (1.0 + over * 0.01))
+		velocity = Vector2(cos(get_angle_to(collision.get_position()) - PI), sin(get_angle_to(collision.get_position()) - PI)).normalized() * [temp_vel.length(), alt_temp_vel].max() * mul
 		hit_particles.global_position = collision.get_position()
 		hit_particles.restart()
 		Globals.superlative_actions[player]['num_bonks'] += 1
@@ -220,8 +223,9 @@ func _on_dash_timer_timeout() -> void:
 	invincible = false
 
 func _on_bot_dash_timer_timeout() -> void:
-	if bot and can_dash and not dash_timer.time_left:
-		dash(player)
+	print("dash")
+	#if bot and can_dash:
+		#dash(player)
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and get_parent().player != body.player and not invincible:
@@ -240,7 +244,7 @@ func set_player_color(player_idx):
 	anim.modulate = Globals.character_skin[color_idx]['color']
 
 func bot_controller(delta):
-	if bounce_timer > 0 or invincible:
+	if bounce_timer > 0:
 		return
 
 	# Bot Movement
@@ -249,7 +253,7 @@ func bot_controller(delta):
 	var curr_pos = global_position
 	var next_pos = navigation.get_next_path_position()
 	var new_vel = curr_pos.direction_to(next_pos) * SPEED
-	
+	#
 	if navigation.avoidance_enabled:
 		navigation.set_velocity(new_vel)
 	else:
