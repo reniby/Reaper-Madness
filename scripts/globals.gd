@@ -176,7 +176,7 @@ func resetCharselect():
 
 func resetGlobals():
 	coin_positions = []
-	winner = 0
+	winner = -1
 	scores = [-1, -1, -1, -1]
 	x_facing = 0
 	y_facing = 0

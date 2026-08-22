@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://d4ls8oiu3bk8n"]
+
+[ext_resource type="Script" uid="uid://rju72p6f5hlx" path="res://scripts/fireworks.gd" id="1_qw808"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyl73"]
+light_mode = 1
+
+[sub_resource type="Curve" id="Curve_7ycdd"]
+_data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(0.623596, 0.010989), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[node name="Fireworks" type="CPUParticles2D" unique_id=1857191686]
+material = SubResource("CanvasItemMaterial_qyl73")
+scale = Vector2(50, 50)
+emitting = false
+amount = 9
+lifetime = 0.8
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 10.0
+scale_amount_min = 6.0
+scale_amount_max = 8.0
+scale_amount_curve = SubResource("Curve_7ycdd")
+script = ExtResource("1_qw808")
+
+[connection signal="finished" from="." to="." method="_on_finished"]

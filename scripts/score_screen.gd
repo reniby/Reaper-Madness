@@ -7,6 +7,9 @@ extends Label
 @onready var timer_label: RichTextLabel = $"../Timer/Middle"
 @onready var timer: Timer = $"../Timer/Timer"
 
+
+@onready var fireworks: Node2D = $"../Fireworks"
+
 var ranked = {}
 
 func _ready():
@@ -17,7 +20,8 @@ func _ready():
 	
 	Globals.scores.sort()
 	Globals.scores.reverse()
-
+	Globals.winner = ranked[Globals.scores[0]][0]
+	fireworks.modulate = Globals.character_skin[Globals.colors[Globals.winner]]['color']
 	for i in anims:
 		i.visible = false
 	for i in Globals.numPlayers:
@@ -35,6 +39,8 @@ func _ready():
 
 		anims[i].play(Globals.character_skin[Globals.colors[currPlayer]]['anim'])
 		anims[i].visible = true
+		
+	
 
 func _process(_delta):
 	timer_label.text = "Returning to main menu in " + "[color=64a569]" + str(int(timer.time_left)) + "[/color]" + " seconds..."
