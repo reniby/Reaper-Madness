@@ -51,7 +51,6 @@ func build_platform():
 	collision_node.position.x = collision_node.position.x + ((PIXEL_WIDTH * size_x) / 2)
 	collision_node.position.y = collision_node.position.y + ((PIXEL_HEIGHT * size_y) / 2)
 	
-
 	# Atlas Coords
 	var horizontal = [0,1,3]
 	var vertical = [0,1,2]

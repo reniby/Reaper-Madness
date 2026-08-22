@@ -64,21 +64,15 @@ func _ready():
 	var curr_map = map_options.get_children()[Globals.map_idx]
 	curr_map.reparent(self)
 	curr_map.visible = true
-	curr_map.get_child(0).visible = false
+	var label = curr_map.get_tree().get_nodes_in_group("MapLabels")
+	label[0].visible = false
 
 	for i in range(len(player_scores)):
 		var color = Color(Globals.character_skin[Globals.colors[i]]['color'])
 		color.a = 0.5 
 		player_ui[i].modulate = color #add_theme_color_override("font_color", color)
 		player_ui[i].modulate.a = 1
-	
-	#for i in range(len(Globals.players)):
-		#if Globals.players[i]:
-			#player_ui[i].visible = true
-	#
-	#if Globals.gameMode == Globals.gameModeOptions.SOLO:
-		#for i in range(1,4):
-			#player_ui[i].visible = true
+
 	# Add Speed-up Pickup
 	#child.pickup_type = "Speed"
 	#add_child(child)
@@ -97,10 +91,11 @@ func _ready():
 	
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		spawn_player()
+		player_ui[0].visible = true
 		for i in range(1,4):
 			spawn_player(true, i)
 			player_ui[i].visible = true
-			
+
 	await tween.finished
 	ready_set.visible = false
 	game_timer.start()

@@ -130,15 +130,15 @@ offset_right = 270.0
 offset_bottom = 635.0
 text = "www.irreparablegames.com"
 
+[node name="Divider" type="Sprite2D" parent="." unique_id=1280816838]
+position = Vector2(575, 602)
+scale = Vector2(0.53982294, 0.5)
+texture = ExtResource("6_g3eks")
+
 [node name="Right" type="Label" parent="." unique_id=1372149476]
 offset_left = 884.0
 offset_top = 615.0
 offset_right = 1134.0
 offset_bottom = 635.0
-text = "NO AI NOR AI-DERIVED ASSETS"
+text = "- .... .- -. -.- / -.-- --- ..-"
 horizontal_alignment = 2
-
-[node name="Divider" type="Sprite2D" parent="." unique_id=1280816838]
-position = Vector2(575, 602)
-scale = Vector2(0.53982294, 0.5)
-texture = ExtResource("6_g3eks")
