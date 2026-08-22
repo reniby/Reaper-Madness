@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="8_um0j2"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="10_fix67"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="10_um0j2"]
+[ext_resource type="Texture2D" uid="uid://dnocnhnx1ngps" path="res://assets/ui/hudkd.png" id="11_7ycdd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um0j2"]
 light_mode = 1
@@ -88,6 +89,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d62ht"]
+light_mode = 1
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
@@ -124,7 +128,6 @@ scale = Vector2(0.4, 0.5)
 texture = ExtResource("4_7ycdd")
 
 [node name="1st" type="Label" parent="." unique_id=741275316]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 95.0
@@ -135,7 +138,7 @@ theme_override_font_sizes/font_size = 30
 text = "P1"
 vertical_alignment = 1
 
-[node name="1st" type="Label" parent="1st" unique_id=293327780]
+[node name="Score" type="Label" parent="1st" unique_id=293327780]
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
 offset_right = 300.0
@@ -155,8 +158,31 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
+[node name="KD" type="Label" parent="1st" unique_id=731643742]
+self_modulate = Color(1, 1, 1, 0.7137255)
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_left = -48.0
+offset_top = 28.810944
+offset_right = 27.0
+offset_bottom = 103.81094
+rotation = -0.61086524
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "12:16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillDeathIcon" type="Sprite2D" parent="1st" unique_id=1742485424]
+self_modulate = Color(1, 1, 1, 0.7137255)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_d62ht")
+position = Vector2(-25, 22.547272)
+rotation = -0.61086524
+texture = ExtResource("11_7ycdd")
+
 [node name="2nd" type="Label" parent="." unique_id=1686729134]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 175.0
@@ -167,7 +193,7 @@ theme_override_font_sizes/font_size = 30
 text = "P2"
 vertical_alignment = 1
 
-[node name="2nd" type="Label" parent="2nd" unique_id=1364975176]
+[node name="Score" type="Label" parent="2nd" unique_id=1364975176]
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
 offset_right = 300.0
@@ -187,8 +213,31 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
+[node name="KD" type="Label" parent="2nd" unique_id=630163529]
+self_modulate = Color(1, 1, 1, 0.7137255)
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_left = -48.0
+offset_top = 28.810944
+offset_right = 27.0
+offset_bottom = 103.81094
+rotation = -0.61086524
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "12:16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillDeathIcon" type="Sprite2D" parent="2nd" unique_id=461833385]
+self_modulate = Color(1, 1, 1, 0.7137255)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_d62ht")
+position = Vector2(-25, 22.547272)
+rotation = -0.61086524
+texture = ExtResource("11_7ycdd")
+
 [node name="3rd" type="Label" parent="." unique_id=1381533509]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 255.0
@@ -199,7 +248,7 @@ theme_override_font_sizes/font_size = 30
 text = "P3"
 vertical_alignment = 1
 
-[node name="3rd" type="Label" parent="3rd" unique_id=414188515]
+[node name="Score" type="Label" parent="3rd" unique_id=414188515]
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
 offset_right = 300.0
@@ -219,8 +268,31 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
 
+[node name="KD" type="Label" parent="3rd" unique_id=1212716357]
+self_modulate = Color(1, 1, 1, 0.7137255)
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_left = -48.0
+offset_top = 28.810944
+offset_right = 27.0
+offset_bottom = 103.81094
+rotation = -0.61086524
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "12:16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillDeathIcon" type="Sprite2D" parent="3rd" unique_id=79864850]
+self_modulate = Color(1, 1, 1, 0.7137255)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_d62ht")
+position = Vector2(-25, 22.547272)
+rotation = -0.61086524
+texture = ExtResource("11_7ycdd")
+
 [node name="4th" type="Label" parent="." unique_id=1138049700]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 335.0
@@ -231,7 +303,7 @@ theme_override_font_sizes/font_size = 30
 text = "P4"
 vertical_alignment = 1
 
-[node name="4th" type="Label" parent="4th" unique_id=1802936887]
+[node name="Score" type="Label" parent="4th" unique_id=1802936887]
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
 offset_right = 300.0
@@ -250,6 +322,30 @@ rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
 animation = &"cyclops"
+
+[node name="KD" type="Label" parent="4th" unique_id=535532678]
+self_modulate = Color(1, 1, 1, 0.7137255)
+material = SubResource("CanvasItemMaterial_um0j2")
+layout_mode = 0
+offset_left = -48.0
+offset_top = 28.810944
+offset_right = 27.0
+offset_bottom = 103.81094
+rotation = -0.61086524
+scale = Vector2(0.6, 0.6)
+theme_override_fonts/font = ExtResource("5_d62ht")
+theme_override_font_sizes/font_size = 30
+text = "12:16"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="KillDeathIcon" type="Sprite2D" parent="4th" unique_id=1555084438]
+self_modulate = Color(1, 1, 1, 0.7137255)
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_d62ht")
+position = Vector2(-25, 22.547272)
+rotation = -0.61086524
+texture = ExtResource("11_7ycdd")
 
 [node name="Menu" type="Node2D" parent="." unique_id=1414623389]
 position = Vector2(0, -50)
@@ -344,6 +440,7 @@ color = Color(0, 0, 0, 1)
 metadata/_edit_use_anchors_ = true
 
 [node name="Fog" parent="." unique_id=1162132948 instance=ExtResource("10_um0j2")]
+position = Vector2(-83, -30)
 
 [node name="Timer" type="Node2D" parent="." unique_id=600870737]
 
@@ -358,7 +455,7 @@ offset_top = 615.0
 offset_right = 726.0
 offset_bottom = 635.0
 bbcode_enabled = true
-text = "Returning to main menu in [color=16aa00ff]20[/color] seconds..."
+text = "Returning to main menu in [color=64a569]20[/color] seconds..."
 horizontal_alignment = 1
 
 [node name="Timer" type="Timer" parent="Timer" unique_id=1205492507]

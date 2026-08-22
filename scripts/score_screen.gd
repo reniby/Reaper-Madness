@@ -1,17 +1,9 @@
 extends Label
 
-@onready var p1: Label = $"../1st"
-@onready var p2: Label = $"../2nd"
-@onready var p3: Label = $"../3rd"
-@onready var p4: Label = $"../4th"
-@onready var a1: AnimatedSprite2D = $"../1st/Anim"
-@onready var a2: AnimatedSprite2D = $"../2nd/Anim"
-@onready var a3: AnimatedSprite2D = $"../3rd/Anim"
-@onready var a4: AnimatedSprite2D = $"../4th/Anim"
-@onready var score1: Label = $"../1st/1st"
-@onready var score2: Label = $"../2nd/2nd"
-@onready var score3: Label = $"../3rd/3rd"
-@onready var score4: Label = $"../4th/4th"
+@onready var labels: Array[Label] = [$"../1st", $"../2nd", $"../3rd", $"../4th"]
+@onready var anims: Array[AnimatedSprite2D] = [$"../1st/Anim", $"../2nd/Anim", $"../3rd/Anim", $"../4th/Anim"]
+@onready var scores: Array[Label] = [$"../1st/Score", $"../2nd/Score", $"../3rd/Score", $"../4th/Score"]
+@onready var kds: Array[Label] = [$"../1st/KD", $"../2nd/KD", $"../3rd/KD", $"../4th/KD"]
 @onready var timer_label: RichTextLabel = $"../Timer/Middle"
 @onready var timer: Timer = $"../Timer/Timer"
 
@@ -25,10 +17,7 @@ func _ready():
 	
 	Globals.scores.sort()
 	Globals.scores.reverse()
-	
-	var labels = [p1,p2,p3,p4]
-	var scores = [score1,score2,score3,score4]
-	var anims = [a1,a2,a3,a4]
+
 	for i in anims:
 		i.visible = false
 	for i in Globals.numPlayers:
@@ -39,15 +28,16 @@ func _ready():
 		labels[i].visible = true
 		labels[i].text = "P" + str(currPlayer+1)
 		scores[i].text = str(currScore)
+		kds[i].text = str(Globals.superlative_actions[i]["num_kills"]) + str(":") + str(Globals.superlative_actions[i]["num_deaths"])
+		
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
-		labels[i].add_theme_color_override("font_color", color)
-		scores[i].add_theme_color_override("font_color", color)
+		labels[i].modulate = color
+
 		anims[i].play(Globals.character_skin[Globals.colors[currPlayer]]['anim'])
-		anims[i].self_modulate = Globals.character_skin[Globals.colors[currPlayer]]['color']
 		anims[i].visible = true
 
 func _process(_delta):
-	timer_label.text = "Returning to main menu in " + "[color=16aa00ff]" + str(int(timer.time_left)) + "[/color]" + " seconds..."
+	timer_label.text = "Returning to main menu in " + "[color=64a569]" + str(int(timer.time_left)) + "[/color]" + " seconds..."
 
 
 func _on_timer_timeout() -> void:
