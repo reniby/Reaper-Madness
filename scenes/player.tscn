@@ -1,6 +1,6 @@
-[gd_scene load_steps=24 format=3 uid="uid://dsxn5ou3e4h0t"]
+[gd_scene format=3 uid="uid://dsxn5ou3e4h0t"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_0pet2"]
+[ext_resource type="Script" uid="uid://dnbl5raisy02x" path="res://scripts/player.gd" id="1_0pet2"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="2_smehm"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="3_fjrip"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="3_phkrk"]
@@ -112,7 +112,7 @@ point_count = 3
 _data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1769334369]
 scale = Vector2(1.2, 1.2)
 collision_layer = 6
 collision_mask = 7
@@ -120,7 +120,7 @@ motion_mode = 1
 safe_margin = 2.0
 script = ExtResource("1_0pet2")
 
-[node name="Shadow" type="AnimatedSprite2D" parent="."]
+[node name="Shadow" type="AnimatedSprite2D" parent="." unique_id=121616380]
 modulate = Color(0, 0, 0, 0.231373)
 position = Vector2(4, 3)
 rotation = 3.14159
@@ -128,7 +128,7 @@ scale = Vector2(0.9, 0.9)
 sprite_frames = SubResource("SpriteFrames_tt4e7")
 animation = &"cyclops"
 
-[node name="HitParticles" type="CPUParticles2D" parent="."]
+[node name="HitParticles" type="CPUParticles2D" parent="." unique_id=431676515]
 scale = Vector2(0.584545, 0.575521)
 emitting = false
 amount = 11
@@ -143,12 +143,12 @@ scale_amount_min = 4.0
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_jla11")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1478089498]
 position = Vector2(0, -2)
 scale = Vector2(1.12, 0.84)
 shape = SubResource("CapsuleShape2D_5o2x8")
 
-[node name="Trail" parent="." instance=ExtResource("5_mmvgc")]
+[node name="Trail" parent="." unique_id=1154720452 instance=ExtResource("5_mmvgc")]
 position = Vector2(-77.5602, -0.511909)
 points = PackedVector2Array(77.5602, 1.51191)
 width = 24.0
@@ -156,13 +156,13 @@ width_curve = SubResource("Curve_6wv0r")
 texture = SubResource("AnimatedTexture_wa2cp")
 texture_mode = 1
 
-[node name="Anim" type="AnimatedSprite2D" parent="."]
+[node name="Anim" type="AnimatedSprite2D" parent="." unique_id=885058664]
 texture_filter = 1
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_tt4e7")
 animation = &"cyclops"
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2066212787]
 amount = 4
 direction = Vector2(0, 0)
 gravity = Vector2(0, 0)
@@ -172,28 +172,31 @@ scale_amount_min = 4.0
 scale_amount_max = 6.0
 scale_amount_curve = SubResource("Curve_cf6rf")
 
-[node name="Timer" type="Node" parent="."]
+[node name="Timer" type="Node" parent="." unique_id=888128587]
 
-[node name="DeathTimer" type="Timer" parent="Timer"]
+[node name="DeathTimer" type="Timer" parent="Timer" unique_id=712524425]
 wait_time = 3.0
 one_shot = true
 
-[node name="ITimer" type="Timer" parent="Timer"]
+[node name="ITimer" type="Timer" parent="Timer" unique_id=685378374]
 wait_time = 2.0
 one_shot = true
 
-[node name="DashTimer" type="Timer" parent="Timer"]
+[node name="DashTimer" type="Timer" parent="Timer" unique_id=1837835284]
 wait_time = 1.5
+one_shot = true
 
-[node name="SpeedTimer" type="Timer" parent="Timer"]
+[node name="SpeedTimer" type="Timer" parent="Timer" unique_id=1197023921]
 wait_time = 3.0
 
-[node name="StartTimer" type="Timer" parent="Timer"]
+[node name="StartTimer" type="Timer" parent="Timer" unique_id=1509419088]
 wait_time = 0.1
 one_shot = true
 autostart = true
 
-[node name="DeathParticles" type="CPUParticles2D" parent="."]
+[node name="BotDashTimer" type="Timer" parent="Timer" unique_id=1062820783]
+
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=706927086]
 scale = Vector2(3, 3)
 emitting = false
 amount = 11
@@ -208,17 +211,17 @@ scale_amount_min = 30.0
 scale_amount_max = 60.0
 scale_amount_curve = SubResource("Curve_smehm")
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-path_desired_distance = 200.0
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1096520618]
+path_desired_distance = 30.0
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 50.0
+radius = 30.0
 debug_enabled = true
-debug_use_custom = true
 debug_path_custom_color = Color(1, 0, 0, 1)
 
 [connection signal="timeout" from="Timer/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timer/ITimer" to="." method="_on_i_timer_timeout"]
 [connection signal="timeout" from="Timer/DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Timer/SpeedTimer" to="." method="_on_speed_timer_timeout"]
+[connection signal="timeout" from="Timer/BotDashTimer" to="." method="_on_bot_dash_timer_timeout"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_bot_velocity_computed"]

@@ -92,7 +92,7 @@ func _ready():
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		spawn_player()
 		player_ui[0].visible = true
-		for i in range(1,4):
+		for i in range(1,2):
 			spawn_player(true, i)
 			player_ui[i].visible = true
 
