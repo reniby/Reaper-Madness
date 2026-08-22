@@ -50,6 +50,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Labels" type="Node" parent="." unique_id=1407675066]
 
 [node name="P1" type="Node2D" parent="Labels" unique_id=490804126]
+visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(-232, -560)
 
@@ -106,6 +107,7 @@ text = "0:0"
 horizontal_alignment = 2
 
 [node name="P2" type="Node2D" parent="Labels" unique_id=1474954881]
+visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(-232, -17)
 
@@ -166,6 +168,7 @@ horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="P3" type="Node2D" parent="Labels" unique_id=1849715429]
+visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(760, -560)
 
@@ -224,6 +227,7 @@ text = "0:0"
 horizontal_alignment = 2
 
 [node name="P4" type="Node2D" parent="Labels" unique_id=350817925]
+visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(760, -17)
 
@@ -291,6 +295,7 @@ offset_right = 45.0
 offset_bottom = -234.0
 theme_override_fonts/font = ExtResource("5_8stkw")
 theme_override_font_sizes/font_size = 65
+text = "60"
 horizontal_alignment = 1
 script = ExtResource("7_o0l6i")
 metadata/_edit_use_anchors_ = true
