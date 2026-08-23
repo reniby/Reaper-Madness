@@ -41,7 +41,7 @@ func _ready():
 	
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from_current().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
-	#apply_shake()
+	tween.tween_callback(apply_shake)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 
 
@@ -49,12 +49,14 @@ func _ready():
 	tween.tween_property(ready_set_text,"text", "Set!",0.0).from("Set!")
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
-	
+	tween.tween_callback(apply_shake)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
+	
 	tween.tween_property(ready_set_text, "modulate:a", 0.0, 0.0)
 	tween.tween_property(ready_set_text,"text", "Reap!",0.0).from("Set!")
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
+	tween.tween_callback(apply_shake)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 	
 	post_timer = Timer.new()
