@@ -300,7 +300,7 @@ script = ExtResource("7_o0l6i")
 metadata/_edit_use_anchors_ = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1028739495]
-wait_time = 60.0
+wait_time = 59.0
 one_shot = true
 
 [node name="StartTimer" type="Timer" parent="." unique_id=1244812544]

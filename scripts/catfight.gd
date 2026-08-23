@@ -30,7 +30,7 @@ var player_positions = [
 
 func _ready():
 	GlobalAudio.menu_music.stop()
-	GlobalAudio.game_music.play()
+	
 	ready_set.scale = Vector2(18,18)
 	ready_set_text.modulate.a = 0.0
 	var tween = get_tree().create_tween()
@@ -100,6 +100,7 @@ func _ready():
 	await tween.finished
 	ready_set.visible = false
 	game_timer.start()
+	GlobalAudio.game_music.play()
 			
 
 func _process(_delta):
