@@ -9,13 +9,17 @@ extends Node2D
 @onready var kill_death_scores: Array[Label] = [$Labels/P1/KillDeathNode/KillDeathScore,$Labels/P2/KillDeathNode/KillDeathScore,$Labels/P3/KillDeathNode/KillDeathScore,$Labels/P4/KillDeathNode/KillDeathScore]
 @onready var ready_set: Node2D = $ReadySet
 @onready var ready_set_text: Label = $ReadySet/ReadySetText
-
+@onready var camera_2d: Camera2D = $Camera2D
 
 var players = []
 var post_timer: Timer
 var player_scene: PackedScene = preload("res://scenes/player.tscn")
 var map_options_scene: PackedScene = preload("res://scenes/map_options.tscn")
 var title = "Reaper Madness :D"
+var shake_strength = 0.0
+var randomStrength = 30.0
+var shakeFade = 5.0
+var rng = RandomNumberGenerator.new()
 
 const TWEEN_TIME = 3
 const TWEEN_STEPS = 6.0
@@ -27,7 +31,6 @@ var player_positions = [
 	Vector2(475, 220)
 ]
 
-
 func _ready():
 	GlobalAudio.menu_music.stop()
 	
@@ -38,6 +41,7 @@ func _ready():
 	
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from_current().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
+	#apply_shake()
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 
 
@@ -103,11 +107,15 @@ func _ready():
 	GlobalAudio.game_music.play()
 			
 
-func _process(_delta):
+
+func _process(delta):
 	for i in range(len(Globals.scores)):
 		if Globals.players[i] or (Globals.gameMode == Globals.gameModeOptions.SOLO):
 			player_scores[i].text = str(Globals.scores[i]).pad_zeros(2)
 			kill_death_scores[i].text = str(Globals.superlative_actions[i]["num_kills"]) + str(":") + str(Globals.superlative_actions[i]["num_deaths"])
+	if shake_strength > 0:
+		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
+		camera_2d.offset = Vector2(rng.randf_range(-shake_strength,shake_strength),rng.randf_range(-shake_strength,shake_strength))
 
 func _on_game_timer_timeout() -> void:
 	if ready_to_slow:
@@ -143,4 +151,7 @@ func spawn_player(bot = false, player = 0):
 	child.process_mode = Node.PROCESS_MODE_DISABLED
 	await get_tree().create_timer(TWEEN_TIME).timeout
 	child.process_mode = Node.PROCESS_MODE_INHERIT
-	
+
+
+func apply_shake():
+	shake_strength = randomStrength

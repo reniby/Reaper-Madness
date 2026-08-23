@@ -246,7 +246,7 @@ func solo_process(_delta):
 	else:
 		press_play[solo_player].text = "Press CONFIRM to select a Reaper"
 		hold_play.text = ""
-		
+
 func start_game_shake():
 	held = true
 	camera_2d.offset = Vector2(rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2),rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2))
