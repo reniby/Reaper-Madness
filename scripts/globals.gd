@@ -116,20 +116,22 @@ func _ready():
 	click.stream = preload("res://assets/sound_effects/menu_click.mp3")
 	confirm.stream = preload("res://assets/sound_effects/character_join_confirm.mp3")
 	# change
-	pickup.stream = preload("res://assets/sound_effects/coin_pickup.mp3")
-	# change
+	pickup.stream = preload("res://assets/sound_effects/bell.wav")
 	death.stream = preload("res://assets/sound_effects/death.mp3")
 	player_bonk.stream = preload("res://assets/sound_effects/player_bonk.mp3")
 	wall_bonk.stream = preload("res://assets/sound_effects/wall_bonk.mp3")
 	dash.stream = preload("res://assets/sound_effects/dashing.mp3")
 
+
+	#pickup.pitch_scale = 0.6
+
 	click.volume_db = -15
 	confirm.volume_db = -10
-	pickup.volume_db = -30
-	death.volume_db = -30
+	pickup.volume_db = -20
+	death.volume_db = -13
 	player_bonk.volume_db = -20
-	wall_bonk.volume_db = -30
-	dash.volume_db = -30
+	wall_bonk.volume_db = -25
+	dash.volume_db = -20
 	
 	add_child(click)
 	add_child(confirm)

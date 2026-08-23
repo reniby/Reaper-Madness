@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/dashing.mp3-c89d7f4816fb31b9d5a6df57b8bbc4ec.
 [params]
 
 loop=false
-loop_offset=0
-bpm=0
+loop_offset=0.0
+bpm=0.0
 beat_count=0
 bar_beats=4
