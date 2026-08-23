@@ -36,7 +36,6 @@ var confirm = AudioStreamPlayer.new()
 var pickup = AudioStreamPlayer.new()
 var death = AudioStreamPlayer.new()
 var flame_spawn = AudioStreamPlayer.new()
-var player_spawn = AudioStreamPlayer.new()
 var player_bonk = AudioStreamPlayer.new()
 var wall_bonk = AudioStreamPlayer.new()
 var dash = AudioStreamPlayer.new()
@@ -115,20 +114,27 @@ func _ready():
 	
 	click.stream = preload("res://assets/sound_effects/menu_click.mp3")
 	confirm.stream = preload("res://assets/sound_effects/character_join_confirm.mp3")
+	# change
 	pickup.stream = preload("res://assets/sound_effects/coin_pickup.mp3")
+	# change
 	death.stream = preload("res://assets/sound_effects/death.mp3")
-	flame_spawn.stream = preload("res://assets/sound_effects/flame_spawn.mp3")
-	player_spawn.stream = preload("res://assets/sound_effects/player_spawn.mp3")
 	player_bonk.stream = preload("res://assets/sound_effects/player_bonk.mp3")
 	wall_bonk.stream = preload("res://assets/sound_effects/wall_bonk.mp3")
 	dash.stream = preload("res://assets/sound_effects/dashing.mp3")
+
+	click.volume_db = -15
+	confirm.volume_db = -10
+	pickup.volume_db = -30
+	death.volume_db = -30
+	player_bonk.volume_db = -20
+	wall_bonk.volume_db = -30
+	dash.volume_db = -30
 	
 	add_child(click)
 	add_child(confirm)
 	add_child(pickup)
 	add_child(death)
 	add_child(flame_spawn)
-	add_child(player_spawn)
 	add_child(player_bonk)
 	add_child(wall_bonk)
 	add_child(dash)

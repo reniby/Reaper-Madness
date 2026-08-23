@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_uxcyu"]
 [ext_resource type="Texture2D" uid="uid://pipiwk7di83l" path="res://assets/ungabunga.png" id="4_5wdeo"]
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="5_w1hxv"]
-[ext_resource type="FontFile" uid="uid://bht2qyd3i3cqc" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="8_pj2qx"]
+[ext_resource type="FontFile" uid="uid://bidx0rdvrs0u" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="8_pj2qx"]
 [ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="10_fqvby"]
 [ext_resource type="Texture2D" uid="uid://ckvxkob2exns2" path="res://assets/ui/joystick-px.png" id="10_pj2qx"]
 [ext_resource type="PackedScene" uid="uid://cowem0i0pp2jf" path="res://scenes/pickup.tscn" id="11_0sghn"]
@@ -258,7 +258,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
 offset_top = 19.5
-offset_right = 220.0
+offset_right = 370.0
 offset_bottom = 72.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -272,7 +272,7 @@ material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 924.0
+offset_left = 774.0
 offset_top = 19.5
 offset_right = 1124.0
 offset_bottom = 72.5
@@ -291,7 +291,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
 offset_top = 571.5
-offset_right = 220.0
+offset_right = 370.0
 offset_bottom = 624.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -305,7 +305,7 @@ material = SubResource("CanvasItemMaterial_3338a")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 924.0
+offset_left = 774.0
 offset_top = 571.5
 offset_right = 1124.0
 offset_bottom = 624.5

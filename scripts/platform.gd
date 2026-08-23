@@ -5,7 +5,7 @@ extends Node2D
 #@onready var obstacle: NavigationObstacle2D = $NavigationObstacle2D
 
 @export var offset: Vector2 = Vector2(0, -320)
-@export var duration: float = 5.0
+@export var duration: float = 3.0
 @export var size_x: int = 4
 @export var size_y: int = 2
 @export var n_spike: bool = false
@@ -19,25 +19,23 @@ const PIXEL_HEIGHT = 16
 var velocity: Vector2
 var direction := 1
 var start: Vector2
+var motion_time = 0.0
 
 func _ready():
 	build_platform()
 	start = body.position
 	#obstacle.radius = PIXEL_WIDTH / 2.0 * min(size_x, size_y)
 
-
 func _physics_process(delta):
-	var speed = offset / (duration / 2.0)
-	velocity = speed * direction
-	body.position += velocity * delta
+	motion_time += delta
+	var cycle = fmod(motion_time, duration * 2.0)
+	var t = cycle / duration
 
-	#obstacle.position = body.position + Vector2(size_x * PIXEL_WIDTH / 2.0, size_y * PIXEL_HEIGHT / 2.0)
-	#obstacle.radius = 10
+	if t > 1.0:
+		t = 2.0 - t
+	t = 0.5 - 0.5 * cos(t * PI)
 
-	if direction == 1 and body.position.distance_to(start + offset) < 1:
-		direction = -1
-	elif direction == -1 and body.position.distance_to(start) < 1:
-		direction = 1
+	body.position = start.lerp(start + offset, t)
 
 
 func build_platform():

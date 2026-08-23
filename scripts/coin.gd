@@ -51,7 +51,6 @@ func show_sprite() -> void:
 	particles.visible = true
 	sprite.scale = Vector2.ZERO
 	sprite.rotation = 0.0
-	Globals.flame_spawn.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(sprite, "scale", Vector2.ONE, 0.3)
 	tween.parallel()
