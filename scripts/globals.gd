@@ -97,7 +97,7 @@ var character_skin = [{
 	"anim": "cyclops"
 },
 {
-	"color": "#d387ff", #purple now orange now lilac
+	"color": "#d387ff", #lilac
 	"anim": "john"
 },
 {
@@ -118,7 +118,6 @@ func _ready():
 	
 	click.stream = preload("res://assets/sound_effects/menu_click.mp3")
 	confirm.stream = preload("res://assets/sound_effects/character_join_confirm.mp3")
-	# change
 	pickup.stream = preload("res://assets/sound_effects/bell.wav")
 	death.stream = preload("res://assets/sound_effects/death.mp3")
 	player_bonk.stream = preload("res://assets/sound_effects/player_bonk.mp3")
@@ -128,9 +127,6 @@ func _ready():
 	ready_.stream = preload("res://assets/sound_effects/ready_set/3/3r.wav")
 	set_.stream = preload("res://assets/sound_effects/ready_set/3/3s.wav")
 	reap.stream = preload("res://assets/sound_effects/ready_set/3/3g.wav")
-
-
-	#pickup.pitch_scale = 0.6
 
 	click.volume_db = -15
 	confirm.volume_db = -10

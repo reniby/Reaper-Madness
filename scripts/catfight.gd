@@ -23,6 +23,7 @@ var rng = RandomNumberGenerator.new()
 
 const TWEEN_TIME = 3
 const TWEEN_STEPS = 6.0
+const TWEEN_BUFFER = 0.5
  
 var player_positions = [
 	Vector2(-475, -220),
@@ -60,7 +61,7 @@ func _ready():
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
 	tween.tween_callback(apply_shake)
 	tween.tween_callback(play_reap)
-	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
+	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS + TWEEN_BUFFER)
 	
 	post_timer = Timer.new()
 	post_timer.one_shot = true
@@ -154,7 +155,7 @@ func spawn_player(bot = false, player = 0):
 	child.z_index = 5
 	players.append(child)
 	child.process_mode = Node.PROCESS_MODE_DISABLED
-	await get_tree().create_timer(TWEEN_TIME).timeout
+	await get_tree().create_timer(TWEEN_TIME + TWEEN_BUFFER).timeout
 	child.process_mode = Node.PROCESS_MODE_INHERIT
 
 
