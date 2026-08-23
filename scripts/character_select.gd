@@ -88,7 +88,7 @@ func versus_process(_delta):
 			held = false
 			player_anims[player].visible = true
 			player_anims[player].play()
-			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
+			#player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
 			player_anims[player].play(Globals.character_skin[color_idx]['anim'])
 			
 			var tween = get_tree().create_tween()
@@ -114,7 +114,7 @@ func versus_process(_delta):
 				if Globals.colors[p] != -1: continue
 				while (temp_colors[p] in taken_colors):
 					temp_colors[p] = (temp_colors[p] + 1) % num_colors
-				player_anims[p].self_modulate = Globals.character_skin[temp_colors[p]]['color']
+				#player_anims[p].self_modulate = Globals.character_skin[temp_colors[p]]['color']
 				player_anims[p].play(Globals.character_skin[temp_colors[p]]['anim'])
 				
 		# Deselect Color
@@ -148,14 +148,14 @@ func versus_process(_delta):
 			temp_colors[player] = posmod((temp_colors[player] - 1), num_colors)
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] =  posmod((temp_colors[player] - 1), num_colors)
-			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
+			#player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
 		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and temp_colors[player] not in taken_colors and Globals.players[player]:
 			Globals.click.play()
 			temp_colors[player] = (temp_colors[player] + 1) % num_colors
 			while (temp_colors[player] in taken_colors):
 				temp_colors[player] = posmod((temp_colors[player] + 1), num_colors)
-			player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
+			#player_anims[player].self_modulate = Globals.character_skin[temp_colors[player]]['color']
 			player_anims[player].play(Globals.character_skin[temp_colors[player]]['anim'])
 		#if Globals.players[player]:
 			#labels[player].text = "Player %d Joined\nPress 'O' to leave" % (player+1)
@@ -200,7 +200,7 @@ func solo_process(_delta):
 			Globals.colors[solo_player] = temp_colors[solo_player]
 			for child in player_anims[solo_player].get_children(): 
 				child.visible = false
-			player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
+			#player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
 			player_anims[solo_player].play(Globals.character_skin[temp_colors[solo_player]]['anim'])
 
 		# Deselect Color
@@ -223,12 +223,12 @@ func solo_process(_delta):
 		if Input.is_action_just_pressed(Globals.character_input[player]['left']) and Globals.colors[solo_player] == -1:
 			Globals.click.play()
 			temp_colors[solo_player] = posmod((temp_colors[solo_player] - 1), num_colors)
-			player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
+			#player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
 			player_anims[solo_player].play(Globals.character_skin[temp_colors[solo_player]]['anim'])
 		if Input.is_action_just_pressed(Globals.character_input[player]['right']) and Globals.colors[solo_player] == -1:
 			Globals.click.play()
 			temp_colors[solo_player] = (temp_colors[solo_player] + 1) % num_colors
-			player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
+			#player_anims[solo_player].self_modulate = Globals.character_skin[temp_colors[solo_player]]['color']
 			player_anims[solo_player].play(Globals.character_skin[temp_colors[solo_player]]['anim'])
 	
 	for i in range(1,4):

@@ -35,8 +35,10 @@ func _ready():
 		kds[i].text = str(Globals.superlative_actions[i]["num_kills"]) + str(":") + str(Globals.superlative_actions[i]["num_deaths"])
 		
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
-		labels[i].modulate = color
-
+		for child in labels[i].get_children():
+			if child is not AnimatedSprite2D:
+				child.modulate = color
+		labels[i].self_modulate = color
 		anims[i].play(Globals.character_skin[Globals.colors[currPlayer]]['anim'])
 		anims[i].visible = true
 		

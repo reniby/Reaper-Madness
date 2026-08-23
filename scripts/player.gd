@@ -235,7 +235,7 @@ func set_player_color(player_idx):
 	trail.default_color = Globals.character_skin[color_idx]["color"]
 	particles.color = Globals.character_skin[color_idx]['color']
 	hit_particles.color = Globals.character_skin[color_idx]['color']
-	anim.modulate = Globals.character_skin[color_idx]['color']
+	#anim.modulate = Globals.character_skin[color_idx]['color']
 
 func bot_controller(delta):
 	if bounce_timer > 0:

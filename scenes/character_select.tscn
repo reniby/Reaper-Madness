@@ -59,6 +59,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("3_fa52j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bqp8h")
+}],
+"loop": true,
+"name": &"cyclops_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_amb8a")
 }, {
 "duration": 1.0,
@@ -82,6 +93,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_amb8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyirb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gq5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gssxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmaqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46j3a")
+}],
+"loop": true,
+"name": &"john_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("4_5wdeo")
 }, {
 "duration": 1.0,
@@ -89,6 +123,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ungabunga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_5wdeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_w1hxv")
+}],
+"loop": true,
+"name": &"ungabunga_2",
 "speed": 5.0
 }]
 
@@ -120,7 +165,7 @@ position = Vector2(113, 133.00003)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"cyclops"
+animation = &"ungabunga_2"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
 position = Vector2(-26.666641, 0)

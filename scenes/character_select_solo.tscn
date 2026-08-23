@@ -55,6 +55,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_1iycs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rc4t7")
+}],
+"loop": true,
+"name": &"cyclops_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0qf5w")
 }, {
 "duration": 1.0,
@@ -78,6 +89,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}],
+"loop": true,
+"name": &"john_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_6p086")
 }, {
 "duration": 1.0,
@@ -85,6 +119,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ungabunga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6p086")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jtb1n")
+}],
+"loop": true,
+"name": &"ungabunga_2",
 "speed": 5.0
 }]
 
@@ -139,6 +184,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_1iycs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_rc4t7")
+}],
+"loop": true,
+"name": &"cyclops_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_amb8a")
 }, {
 "duration": 1.0,
@@ -162,6 +218,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_amb8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyirb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8gq5i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gssxi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmaqs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46j3a")
+}],
+"loop": true,
+"name": &"john_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("5_6p086")
 }, {
 "duration": 1.0,
@@ -169,6 +248,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ungabunga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6p086")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jtb1n")
+}],
+"loop": true,
+"name": &"ungabunga_2",
 "speed": 5.0
 }]
 

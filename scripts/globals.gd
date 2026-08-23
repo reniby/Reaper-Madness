@@ -98,15 +98,15 @@ var character_skin = [{
 },
 {
 	"color": "#d387ff", #lilac
-	"anim": "john"
+	"anim": "john_2"
 },
 {
 	"color": "#4189e0", #sky blue
-	"anim": "ungabunga"
+	"anim": "ungabunga_2"
 },
 {
 	"color": "#43de5a", #forest green
-	"anim": "cyclops"
+	"anim": "cyclops_2"
 }
 ]
 

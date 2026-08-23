@@ -58,6 +58,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("6_4j4el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_um0j2")
+}],
+"loop": true,
+"name": &"cyclops_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0qf5w")
 }, {
 "duration": 1.0,
@@ -81,6 +92,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}],
+"loop": true,
+"name": &"john_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("8_um0j2")
 }, {
 "duration": 1.0,
@@ -88,6 +122,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ungabunga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_um0j2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_fix67")
+}],
+"loop": true,
+"name": &"ungabunga_2",
 "speed": 5.0
 }]
 

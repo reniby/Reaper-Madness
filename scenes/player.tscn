@@ -50,6 +50,17 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_smehm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y4r1p")
+}],
+"loop": true,
+"name": &"cyclops_2",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sp2ya")
 }, {
 "duration": 1.0,
@@ -73,6 +84,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sp2ya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k0w6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qf5w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_72dis")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ra4m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hm4xr")
+}],
+"loop": true,
+"name": &"john_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("3_fjrip")
 }, {
 "duration": 1.0,
@@ -80,6 +114,17 @@ animations = [{
 }],
 "loop": true,
 "name": &"ungabunga",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_d2wvv")
+}],
+"loop": true,
+"name": &"ungabunga_2",
 "speed": 5.0
 }]
 
@@ -160,7 +205,7 @@ texture_mode = 1
 texture_filter = 1
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"cyclops"
+animation = &"ungabunga_2"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2066212787]
 amount = 4
