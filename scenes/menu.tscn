@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bm6l0lojw3d1m"]
 
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_ybihw"]
-[ext_resource type="FontFile" uid="uid://bht2qyd3i3cqc" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_4ytvr"]
+[ext_resource type="FontFile" uid="uid://bidx0rdvrs0u" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://c0ko23himejc2" path="res://assets/ui/reaper-logo.png" id="4_mhnvy"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="5_4ytvr"]
@@ -136,9 +136,9 @@ scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("6_g3eks")
 
 [node name="Right" type="Label" parent="." unique_id=1372149476]
-offset_left = 884.0
+offset_left = 883.0
 offset_top = 615.0
-offset_right = 1134.0
+offset_right = 1133.0
 offset_bottom = 635.0
-text = "- .... .- -. -.- / -.-- --- ..-"
+text = ".. .-.. -.-- / .-- ...- .. .-.. .-.. ."
 horizontal_alignment = 2

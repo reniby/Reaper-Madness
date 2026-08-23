@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://d3sw7tsdfconu" path="res://assets/ui/divider2.png" id="4_w7b0f"]
 [ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="5_8stkw"]
 [ext_resource type="Script" uid="uid://bxmk0hcf2ra47" path="res://scripts/timer.gd" id="7_o0l6i"]
+[ext_resource type="FontFile" uid="uid://bidx0rdvrs0u" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="8_w7b0f"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_8stkw"]
 light_mode = 1
@@ -288,15 +289,32 @@ material = SubResource("CanvasItemMaterial_ph8dp")
 anchors_preset = -1
 anchor_left = -0.014756944
 anchor_right = -0.014756944
-offset_left = -15.0
+offset_left = -14.0
 offset_top = -315.0
-offset_right = 45.0
+offset_right = 46.0
 offset_bottom = -234.0
 theme_override_fonts/font = ExtResource("5_8stkw")
 theme_override_font_sizes/font_size = 65
 text = "60"
 horizontal_alignment = 1
 script = ExtResource("7_o0l6i")
+metadata/_edit_use_anchors_ = true
+
+[node name="ms" type="Label" parent="Labels/Timer" unique_id=814502214]
+material = SubResource("CanvasItemMaterial_ph8dp")
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.15
+anchor_top = 4.0987654
+anchor_right = 1.7
+anchor_bottom = 4.0987654
+offset_left = -15.0
+offset_top = -315.0
+offset_right = 45.0
+offset_bottom = -234.0
+theme_override_fonts/font = ExtResource("8_w7b0f")
+theme_override_font_sizes/font_size = 23
+text = ".00"
 metadata/_edit_use_anchors_ = true
 
 [node name="GameTimer" type="Timer" parent="." unique_id=1028739495]

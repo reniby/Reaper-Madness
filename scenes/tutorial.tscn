@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://brpj57313qykx"]
 
 [ext_resource type="Script" uid="uid://dn6ix8tmxuq3v" path="res://scripts/tutorial.gd" id="1_c13y7"]
-[ext_resource type="Texture2D" uid="uid://h4tvjump7pti" path="res://assets/ui/credits.png" id="3_ph3nu"]
 [ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="4_4kmhl"]
+[ext_resource type="Texture2D" uid="uid://biqj5sva26wf6" path="res://assets/ui/qrcode.png" id="4_cq4me"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="5_cq4me"]
 
 [node name="Tutorial" type="Node2D" unique_id=10344891]
@@ -18,11 +18,6 @@ color = Color(0, 0, 0, 1)
 
 [node name="Node2D" parent="." unique_id=1998912291 instance=ExtResource("5_cq4me")]
 
-[node name="2026081921_06_55" type="Sprite2D" parent="." unique_id=149706198]
-position = Vector2(577, 327)
-scale = Vector2(0.42546582, 0.42546585)
-texture = ExtResource("3_ph3nu")
-
 [node name="Middle" type="Label" parent="." unique_id=1130371188]
 offset_left = 450.0
 offset_top = 615.0
@@ -36,17 +31,22 @@ offset_left = 20.0
 offset_top = 615.0
 offset_right = 270.0
 offset_bottom = 635.0
-text = "www.irreparablegames.com"
+text = "Thanks for playing! "
 
 [node name="Right" type="Label" parent="." unique_id=1347360073]
-offset_left = 884.0
+offset_left = 883.0
 offset_top = 615.0
-offset_right = 1134.0
+offset_right = 1133.0
 offset_bottom = 635.0
-text = "- .... .- -. -.- / -.-- --- ..-"
+text = ".. .-.. -.-- / .-- ...- .. .-.. .-.. ."
 horizontal_alignment = 2
 
 [node name="Divider" type="Sprite2D" parent="." unique_id=2088750592]
 position = Vector2(575, 602)
 scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("4_4kmhl")
+
+[node name="Qrcode" type="Sprite2D" parent="." unique_id=1478044715]
+position = Vector2(577, 327)
+scale = Vector2(0.425, 0.425)
+texture = ExtResource("4_cq4me")

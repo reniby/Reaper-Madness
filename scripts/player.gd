@@ -222,7 +222,7 @@ func _on_dash_timer_timeout() -> void:
 	invincible = false
 
 func _on_bot_dash_timer_timeout() -> void:
-	print("dash")
+	pass
 	#if bot and can_dash:
 		#dash(player)
 

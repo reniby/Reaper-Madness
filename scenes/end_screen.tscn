@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://be856ca43l6oe" path="res://assets/fonts/Jacquard12-Regular.ttf" id="2_qyl73"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_jc7ji"]
 [ext_resource type="Texture2D" uid="uid://dhoyfjavcvklj" path="res://assets/ui/divider.png" id="4_7ycdd"]
-[ext_resource type="FontFile" uid="uid://bht2qyd3i3cqc" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="5_d62ht"]
+[ext_resource type="FontFile" uid="uid://bidx0rdvrs0u" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="5_d62ht"]
 [ext_resource type="Texture2D" uid="uid://b2xi5jnj47oex" path="res://assets/cyclops.png" id="6_4j4el"]
 [ext_resource type="Texture2D" uid="uid://tmp6tws4e45v" path="res://assets/cyclops-down.png" id="7_um0j2"]
 [ext_resource type="Texture2D" uid="uid://b2gs2mfpppkr0" path="res://assets/mc_ani_sheet.png" id="7_wke0n"]
@@ -129,7 +129,6 @@ scale = Vector2(0.4, 0.5)
 texture = ExtResource("4_7ycdd")
 
 [node name="1st" type="Label" parent="." unique_id=741275316]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 95.0
@@ -164,11 +163,11 @@ animation = &"cyclops"
 self_modulate = Color(1, 1, 1, 0.7137255)
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
-offset_left = -48.0
-offset_top = 28.810944
-offset_right = 27.0
-offset_bottom = 103.81094
-rotation = -0.61086524
+offset_left = 305.0
+offset_top = 2.0
+offset_right = 380.0
+offset_bottom = 77.0
+rotation = 0.61086524
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("5_d62ht")
 theme_override_font_sizes/font_size = 30
@@ -180,12 +179,12 @@ vertical_alignment = 1
 self_modulate = Color(1, 1, 1, 0.7137255)
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_d62ht")
-position = Vector2(-25, 22.547272)
-rotation = -0.61086524
+position = Vector2(320, 20)
+rotation = 0.61086524
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="2nd" type="Label" parent="." unique_id=1686729134]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 175.0
@@ -220,11 +219,11 @@ animation = &"cyclops"
 self_modulate = Color(1, 1, 1, 0.7137255)
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
-offset_left = -48.0
-offset_top = 28.810944
-offset_right = 27.0
-offset_bottom = 103.81094
-rotation = -0.61086524
+offset_left = 305.0
+offset_top = 2.0
+offset_right = 380.0
+offset_bottom = 77.0
+rotation = 0.61086524
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("5_d62ht")
 theme_override_font_sizes/font_size = 30
@@ -236,12 +235,12 @@ vertical_alignment = 1
 self_modulate = Color(1, 1, 1, 0.7137255)
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_d62ht")
-position = Vector2(-25, 22.547272)
-rotation = -0.61086524
+position = Vector2(320, 20)
+rotation = 0.61086524
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="3rd" type="Label" parent="." unique_id=1381533509]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 255.0
@@ -276,11 +275,11 @@ animation = &"cyclops"
 self_modulate = Color(1, 1, 1, 0.7137255)
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
-offset_left = -48.0
-offset_top = 28.810944
-offset_right = 27.0
-offset_bottom = 103.81094
-rotation = -0.61086524
+offset_left = 305.8109
+offset_top = 2.0000072
+offset_right = 380.8109
+offset_bottom = 77.00001
+rotation = 0.61086524
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("5_d62ht")
 theme_override_font_sizes/font_size = 30
@@ -292,12 +291,12 @@ vertical_alignment = 1
 self_modulate = Color(1, 1, 1, 0.7137255)
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_d62ht")
-position = Vector2(-25, 22.547272)
-rotation = -0.61086524
+position = Vector2(320, 20)
+rotation = 0.61086524
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="4th" type="Label" parent="." unique_id=1138049700]
-visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 335.0
@@ -332,11 +331,11 @@ animation = &"cyclops"
 self_modulate = Color(1, 1, 1, 0.7137255)
 material = SubResource("CanvasItemMaterial_um0j2")
 layout_mode = 0
-offset_left = -48.0
-offset_top = 28.810944
-offset_right = 27.0
-offset_bottom = 103.81094
-rotation = -0.61086524
+offset_left = 305.0
+offset_top = 2.0
+offset_right = 380.0
+offset_bottom = 77.0
+rotation = 0.61086524
 scale = Vector2(0.6, 0.6)
 theme_override_fonts/font = ExtResource("5_d62ht")
 theme_override_font_sizes/font_size = 30
@@ -348,8 +347,9 @@ vertical_alignment = 1
 self_modulate = Color(1, 1, 1, 0.7137255)
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_d62ht")
-position = Vector2(-25, 22.547272)
-rotation = -0.61086524
+position = Vector2(320, 20)
+rotation = 0.61086524
+scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="Menu" type="Node2D" parent="." unique_id=1414623389]
