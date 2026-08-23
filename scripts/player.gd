@@ -199,7 +199,6 @@ func _on_death_timer_timeout() -> void:
 	visible = true
 	velocity = Vector2(0,0)
 	anim.rotation = 0
-	Globals.player_spawn.play(0.2)
 	# Re enable wall and coin
 	set_collision_layer_value(COIN_LAYER, true)
 	set_collision_mask_value(WALL_MASK, true)
