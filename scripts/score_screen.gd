@@ -51,7 +51,6 @@ func _on_timer_timeout() -> void:
 	
 func assign_firework_colors():
 	var fireworkArray = fireworks.get_children() 
-	print(ranked[Globals.scores[0]])
 	if len(ranked[Globals.scores[0]]) == 1:
 		fireworks.modulate = Globals.character_skin[Globals.colors[Globals.winner]]['color']
 	elif len(ranked[Globals.scores[0]]) == 2:

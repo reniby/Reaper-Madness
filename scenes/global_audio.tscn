@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://by6mo2px3sy6b" path="res://scripts/global_audio.gd" id="1_tbad1"]
 [ext_resource type="AudioStream" uid="uid://d882enhbeidf" path="res://assets/music/Reaper_Madness_Menu.wav" id="2_r5uck"]
-[ext_resource type="AudioStream" uid="uid://2vg8y4d63e5s" path="res://assets/music/test-with-sax.wav" id="3_1ajyf"]
+[ext_resource type="AudioStream" uid="uid://bxrj850odrcx3" path="res://assets/music/Reaper_Madness_Arena1.wav" id="3_6jbge"]
+[ext_resource type="AudioStream" uid="uid://c4cye7dinkfub" path="res://assets/music/Reaper_Madness_Arena3.wav" id="4_hhoab"]
+[ext_resource type="AudioStream" uid="uid://bgirwhp1kg45n" path="res://assets/music/Reaper_Madness_Arena4.wav" id="5_3v0ci"]
 
 [node name="GlobalAudio" type="Node" unique_id=1369208934]
 script = ExtResource("1_tbad1")
@@ -10,7 +12,11 @@ script = ExtResource("1_tbad1")
 [node name="MenuMusic" type="AudioStreamPlayer" parent="." unique_id=153313062]
 stream = ExtResource("2_r5uck")
 
-[node name="GameMusic" type="AudioStreamPlayer" parent="." unique_id=874581070]
-stream = ExtResource("3_1ajyf")
+[node name="GameMusic1" type="AudioStreamPlayer" parent="." unique_id=874581070]
+stream = ExtResource("3_6jbge")
 
-[connection signal="finished" from="GameMusic" to="." method="_on_game_music_finished"]
+[node name="GameMusic3" type="AudioStreamPlayer" parent="." unique_id=1311355107]
+stream = ExtResource("4_hhoab")
+
+[node name="GameMusic4" type="AudioStreamPlayer" parent="." unique_id=1467880775]
+stream = ExtResource("5_3v0ci")

@@ -110,7 +110,7 @@ func _ready():
 	await tween.finished
 	ready_set.visible = false
 	game_timer.start()
-	GlobalAudio.game_music.play()
+	GlobalAudio.play_random_game_music()
 			
 
 
