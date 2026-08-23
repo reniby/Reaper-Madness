@@ -43,6 +43,7 @@ var dash = AudioStreamPlayer.new()
 enum gameModeOptions {SOLO, VERSUS}
 var gameMode = gameModeOptions.VERSUS
 var coin_positions = []
+var coins_taken = []
 signal coin_change()
 
 var character_input = [{

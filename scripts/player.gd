@@ -10,7 +10,6 @@ const JUMP_VELOCITY = -800.0
 @onready var dash_timer: Timer = $Timer/DashTimer
 @onready var speed_timer: Timer = $Timer/SpeedTimer
 @onready var start_timer: Timer = $Timer/StartTimer
-@onready var bot_dash_timer: Timer = $Timer/BotDashTimer
 @onready var navigation: NavigationAgent2D = $NavigationAgent2D
 
 @onready var camera = $"../Camera2D"
@@ -61,13 +60,14 @@ func _ready():
 	global_position = starting_position
 	if bot:
 		Globals.coin_change.connect(_on_coin_change)
-		bot_dash_timer.start()
 	set_player_color(player)
 	Globals.scores[player] = 0
 	navigation.max_speed = SPEED
 	find_closest_coin()
 
 func _physics_process(delta):
+	if bot and navigation.is_navigation_finished():
+		dash(player)
 	if global_position.distance_to(navigation.target_position) < 50:
 		find_closest_coin()
 	check_in_map()
@@ -221,11 +221,6 @@ func _on_dash_timer_timeout() -> void:
 	can_dash = true
 	invincible = false
 
-func _on_bot_dash_timer_timeout() -> void:
-	pass
-	#if bot and can_dash:
-		#dash(player)
-
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and get_parent().player != body.player and not invincible:
 		body.death()
@@ -277,11 +272,14 @@ func find_closest_coin():
 	var closest_distance = global_position.distance_to(closest_coin.global_position)
 
 	for coin in Globals.coin_positions:
+		if Globals.coin_positions.size() != Globals.coins_taken.size() and coin in Globals.coins_taken:
+			continue
 		var distance = global_position.distance_to(coin.global_position)
 		if distance < closest_distance:
 			closest_coin = coin
 			closest_distance = distance
 
+	Globals.coins_taken.append(closest_coin)
 	navigation.target_position = closest_coin.global_position
 	
 
