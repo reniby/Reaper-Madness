@@ -14,7 +14,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="catfight"
+config/name="Reaper Madness"
 run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -26,6 +26,7 @@ GlobalAudio="*uid://ceyf8kkoceatt"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [gui]
