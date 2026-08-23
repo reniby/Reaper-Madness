@@ -42,6 +42,7 @@ func _ready():
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from_current().set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
 	tween.tween_callback(apply_shake)
+	tween.tween_callback(play_ready)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 
 
@@ -50,6 +51,7 @@ func _ready():
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
 	tween.tween_callback(apply_shake)
+	tween.tween_callback(play_set)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 	
 	tween.tween_property(ready_set_text, "modulate:a", 0.0, 0.0)
@@ -57,6 +59,7 @@ func _ready():
 	tween.tween_property(ready_set, "scale", Vector2(1,1), TWEEN_TIME / TWEEN_STEPS).from(Vector2(18,18)).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN)
 	tween.parallel().tween_property(ready_set_text, "modulate:a", 1.0, TWEEN_TIME / TWEEN_STEPS)
 	tween.tween_callback(apply_shake)
+	tween.tween_callback(play_reap)
 	tween.tween_interval(TWEEN_TIME / TWEEN_STEPS)
 	
 	post_timer = Timer.new()
@@ -157,3 +160,12 @@ func spawn_player(bot = false, player = 0):
 
 func apply_shake():
 	shake_strength = randomStrength
+	
+func play_ready():
+	Globals.ready_.play()
+	
+func play_set():
+	Globals.set_.play()
+	
+func play_reap():
+	Globals.reap.play()

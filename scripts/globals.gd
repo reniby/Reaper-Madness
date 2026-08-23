@@ -39,6 +39,9 @@ var flame_spawn = AudioStreamPlayer.new()
 var player_bonk = AudioStreamPlayer.new()
 var wall_bonk = AudioStreamPlayer.new()
 var dash = AudioStreamPlayer.new()
+var ready_ = AudioStreamPlayer.new()
+var set_ = AudioStreamPlayer.new()
+var reap = AudioStreamPlayer.new()
 
 enum gameModeOptions {SOLO, VERSUS}
 var gameMode = gameModeOptions.VERSUS
@@ -121,6 +124,10 @@ func _ready():
 	player_bonk.stream = preload("res://assets/sound_effects/player_bonk.mp3")
 	wall_bonk.stream = preload("res://assets/sound_effects/wall_bonk.mp3")
 	dash.stream = preload("res://assets/sound_effects/dashing.mp3")
+	
+	ready_.stream = preload("res://assets/sound_effects/ready_set/3/3r.wav")
+	set_.stream = preload("res://assets/sound_effects/ready_set/3/3s.wav")
+	reap.stream = preload("res://assets/sound_effects/ready_set/3/3g.wav")
 
 
 	#pickup.pitch_scale = 0.6
@@ -141,6 +148,9 @@ func _ready():
 	add_child(player_bonk)
 	add_child(wall_bonk)
 	add_child(dash)
+	add_child(ready_)
+	add_child(set_)
+	add_child(reap)
 	
 	reset_timer = Timer.new()
 	add_child(reset_timer)
