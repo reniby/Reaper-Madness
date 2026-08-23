@@ -13,7 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://1kedweshxnj0" path="res://assets/ungabunga-down.png" id="10_fix67"]
 [ext_resource type="PackedScene" uid="uid://brdetjp2ap3g0" path="res://scenes/fog.tscn" id="10_um0j2"]
 [ext_resource type="Texture2D" uid="uid://dnocnhnx1ngps" path="res://assets/ui/hudkd.png" id="11_7ycdd"]
-[ext_resource type="PackedScene" uid="uid://d4ls8oiu3bk8n" path="res://scenes/fireworks.tscn" id="12_7ycdd"]
+[ext_resource type="PackedScene" uid="uid://d4ls8oiu3bk8n" path="res://scenes/particles/fireworks.tscn" id="12_7ycdd"]
+[ext_resource type="PackedScene" uid="uid://dmqglu6stavro" path="res://scenes/particles/ground_fireworks.tscn" id="14_ilt1u"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um0j2"]
 light_mode = 1
@@ -129,6 +130,7 @@ scale = Vector2(0.4, 0.5)
 texture = ExtResource("4_7ycdd")
 
 [node name="1st" type="Label" parent="." unique_id=741275316]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 95.0
@@ -185,6 +187,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="2nd" type="Label" parent="." unique_id=1686729134]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 175.0
@@ -241,6 +244,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="3rd" type="Label" parent="." unique_id=1381533509]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 255.0
@@ -297,6 +301,7 @@ scale = Vector2(1.1, 1.1)
 texture = ExtResource("11_7ycdd")
 
 [node name="4th" type="Label" parent="." unique_id=1138049700]
+visible = false
 material = SubResource("CanvasItemMaterial_um0j2")
 offset_left = 421.0
 offset_top = 335.0
@@ -446,13 +451,29 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Fireworks" type="Node2D" parent="." unique_id=29669098]
 
-[node name="Fireworks" parent="Fireworks" unique_id=1857191686 instance=ExtResource("12_7ycdd")]
+[node name="Fireworks2" parent="Fireworks" unique_id=1857191686 instance=ExtResource("12_7ycdd")]
+position = Vector2(214, 140)
 
-[node name="Fireworks2" parent="Fireworks" unique_id=229965610 instance=ExtResource("12_7ycdd")]
+[node name="Fireworks3" parent="Fireworks" unique_id=1875222517 instance=ExtResource("12_7ycdd")]
+position = Vector2(276, 419)
 
-[node name="Fireworks3" parent="Fireworks" unique_id=1643568955 instance=ExtResource("12_7ycdd")]
+[node name="Fireworks4" parent="Fireworks" unique_id=713963198 instance=ExtResource("12_7ycdd")]
+position = Vector2(873, 436)
 
-[node name="Fireworks4" parent="Fireworks" unique_id=1330736939 instance=ExtResource("12_7ycdd")]
+[node name="Fireworks5" parent="Fireworks" unique_id=69401510 instance=ExtResource("12_7ycdd")]
+position = Vector2(878, 93)
+
+[node name="GroundFireworks" parent="Fireworks" unique_id=2139644113 instance=ExtResource("14_ilt1u")]
+position = Vector2(130, 655)
+
+[node name="GroundFireworks2" parent="Fireworks" unique_id=155310446 instance=ExtResource("14_ilt1u")]
+position = Vector2(306, 656)
+
+[node name="GroundFireworks3" parent="Fireworks" unique_id=23436658 instance=ExtResource("14_ilt1u")]
+position = Vector2(856, 651)
+
+[node name="GroundFireworks4" parent="Fireworks" unique_id=16657048 instance=ExtResource("14_ilt1u")]
+position = Vector2(1019, 648)
 
 [node name="Fog" parent="." unique_id=1162132948 instance=ExtResource("10_um0j2")]
 position = Vector2(-83, -30)
