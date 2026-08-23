@@ -97,7 +97,6 @@ size_y = 3
 [node name="Platform2" parent="Movement" unique_id=1816260743 instance=ExtResource("5_f6dgi")]
 position = Vector2(257.5, -121.666664)
 offset = Vector2(0, 300)
-duration = 3.0
 size_x = 5
 
 [node name="Platform3" parent="Movement" unique_id=375583107 instance=ExtResource("5_f6dgi")]
@@ -110,7 +109,6 @@ size_y = 3
 [node name="Platform4" parent="Movement" unique_id=136324811 instance=ExtResource("5_f6dgi")]
 position = Vector2(-262.5, -150.83331)
 offset = Vector2(150, 0)
-duration = 3.0
 size_x = 2
 
 [node name="Label" type="Label" parent="Movement" unique_id=1462115095 groups=["MapLabels"]]
