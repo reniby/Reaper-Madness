@@ -9,6 +9,11 @@ light_mode = 1
 _data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(0.623596, 0.010989), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Gradient" id="Gradient_d0v6t"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.25, 0.5, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+
 [node name="Fireworks" type="CPUParticles2D" unique_id=1857191686]
 material = SubResource("CanvasItemMaterial_qyl73")
 scale = Vector2(50, 50)
@@ -25,6 +30,7 @@ initial_velocity_max = 10.0
 scale_amount_min = 6.0
 scale_amount_max = 8.0
 scale_amount_curve = SubResource("Curve_7ycdd")
+color_initial_ramp = SubResource("Gradient_d0v6t")
 script = ExtResource("1_qw808")
 
 [connection signal="finished" from="." to="." method="_on_finished"]

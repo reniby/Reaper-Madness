@@ -21,7 +21,7 @@ func _ready():
 	Globals.scores.sort()
 	Globals.scores.reverse()
 	Globals.winner = ranked[Globals.scores[0]][0]
-	fireworks.modulate = Globals.character_skin[Globals.colors[Globals.winner]]['color']
+	assign_firework_colors()
 	for i in anims:
 		i.visible = false
 	for i in Globals.numPlayers:
@@ -48,3 +48,30 @@ func _process(_delta):
 
 func _on_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/menu.tscn")
+	
+func assign_firework_colors():
+	var fireworkArray = fireworks.get_children() 
+	print(ranked[Globals.scores[0]])
+	if len(ranked[Globals.scores[0]]) == 1:
+		fireworks.modulate = Globals.character_skin[Globals.colors[Globals.winner]]['color']
+	elif len(ranked[Globals.scores[0]]) == 2:
+		for firework in fireworkArray:
+			firework.color_initial_ramp.set_color(0,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][0]]]['color'])
+			firework.color_initial_ramp.set_color(1,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][0]]]['color'])
+			firework.color_initial_ramp.set_color(2,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][1]]]['color'])
+			firework.color_initial_ramp.set_color(3,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][1]]]['color'])
+	elif len(ranked[Globals.scores[0]]) == 4:
+		for firework in fireworkArray:
+			firework.color_initial_ramp.set_color(0,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][0]]]['color'])
+			firework.color_initial_ramp.set_color(1,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][1]]]['color'])
+			firework.color_initial_ramp.set_color(2,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][2]]]['color'])
+			firework.color_initial_ramp.set_color(3,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][3]]]['color'])
+	elif len(ranked[Globals.scores[0]]) == 3:
+		var rng = RandomNumberGenerator.new()
+		for firework in fireworkArray:
+			firework.color_initial_ramp.set_color(0,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][0]]]['color'])
+			firework.color_initial_ramp.set_color(1,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][1]]]['color'])
+			firework.color_initial_ramp.set_color(2,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][2]]]['color'])
+			firework.color_initial_ramp.set_color(3,Globals.character_skin[Globals.colors[ranked[Globals.scores[0]][rng.randi_range(0,2)]]]['color'])
+	for firework in fireworkArray:
+		firework.restart()
