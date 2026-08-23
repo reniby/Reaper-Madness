@@ -36,7 +36,7 @@ func _on_area_2d_body_entered(body: Node) -> void:
 		Globals.coin_change.emit()
 		Globals.coin_positions.erase(self)
 		hide_sprite()
-	else:
+	elif body.get_parent() is not AnimatableBody2D:
 		choose_location()
 
 func _on_coin_timer_timeout() -> void:
