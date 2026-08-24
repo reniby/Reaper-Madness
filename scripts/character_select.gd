@@ -161,7 +161,7 @@ func versus_process(_delta):
 	if Globals.numPlayers > Globals.gameMode:
 		if (len(taken_colors) == Globals.numPlayers):
 			hold_play.text = "Hold CONFIRM to start!"
-			hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("16aa00ff"), (dash_held.max() / held_min)))
+			hold_play.add_theme_color_override("font_color", Color.WHITE.lerp(Color("64A863"), (dash_held.max() / held_min)))
 			start_game_shake()
 		else:
 			hold_play.text = ""
