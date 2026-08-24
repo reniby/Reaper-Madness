@@ -206,9 +206,9 @@ func _on_death_timer_timeout() -> void:
 	trail.length = trail.starting_length
 	i_timer.start()
 	var tween = get_tree().create_tween()
-	for i in range(4):
-		tween.tween_property(anim, "modulate:a", 0.4, 0.25)
-		tween.tween_property(anim, "modulate:a", 1, 0.25)
+	for i in range(20):
+		tween.tween_property(anim, "modulate:a", 0.2, 0.05)
+		tween.tween_property(anim, "modulate:a", 1, 0.05)
 		
 func _on_i_timer_timeout() -> void:
 	pass
@@ -297,5 +297,5 @@ func dash(player_num):
 	dash_timer.start()
 	invincible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(anim, "modulate", Color.WHITE, 0.5)
-	tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
+	tween.tween_property(anim, "modulate", Color.WHITE, 1).from(Color(3.5,3.5,3.5))
+	#tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
