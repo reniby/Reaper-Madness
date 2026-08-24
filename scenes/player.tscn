@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dx3230llssqwf" path="res://scenes/trail.tscn" id="5_mmvgc"]
 [ext_resource type="Texture2D" uid="uid://bwhvobryafggl" path="res://assets/tail_frames/tail_3.png" id="6_oe60d"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_fjrip"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_ur7pv"]
 atlas = ExtResource("2_fjrip")
 region = Rect2(40, 0, 40, 33)
@@ -193,6 +196,7 @@ _data = [Vector2(0.011236, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 2
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=1769334369]
+material = SubResource("CanvasItemMaterial_fjrip")
 scale = Vector2(1.2, 1.2)
 collision_layer = 6
 collision_mask = 7
@@ -240,8 +244,7 @@ texture_mode = 1
 texture_filter = 1
 rotation = 3.14159
 sprite_frames = SubResource("SpriteFrames_tt4e7")
-animation = &"unga-alt"
-frame_progress = 0.02509385
+animation = &"cyclops"
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2066212787]
 amount = 4

@@ -16,6 +16,9 @@
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_um0j2"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qyl73"]
+light_mode = 1
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p086"]
 atlas = ExtResource("6_qyl73")
 region = Rect2(40, 0, 40, 33)
@@ -23,6 +26,14 @@ region = Rect2(40, 0, 40, 33)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jtb1n"]
 atlas = ExtResource("7_7ycdd")
 region = Rect2(40, 0, 40, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjrip"]
+atlas = ExtResource("6_qyl73")
+region = Rect2(0, 0, 40, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smehm"]
+atlas = ExtResource("7_7ycdd")
+region = Rect2(0, 0, 40, 33)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2wvv"]
 atlas = ExtResource("6_qyl73")
@@ -87,13 +98,13 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6p086")
+"texture": SubResource("AtlasTexture_fjrip")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jtb1n")
+"texture": SubResource("AtlasTexture_smehm")
 }],
 "loop": true,
-"name": &"cyclops_2",
+"name": &"cyclops-alt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -227,6 +238,7 @@ vertical_alignment = 1
 [node name="Anim" type="AnimatedSprite2D" parent="1st" unique_id=1043253417]
 z_index = 67
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_qyl73")
 position = Vector2(150, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
@@ -284,6 +296,7 @@ vertical_alignment = 1
 [node name="Anim" type="AnimatedSprite2D" parent="2nd" unique_id=884928803]
 z_index = 67
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_qyl73")
 position = Vector2(150, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
@@ -341,11 +354,12 @@ vertical_alignment = 1
 [node name="Anim" type="AnimatedSprite2D" parent="3rd" unique_id=2106898279]
 z_index = 67
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_qyl73")
 position = Vector2(150, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &""
+animation = &"cyclops"
 
 [node name="KD" type="Label" parent="3rd" unique_id=1212716357]
 self_modulate = Color(1, 1, 1, 0.7137255)
@@ -398,11 +412,12 @@ vertical_alignment = 1
 [node name="Anim" type="AnimatedSprite2D" parent="4th" unique_id=1170083499]
 z_index = 67
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_qyl73")
 position = Vector2(150, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
-animation = &""
+animation = &"cyclops-alt"
 
 [node name="KD" type="Label" parent="4th" unique_id=535532678]
 self_modulate = Color(1, 1, 1, 0.7137255)
