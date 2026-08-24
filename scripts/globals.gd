@@ -89,32 +89,32 @@ var character_skin = [{
 	"anim": "john"
 },
 {
-	"color": "#9B4639", #red
-	"anim": "john-alt"
-},
-{
 	"color": "#6EB0A4", #cyan
 	"anim": "kraken"
-},
-{
-	"color": "#6487CA", #blue
-	"anim": "kraken-alt"
-},
-{
-	"color": "#9E5B8D", #pink
-	"anim": "unga"
-},
-{
-	"color": "#9D5835", #orange
-	"anim": "unga-alt"
 },
 {
 	"color": "#A6A580", #green
 	"anim": "cyclops"
 },
 {
+	"color": "#9E5B8D", #pink
+	"anim": "unga"
+},
+{
+	"color": "#9B4639", #red
+	"anim": "john-alt"
+},
+{
+	"color": "#6487CA", #blue
+	"anim": "kraken-alt"
+},
+{
 	"color": "#715EBD", #purple
 	"anim": "cyclops-alt"
+},
+{
+	"color": "#9D5835", #orange
+	"anim": "unga-alt"
 }
 ]
 

@@ -235,7 +235,6 @@ func set_player_color(player_idx):
 	trail.default_color = Globals.character_skin[color_idx]["color"]
 	particles.color = Globals.character_skin[color_idx]['color']
 	hit_particles.color = Globals.character_skin[color_idx]['color']
-	anim.modulate = Globals.character_skin[color_idx]['color']
 
 func bot_controller(delta):
 	if bounce_timer > 0:
@@ -298,5 +297,5 @@ func dash(player_num):
 	dash_timer.start()
 	invincible = true
 	var tween = get_tree().create_tween()
-	tween.tween_property(anim, "modulate", Color.RED, 0.5)
+	tween.tween_property(anim, "modulate", Color.WHITE, 0.5)
 	tween.tween_property(anim, "modulate", Color(Globals.character_skin[Globals.colors[player]]['color']), 0.5)
