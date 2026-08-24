@@ -26,6 +26,7 @@ GlobalAudio="*uid://ceyf8kkoceatt"
 
 [display]
 
+window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [gui]
