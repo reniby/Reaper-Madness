@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://1kedweshxnj0"
-path="res://.godot/imported/ungabunga-down.png-9443ac87f1c93c9379ba4376625949e2.ctex"
+uid="uid://tem2xpqhf7w7"
+path="res://.godot/imported/sprite-down.png-4ee561a0e4083255778ec2ba8e3eebd3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ungabunga-down.png"
-dest_files=["res://.godot/imported/ungabunga-down.png-9443ac87f1c93c9379ba4376625949e2.ctex"]
+source_file="res://assets/players/sprite-down.png"
+dest_files=["res://.godot/imported/sprite-down.png-4ee561a0e4083255778ec2ba8e3eebd3.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://brdetjp2ap3g0"]
 
-[ext_resource type="Shader" uid="uid://conpt4tfqms7i" path="res://shaders/fog.gdshader" id="1_ntoob"]
+[ext_resource type="Shader" path="res://shaders/fog.gdshader" id="1_ntoob"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ntoob"]
 

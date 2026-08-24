@@ -88,7 +88,6 @@ func versus_process(_delta):
 			held = false
 			player_anims[player].visible = true
 			player_anims[player].play()
-			player_anims[player].self_modulate = Globals.character_skin[color_idx]['color']
 			player_anims[player].play(Globals.character_skin[color_idx]['anim'])
 			
 			var tween = get_tree().create_tween()

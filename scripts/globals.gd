@@ -85,28 +85,36 @@ var character_input = [{
 
 
 var character_skin = [{
-	"color": "white",
+	"color": "#9BADB7",
 	"anim": "john"
 },
 {
-	"color": "#FF3F7F", #pink
-	"anim": "ungabunga"
+	"color": "#9B4639", #red
+	"anim": "john-alt"
 },
 {
-	"color": "#f2e605", #yellow
+	"color": "#6EB0A4", #cyan
+	"anim": "kraken"
+},
+{
+	"color": "#6487CA", #blue
+	"anim": "kraken-alt"
+},
+{
+	"color": "#9E5B8D", #pink
+	"anim": "unga"
+},
+{
+	"color": "#9D5835", #orange
+	"anim": "unga-alt"
+},
+{
+	"color": "#A6A580", #green
 	"anim": "cyclops"
 },
 {
-	"color": "#d387ff", #lilac
-	"anim": "john"
-},
-{
-	"color": "#4189e0", #sky blue
-	"anim": "ungabunga"
-},
-{
-	"color": "#43de5a", #forest green
-	"anim": "cyclops"
+	"color": "#715EBD", #purple
+	"anim": "cyclops-alt"
 }
 ]
 
