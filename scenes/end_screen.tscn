@@ -180,6 +180,8 @@ light_mode = 1
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87vmq"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7ycdd"]
+
 [node name="EndScreen" type="Node2D" unique_id=1744773325 node_paths=PackedStringArray("buttons")]
 script = ExtResource("1_87vmq")
 buttons = [NodePath("Menu/Replay"), NodePath("Menu/CharacterSelect"), NodePath("Menu/Menu")]
@@ -568,11 +570,15 @@ position = Vector2(-83, -30)
 [node name="Timer" type="Node2D" parent="." unique_id=600870737]
 
 [node name="Divider" type="Sprite2D" parent="Timer" unique_id=1937621125]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_7ycdd")
 position = Vector2(575, 602)
 scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("4_7ycdd")
 
 [node name="Middle" type="RichTextLabel" parent="Timer" unique_id=925833717]
+texture_filter = 1
+material = SubResource("CanvasItemMaterial_7ycdd")
 offset_left = 427.0
 offset_top = 615.0
 offset_right = 726.0

@@ -11,7 +11,6 @@ light_mode = 1
 [node name="MapOptions" type="Node2D" unique_id=284538831]
 
 [node name="John" type="TileMapLayer" parent="." unique_id=1807828494]
-visible = false
 texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.2, 1.2)
@@ -36,7 +35,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_bnbbs")
 theme_override_font_sizes/font_size = 30
-text = "John Mapman"
+text = "The Testing Grounds"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -71,7 +70,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_bnbbs")
 theme_override_font_sizes/font_size = 30
-text = "It's Gettin' Prickly"
+text = "Remove and alter"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -129,7 +128,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_bnbbs")
 theme_override_font_sizes/font_size = 30
-text = "Hold Yer Horses"
+text = "Hold Ye Horses"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
@@ -139,6 +138,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="SpikeyMovement" type="TileMapLayer" parent="." unique_id=540558244]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.2, 1.2)
@@ -184,7 +184,7 @@ grow_vertical = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_bnbbs")
 theme_override_font_sizes/font_size = 30
-text = "A Little Bit O' Everything"
+text = "Gammut"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
