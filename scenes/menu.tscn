@@ -110,7 +110,6 @@ texture = ExtResource("3_mhnvy")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=706596826]
 modulate = Color(1, 1, 1, 0.8509804)
-texture_filter = 1
 position = Vector2(578.37726, 131.4375)
 scale = Vector2(0.79845285, 0.79845273)
 texture = ExtResource("4_mhnvy")
