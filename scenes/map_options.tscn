@@ -11,6 +11,7 @@ light_mode = 1
 [node name="MapOptions" type="Node2D" unique_id=284538831]
 
 [node name="John" type="TileMapLayer" parent="." unique_id=1807828494]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 scale = Vector2(1.2, 1.2)
