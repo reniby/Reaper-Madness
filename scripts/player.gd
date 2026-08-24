@@ -290,7 +290,7 @@ func check_in_map():
 		death()
 
 func dash(player_num):
-	Globals.dash.play()
+	Globals.dash.play(0.3)
 	Globals.superlative_actions[player_num]['num_dashes'] += 1
 	velocity = Vector2(cos(anim.rotation - PI/2), sin(anim.rotation - PI/2)).normalized() * curr_speed * 5 
 	can_dash = false
