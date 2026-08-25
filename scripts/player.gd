@@ -206,9 +206,15 @@ func _on_death_timer_timeout() -> void:
 	trail.length = trail.starting_length
 	i_timer.start()
 	var tween = get_tree().create_tween()
-	for i in range(20):
-		tween.tween_property(anim, "modulate:a", 0.2, 0.05)
-		tween.tween_property(anim, "modulate:a", 1, 0.05)
+	var tail_tween = get_tree().create_tween()
+	
+	for i in range(10):
+		tween.tween_property(anim, "modulate:a", 0.2, 0.1)
+		tween.tween_property(anim, "modulate:a", 1, 0.1)
+		
+		tail_tween.tween_property(trail, "modulate:a", 0.2, 0.1)
+		tail_tween.tween_property(trail, "modulate:a", 1, 0.1)
+		
 		
 func _on_i_timer_timeout() -> void:
 	pass
