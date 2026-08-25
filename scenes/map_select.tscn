@@ -25,7 +25,7 @@ offset_top = -252.0
 offset_right = 277.0
 offset_bottom = -215.0
 theme_override_font_sizes/font_size = 20
-text = "Press CONFIRM to enter an arena"
+text = "Press CONFIRM to select an arena"
 horizontal_alignment = 1
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1881971258]
