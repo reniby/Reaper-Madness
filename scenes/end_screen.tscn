@@ -241,7 +241,7 @@ vertical_alignment = 1
 z_index = 67
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qyl73")
-position = Vector2(150, 50)
+position = Vector2(152, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
@@ -299,7 +299,7 @@ vertical_alignment = 1
 z_index = 67
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qyl73")
-position = Vector2(150, 50)
+position = Vector2(152, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
@@ -357,7 +357,7 @@ vertical_alignment = 1
 z_index = 67
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qyl73")
-position = Vector2(150, 50)
+position = Vector2(152, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
@@ -415,7 +415,7 @@ vertical_alignment = 1
 z_index = 67
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_qyl73")
-position = Vector2(150, 50)
+position = Vector2(152, 50)
 rotation = 3.14159
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_qyl73")
@@ -555,6 +555,9 @@ position = Vector2(878, 93)
 [node name="GroundFireworks" parent="Fireworks" unique_id=2139644113 instance=ExtResource("14_ilt1u")]
 position = Vector2(130, 655)
 
+[node name="GroundFireworks6" parent="Fireworks" unique_id=619284196 instance=ExtResource("14_ilt1u")]
+position = Vector2(2, 655)
+
 [node name="GroundFireworks2" parent="Fireworks" unique_id=155310446 instance=ExtResource("14_ilt1u")]
 position = Vector2(306, 656)
 
@@ -563,6 +566,9 @@ position = Vector2(856, 651)
 
 [node name="GroundFireworks4" parent="Fireworks" unique_id=16657048 instance=ExtResource("14_ilt1u")]
 position = Vector2(1019, 648)
+
+[node name="GroundFireworks5" parent="Fireworks" unique_id=1569387234 instance=ExtResource("14_ilt1u")]
+position = Vector2(1150, 648)
 
 [node name="Fog" parent="." unique_id=1162132948 instance=ExtResource("10_um0j2")]
 position = Vector2(-83, -30)

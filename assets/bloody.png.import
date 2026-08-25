@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csl2k4uxrmih7"
-path="res://.godot/imported/tail_1.png-0edc849b1377f305dae62d2e2a231fdd.ctex"
+uid="uid://bag5m6ga5kawx"
+path="res://.godot/imported/bloody.png-67acdca19e12671b8887be5c895cb965.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/tail_frames/tail_1.png"
-dest_files=["res://.godot/imported/tail_1.png-0edc849b1377f305dae62d2e2a231fdd.ctex"]
+source_file="res://assets/bloody.png"
+dest_files=["res://.godot/imported/bloody.png-67acdca19e12671b8887be5c895cb965.ctex"]
 
 [params]
 
