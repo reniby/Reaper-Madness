@@ -196,6 +196,7 @@ func resetCharselect():
 	colors = [-1,-1,-1,-1]
 	numPlayers = 0
 	players = [false,false,false,false]
+	map_idx = 0
 
 func resetGlobals():
 	coin_positions = []
@@ -204,5 +205,4 @@ func resetGlobals():
 	x_facing = 0
 	y_facing = 0
 	can_dash = true
-	map_idx = 0
 	superlative_actions = [actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate(),actions_map.duplicate()]
