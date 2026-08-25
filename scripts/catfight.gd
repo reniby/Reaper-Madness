@@ -89,11 +89,6 @@ func _ready():
 	#add_child(child)
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		Globals.numPlayers = 4
-		
-	for i in range(Globals.numPlayers-1):
-		child = pickup_scene.instantiate()
-		child.pickup_type = "Coin"
-		add_child(child)
 
 	for i in range(len(Globals.players)):
 		if Globals.players[i]:
@@ -107,11 +102,15 @@ func _ready():
 			else:
 				spawn_player(true, i)
 
+	for i in range(Globals.numPlayers-1):
+		child = pickup_scene.instantiate()
+		child.pickup_type = "Coin"
+		add_child(child)
+
 	await tween.finished
 	ready_set.visible = false
 	game_timer.start()
 	GlobalAudio.play_random_game_music()
-			
 
 
 func _process(delta):
