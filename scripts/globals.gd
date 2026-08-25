@@ -47,6 +47,7 @@ enum gameModeOptions {SOLO, VERSUS}
 var gameMode = gameModeOptions.VERSUS
 var coin_positions = []
 var coins_taken = []
+@warning_ignore("unused_signal")
 signal coin_change()
 
 var character_input = [{
