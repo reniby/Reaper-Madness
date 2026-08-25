@@ -73,6 +73,7 @@ func _ready():
 	var child = pickup_scene.instantiate()
 	var map_options = map_options_scene.instantiate()
 	var curr_map = map_options.get_children()[Globals.map_idx]
+	curr_map.set_owner(null)
 	curr_map.reparent(self)
 	curr_map.visible = true
 	var label = curr_map.get_tree().get_nodes_in_group("MapLabels")
@@ -89,11 +90,6 @@ func _ready():
 	#add_child(child)
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
 		Globals.numPlayers = 4
-		
-	for i in range(Globals.numPlayers-1):
-		child = pickup_scene.instantiate()
-		child.pickup_type = "Coin"
-		add_child(child)
 
 	for i in range(len(Globals.players)):
 		if Globals.players[i]:
@@ -107,11 +103,15 @@ func _ready():
 			else:
 				spawn_player(true, i)
 
+	for i in range(Globals.numPlayers-1):
+		child = pickup_scene.instantiate()
+		child.pickup_type = "Coin"
+		add_child(child)
+
 	await tween.finished
 	ready_set.visible = false
 	game_timer.start()
 	GlobalAudio.play_random_game_music()
-			
 
 
 func _process(delta):
