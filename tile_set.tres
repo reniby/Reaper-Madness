@@ -269,11 +269,6 @@ texture = ExtResource("5_qumku")
 3:0/0 = 0
 3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, 8, 0, -8, 8, -8, 8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dcmha"]
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-
 [resource]
 physics_layer_0/collision_layer = 9
 physics_layer_1/collision_layer = 12
@@ -285,7 +280,6 @@ sources/3 = SubResource("TileSetAtlasSource_b5dq0")
 sources/6 = SubResource("TileSetAtlasSource_iw1w7")
 sources/5 = SubResource("TileSetAtlasSource_qumku")
 sources/7 = SubResource("TileSetAtlasSource_5pofp")
-sources/8 = SubResource("TileSetAtlasSource_dcmha")
 sources/10 = SubResource("TileSetAtlasSource_ycv0v")
 pattern_0 = SubResource("TileMapPattern_nuel7")
 pattern_1 = SubResource("TileMapPattern_k0w1s")
