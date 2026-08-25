@@ -154,7 +154,7 @@ tile_set = ExtResource("1_h2nap")
 [node name="Platform" parent="SpikeyMovement" unique_id=349781544 instance=ExtResource("5_f6dgi")]
 position = Vector2(-173.3334, -226.667)
 offset = Vector2(0, 400)
-duration = 1.5
+duration = 2.0
 size_x = 22
 size_y = 3
 n_spike = true
@@ -225,6 +225,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="Empty" type="TileMapLayer" parent="." unique_id=517771771]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(38, 0)
@@ -260,6 +261,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="Random" type="TileMapLayer" parent="." unique_id=1996537328]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(38, 0)
