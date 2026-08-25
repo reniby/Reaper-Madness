@@ -260,7 +260,6 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="Random" type="TileMapLayer" parent="." unique_id=1996537328]
-visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(38, 0)

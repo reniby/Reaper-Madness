@@ -46,8 +46,8 @@ func build_platform():
 	box_shape.size = Vector2(PIXEL_WIDTH * size_x + BUFFER, PIXEL_HEIGHT * size_y + BUFFER) 
 	collision_node.shape = box_shape
 	body.add_child(collision_node)
-	collision_node.position.x = collision_node.position.x + ((PIXEL_WIDTH * size_x) / 2)
-	collision_node.position.y = collision_node.position.y + ((PIXEL_HEIGHT * size_y) / 2)
+	collision_node.position.x = collision_node.position.x + ((PIXEL_WIDTH * size_x) / 2.0)
+	collision_node.position.y = collision_node.position.y + ((PIXEL_HEIGHT * size_y) / 2.0)
 	
 	# Atlas Coords
 	var horizontal = [0,1,3]
