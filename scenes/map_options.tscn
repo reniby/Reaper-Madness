@@ -107,7 +107,6 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="Spikey" type="TileMapLayer" parent="." unique_id=203483784]
-visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(38, 0)
@@ -189,6 +188,7 @@ scale = Vector2(1.25, 1.25)
 texture = ExtResource("4_21sgw")
 
 [node name="Fort" type="TileMapLayer" parent="." unique_id=1442047971]
+visible = false
 texture_filter = 1
 texture_repeat = 1
 position = Vector2(38, 0)
