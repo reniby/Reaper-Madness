@@ -243,3 +243,10 @@ func solo_process(_delta):
 func start_game_shake():
 	held = true
 	camera_2d.offset = Vector2(rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2),rng.randf_range(-dash_held.max() * holdRandomStrength / 2,dash_held.max() * holdRandomStrength / 2))
+	if dash_held.max() and not Globals.hold_to_start.playing:
+		Globals.hold_to_start.play(0.17)
+	if dash_held.max():
+		Globals.hold_to_start.volume_db = -10 * max(1, 1 / (dash_held.max() + 0.01))
+	else:
+		Globals.hold_to_start.stop()
+		Globals.hold_to_start.volume_db = -10

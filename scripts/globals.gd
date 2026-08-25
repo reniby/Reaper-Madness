@@ -42,6 +42,7 @@ var dash = AudioStreamPlayer.new()
 var ready_ = AudioStreamPlayer.new()
 var set_ = AudioStreamPlayer.new()
 var reap = AudioStreamPlayer.new()
+var hold_to_start = AudioStreamPlayer.new()
 
 enum gameModeOptions {SOLO, VERSUS}
 var gameMode = gameModeOptions.VERSUS
@@ -136,6 +137,7 @@ func _ready():
 	ready_.stream = preload("res://assets/sound_effects/ready_set/3/3r.wav")
 	set_.stream = preload("res://assets/sound_effects/ready_set/3/3s.wav")
 	reap.stream = preload("res://assets/sound_effects/ready_set/3/3g.wav")
+	hold_to_start.stream = preload("res://assets/sound_effects/laugh-hold-to-start.mp3")
 
 	click.volume_db = -15
 	confirm.volume_db = -10
@@ -144,6 +146,7 @@ func _ready():
 	player_bonk.volume_db = -20
 	wall_bonk.volume_db = -25
 	dash.volume_db = -20
+
 	
 	add_child(click)
 	add_child(confirm)
@@ -156,7 +159,9 @@ func _ready():
 	add_child(ready_)
 	add_child(set_)
 	add_child(reap)
+	add_child(hold_to_start)
 	
+	hold_to_start.volume_db = -10.0
 	reset_timer = Timer.new()
 	add_child(reset_timer)
 	reset_timer.wait_time = 180.0
