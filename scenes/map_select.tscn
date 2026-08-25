@@ -29,7 +29,7 @@ text = "Press CONFIRM to select a dungeon"
 horizontal_alignment = 1
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=1881971258]
-z_index = 5
+z_index = 15
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_2x4ji")
 position = Vector2(-520, 0)
@@ -38,7 +38,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("5_8fs2h")
 
 [node name="Arrow2" type="Sprite2D" parent="." unique_id=275598536]
-z_index = 5
+z_index = 15
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_2x4ji")
 position = Vector2(520, 0)
