@@ -200,7 +200,7 @@ position = Vector2(113, 133.00003)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim00" unique_id=1920694796]
 position = Vector2(-26.666641, 0)
@@ -222,7 +222,7 @@ position = Vector2(112.99999, 495)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim01" unique_id=798920566]
 position = Vector2(-26.666641, 0)
@@ -244,7 +244,7 @@ position = Vector2(1039, 133.00002)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"cyclops"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim10" unique_id=802041168]
 position = Vector2(-26.666641, 0)
@@ -266,7 +266,7 @@ position = Vector2(1039, 493.00003)
 rotation = 3.1415927
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_uxcyu")
-animation = &"unga-alt"
+animation = &"john"
 
 [node name="Arrow" type="Sprite2D" parent="PlayerAnim11" unique_id=1714192633]
 position = Vector2(-26.666641, 0)
