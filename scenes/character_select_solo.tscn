@@ -266,19 +266,19 @@ material = SubResource("CanvasItemMaterial_d83b1")
 [node name="JoystickPx" type="Sprite2D" parent="Node2D/UI2" unique_id=1354945948]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(435, 338)
+position = Vector2(434, 338)
 texture = ExtResource("8_1ep1y")
 
 [node name="Button1Px" type="Sprite2D" parent="Node2D/UI2" unique_id=69928317]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(435, 367)
+position = Vector2(434, 367)
 texture = ExtResource("9_sabgl")
 
 [node name="Button2Px" type="Sprite2D" parent="Node2D/UI2" unique_id=1291724968]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(434, 396)
+position = Vector2(433, 396)
 texture = ExtResource("10_t1hyk")
 
 [node name="Body" type="Label" parent="Node2D/UI2" unique_id=421536563]
@@ -288,14 +288,14 @@ offset_top = 275.0
 offset_right = 739.0
 offset_bottom = 318.0
 text = "Reap as many             as you can
-without colliding into your opponents’ tail"
+without colliding into your opponents' tails"
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Pickup" parent="Node2D/UI2/Body" unique_id=1501645682 instance=ExtResource("11_byo2m")]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(174, 11)
+position = Vector2(177, 11)
 script = null
 
 [node name="H1" type="Label" parent="Node2D/UI2" unique_id=1359007759]
@@ -318,9 +318,9 @@ texture = ExtResource("13_5xiqq")
 
 [node name="Move" type="Label" parent="Node2D/UI2" unique_id=2088175232]
 material = SubResource("CanvasItemMaterial_a28yh")
-offset_left = 699.0
+offset_left = 707.0
 offset_top = 331.0
-offset_right = 740.0
+offset_right = 748.0
 offset_bottom = 351.0
 text = "MOVE"
 horizontal_alignment = 2
@@ -328,9 +328,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Dash" type="Label" parent="Node2D/UI2" unique_id=961233443]
 material = SubResource("CanvasItemMaterial_a28yh")
-offset_left = 622.0
+offset_left = 630.0
 offset_top = 358.0
-offset_right = 740.0
+offset_right = 748.0
 offset_bottom = 378.0
 text = "DASH / CONFIRM"
 horizontal_alignment = 2
@@ -338,9 +338,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Back" type="Label" parent="Node2D/UI2" unique_id=885875629]
 material = SubResource("CanvasItemMaterial_a28yh")
-offset_left = 622.0
+offset_left = 630.0
 offset_top = 387.0
-offset_right = 740.0
+offset_right = 748.0
 offset_bottom = 407.0
 text = "BACK"
 horizontal_alignment = 2
@@ -348,18 +348,18 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Divider2" type="Sprite2D" parent="Node2D/UI2" unique_id=1851412752]
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(577.99994, 341)
+position = Vector2(580.99994, 341)
 scale = Vector2(0.377, 0.5)
 texture = ExtResource("14_8h22y")
 
 [node name="Divider4" type="Sprite2D" parent="Node2D/UI2" unique_id=1075195816]
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(579.7695, 398)
+position = Vector2(582.7694, 398.00003)
 scale = Vector2(0.38303939, 0.5)
 texture = ExtResource("14_8h22y")
 
 [node name="Divider3" type="Sprite2D" parent="Node2D/UI2" unique_id=589799754]
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(540.7773, 368.25)
+position = Vector2(543.7773, 368.25)
 scale = Vector2(0.24990714, 0.5)
 texture = ExtResource("14_8h22y")
