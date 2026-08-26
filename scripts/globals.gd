@@ -115,7 +115,7 @@ var character_skin = [{
 	"anim": "cyclops-alt"
 },
 {
-	"color": Color("cb7951ff"), #orange
+	"color": Color("de8e67ff"), #orange
 	"anim": "unga-alt"
 }
 ]
