@@ -29,6 +29,10 @@ GlobalAudio="*uid://ceyf8kkoceatt"
 window/size/mode=3
 window/stretch/mode="canvas_items"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godotsteam/plugin.cfg")
+
 [gui]
 
 theme/custom_font="uid://bidx0rdvrs0u"
@@ -197,3 +201,8 @@ textures/canvas_textures/default_texture_repeat=1
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 textures/decals/filter=0
+
+[steam]
+
+initialization/app_data/app_id=480
+initialization/processes/initialize_on_startup=true
