@@ -32,7 +32,7 @@ func _ready():
 		labels[i].visible = true
 		labels[i].text = "P" + str(currPlayer+1)
 		scores[i].text = str(currScore)
-		kds[i].text = str(Globals.superlative_actions[i]["num_kills"]) + str(":") + str(Globals.superlative_actions[i]["num_deaths"])
+		kds[i].text = str(Globals.superlative_actions[currPlayer]["num_kills"]) + str(":") + str(Globals.superlative_actions[currPlayer]["num_deaths"])
 		
 		var color = Color(Globals.character_skin[Globals.colors[currPlayer]]['color'])
 		for child in labels[i].get_children():
