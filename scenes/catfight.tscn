@@ -51,7 +51,6 @@ metadata/_edit_use_anchors_ = true
 [node name="Labels" type="Node" parent="." unique_id=1407675066]
 
 [node name="P1" type="Node2D" parent="Labels" unique_id=490804126]
-visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(-232, -560)
 
@@ -104,11 +103,11 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
 [node name="P2" type="Node2D" parent="Labels" unique_id=1474954881]
-visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(-232, -17)
 
@@ -164,12 +163,12 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
 
 [node name="P3" type="Node2D" parent="Labels" unique_id=1849715429]
-visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(760, -560)
 
@@ -223,11 +222,11 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
 [node name="P4" type="Node2D" parent="Labels" unique_id=350817925]
-visible = false
 material = SubResource("CanvasItemMaterial_8stkw")
 position = Vector2(760, -17)
 
@@ -281,6 +280,7 @@ offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
+theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 

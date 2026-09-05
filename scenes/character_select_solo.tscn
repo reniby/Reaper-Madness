@@ -295,7 +295,7 @@ metadata/_edit_use_anchors_ = true
 [node name="Pickup" parent="Node2D/UI2/Body" unique_id=1501645682 instance=ExtResource("11_byo2m")]
 texture_filter = 1
 material = SubResource("CanvasItemMaterial_a28yh")
-position = Vector2(177, 11)
+position = Vector2(179, 11)
 script = null
 
 [node name="H1" type="Label" parent="Node2D/UI2" unique_id=1359007759]

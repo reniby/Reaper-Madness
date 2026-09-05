@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bm6l0lojw3d1m"]
 
 [ext_resource type="Script" uid="uid://s1t4cguoj2pm" path="res://scripts/menu.gd" id="1_ybihw"]
+[ext_resource type="Texture2D" uid="uid://3r52x8k1alio" path="res://assets/new-title@2x.png" id="2_v86rl"]
 [ext_resource type="FontFile" uid="uid://bidx0rdvrs0u" path="res://assets/fonts/PixelifySans-VariableFont_wght.ttf" id="3_4ytvr"]
 [ext_resource type="Texture2D" uid="uid://dlq3rqc4wid4s" path="res://assets/ui/arrow.png" id="3_mhnvy"]
 [ext_resource type="Texture2D" uid="uid://c0ko23himejc2" path="res://assets/ui/reaper-logo.png" id="4_mhnvy"]
@@ -26,6 +27,11 @@ offset_right = 585.0
 offset_bottom = 361.0
 scale = Vector2(2, 1.909)
 color = Color(0, 0, 0, 1)
+
+[node name="NewTitle_2x" type="Sprite2D" parent="." unique_id=1087179461]
+position = Vector2(583.61926, 281.00006)
+scale = Vector2(0.5368781, 0.5368782)
+texture = ExtResource("2_v86rl")
 
 [node name="fog" parent="." unique_id=1998912291 instance=ExtResource("5_4ytvr")]
 position = Vector2(-105, -33)
@@ -109,6 +115,7 @@ scale = Vector2(2, 2)
 texture = ExtResource("3_mhnvy")
 
 [node name="Title" type="Sprite2D" parent="." unique_id=706596826]
+visible = false
 modulate = Color(1, 1, 1, 0.8509804)
 position = Vector2(578.37726, 131.4375)
 scale = Vector2(0.79845285, 0.79845273)
@@ -135,9 +142,10 @@ scale = Vector2(0.53982294, 0.5)
 texture = ExtResource("6_g3eks")
 
 [node name="Right" type="Label" parent="." unique_id=1372149476]
-offset_left = 883.0
-offset_top = 615.0
-offset_right = 1133.0
+offset_left = 777.0
+offset_top = 592.0
+offset_right = 1135.0
 offset_bottom = 635.0
-text = ".. .-.. -.-- / .-- ...- .. .-.. .-.. ."
+text = "LAUNCH PARTY
+October 04, 2:30 - 5:30 PM"
 horizontal_alignment = 2
