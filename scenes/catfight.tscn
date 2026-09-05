@@ -24,6 +24,18 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lw6wd"]
 light_mode = 1
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_c6xwj"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_xtsea"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_feyq5"]
+light_mode = 1
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sj0vw"]
+light_mode = 1
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ph8dp"]
 light_mode = 1
 
@@ -99,11 +111,11 @@ texture = ExtResource("4_w7b0f")
 
 [node name="KillDeathScore" type="Label" parent="Labels/P1/KillDeathNode" unique_id=1732582932]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_c6xwj")
 offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
@@ -159,11 +171,11 @@ texture = ExtResource("4_w7b0f")
 
 [node name="KillDeathScore" type="Label" parent="Labels/P2/KillDeathNode" unique_id=981373333]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_xtsea")
 offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 metadata/_edit_use_anchors_ = true
@@ -218,11 +230,11 @@ texture = ExtResource("4_w7b0f")
 
 [node name="KillDeathScore" type="Label" parent="Labels/P3/KillDeathNode" unique_id=1423897933]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_feyq5")
 offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
@@ -276,11 +288,11 @@ texture = ExtResource("4_w7b0f")
 
 [node name="KillDeathScore" type="Label" parent="Labels/P4/KillDeathNode" unique_id=1400729398]
 texture_filter = 1
+material = SubResource("CanvasItemMaterial_sj0vw")
 offset_left = -241.0
 offset_top = 296.0
 offset_right = -218.0
 offset_bottom = 316.0
-theme_override_colors/font_color = Color(18.892157, 18.892157, 18.892157, 1)
 text = "0:0"
 horizontal_alignment = 2
 
