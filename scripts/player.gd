@@ -51,6 +51,7 @@ var starting_position
 
 var bounce_timer = 0.0
 const BOUNCE_TIME = 0.05
+const LERP_WEIGHT = 5
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
@@ -147,10 +148,10 @@ func player_controller(delta):
 		direction = Input.get_vector(Globals.character_input[player]["left"], Globals.character_input[player]["right"], Globals.character_input[player]["up"], Globals.character_input[player]["down"])
 	
 	if direction and not death_timer.time_left:
-		velocity = velocity.lerp(direction * curr_speed, 5*delta)
+		velocity = velocity.lerp(direction * curr_speed, LERP_WEIGHT*delta)
 		Globals.superlative_actions[player]['dist_traveled'] += velocity.length() * delta
 	else:
-		velocity = velocity.lerp(Vector2(0,0), 5 * delta)
+		velocity = velocity.lerp(Vector2(0,0), LERP_WEIGHT * delta)
 		
 	var dashing = false
 	if Globals.gameMode == Globals.gameModeOptions.SOLO:
@@ -164,9 +165,9 @@ func player_controller(delta):
 	if dashing and can_dash:
 		dash(player)
 	if not death_timer.time_left:
-		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
+		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
+		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
 
 # Trail layer 2 (on area entered = death)
 # Wall layer 2
@@ -260,9 +261,9 @@ func bot_controller(delta):
 	else:
 		_on_bot_velocity_computed(new_vel)
 	if not death_timer.time_left:
-		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
-		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10.0)
+		anim.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
+		shadow_anim.rotation = lerp_angle(shadow_anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
+		collision_shape.rotation = lerp_angle(anim.rotation, atan2(velocity.x, -velocity.y), delta*10)
 
 func _on_bot_velocity_computed(safe_velocity: Vector2) -> void:
 	if bot and bounce_timer <= 0:
